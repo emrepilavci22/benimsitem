@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TTD Brand & UI Kit — Tencere Tava Dünyası</title>
+<meta name="description" content="Official Brand Kit and UI Component Library for Tencere Tava Dünyası"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/jpeg" href="logos/logo.jpg"/>
+<link rel="apple-touch-icon" href="logos/logo.jpg"/>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   ROOT TOKENS
+══════════════════════════════════════════════════════════════ */
+:root{
+  --orange:       #FF6B1A;
+  --orange-dark:  #E05510;
+  --orange-light: #FF8C47;
+  --orange-pale:  #FFF3EC;
+  --orange-mid:   #FFDCC8;
+
+  --white:    #FFFFFF;
+  --bg-warm:  #F8F9FA;
+  --bg-card:  #FFFFFF;
+
+  --slate-900: #0F172A;
+  --slate-800: #1E293B;
+  --slate-600: #475569;
+  --slate-500: #64748B;
+  --slate-300: #CBD5E1;
+  --slate-200: #E2E8F0;
+  --slate-100: #F1F5F9;
+  --slate-50:  #F8FAFC;
+
+  --green:  #22C55E;
+  --green-bg: #F0FDF4;
+  --red:    #EF4444;
+  --red-bg: #FEF2F2;
+  --blue:   #3B82F6;
+  --blue-bg:#EFF6FF;
+  --amber:  #F59E0B;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.05);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.10),0 4px 12px rgba(0,0,0,.06);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,.12),0 8px 24px rgba(0,0,0,.08);
+  --shadow-orange: 0 8px 28px rgba(255,107,26,.35);
+
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+  --r-full:9999px;
+
+  --t: .22s cubic-bezier(.4,0,.2,1);
+  --t-slow:.4s cubic-bezier(.4,0,.2,1);
+
+  --font-head: 'Plus Jakarta Sans',system-ui,sans-serif;
+  --font-body: 'Inter',system-ui,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:var(--font-body);
+  background:#F0F2F5;
+  color:var(--slate-800);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+input,select,textarea{font-family:inherit;}
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════════════════════════ */
+.wrapper{max-width:1280px;margin:0 auto;padding:0 32px;}
+
+/* ═══════════════════════════════════════════════════════════
+   TOP NAV (Kit Nav)
+══════════════════════════════════════════════════════════════ */
+.kit-nav{
+  position:sticky;top:0;z-index:900;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--slate-200);
+  box-shadow:var(--shadow-sm);
+}
+.kit-nav-inner{
+  display:flex;align-items:center;gap:0;
+  height:60px;overflow-x:auto;
+  scrollbar-width:none;
+}
+.kit-nav-inner::-webkit-scrollbar{display:none;}
+.kit-logo{
+  display:flex;align-items:center;gap:10px;
+  flex-shrink:0;padding-right:28px;
+  border-right:1px solid var(--slate-200);
+  margin-right:20px;
+}
+.kit-logo-icon{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--orange);
+  display:flex;align-items:center;justify-content:center;
+}
+.kit-logo-text{font-family:var(--font-head);font-size:.8rem;font-weight:800;color:var(--orange);line-height:1.2;}
+.kit-logo-sub{font-size:.6rem;font-weight:600;color:var(--slate-500);letter-spacing:.5px;text-transform:uppercase;}
+.kit-nav-links{display:flex;align-items:center;gap:4px;}
+.nav-pill{
+  padding:7px 16px;border-radius:var(--r-full);
+  font-size:.8rem;font-weight:600;color:var(--slate-600);
+  transition:var(--t);white-space:nowrap;
+}
+.nav-pill:hover{background:var(--orange-pale);color:var(--orange);}
+.nav-pill.active{background:var(--orange);color:#fff;}
+.kit-badge-label{
+  margin-left:auto;flex-shrink:0;
+  padding:5px 14px;border-radius:var(--r-full);
+  background:var(--orange-pale);color:var(--orange);
+  font-size:.72rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO HEADER
+══════════════════════════════════════════════════════════════ */
+.kit-hero{
+  background:linear-gradient(135deg,#1E293B 0%,#0F172A 100%);
+  padding:80px 0 60px;
+  position:relative;overflow:hidden;
+}
+.kit-hero::before{
+  content:'';position:absolute;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,26,.18) 0%,transparent 70%);
+  top:-200px;right:-100px;
+}
+.kit-hero::after{
+  content:'';position:absolute;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,140,71,.1) 0%,transparent 70%);
+  bottom:-150px;left:-80px;
+}
+.kit-hero-inner{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;
+  flex-wrap:wrap;
+}
+.kit-hero-text{}
+.kit-hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,107,26,.2);border:1px solid rgba(255,107,26,.3);
+  color:var(--orange-light);
+  font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 14px;border-radius:var(--r-full);margin-bottom:20px;
+}
+.kit-hero-title{
+  font-family:var(--font-head);
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:800;color:#fff;
+  line-height:1.1;letter-spacing:-1px;
+  margin-bottom:14px;
+}
+.kit-hero-title span{color:var(--orange);}
+.kit-hero-desc{
+  font-size:.95rem;color:rgba(255,255,255,.65);
+  max-width:480px;line-height:1.75;margin-bottom:28px;
+}
+.kit-hero-meta{
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.kit-meta-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:.8rem;color:rgba(255,255,255,.5);font-weight:500;
+}
+.kit-meta-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);}
+
+.kit-hero-visual{
+  display:flex;gap:12px;align-items:flex-end;flex-shrink:0;
+}
+.hero-swatch{
+  width:60px;border-radius:var(--r-md);overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.hero-swatch-color{height:80px;}
+.hero-swatch-label{
+  background:#fff;padding:8px 6px;text-align:center;
+  font-size:.62rem;font-weight:700;color:var(--slate-600);letter-spacing:.3px;
+}
+.swatch-orange .hero-swatch-color{background:var(--orange);}
+.swatch-dark .hero-swatch-color{background:var(--slate-800);}
+.swatch-white .hero-swatch-color{background:#fff;border:1px solid var(--slate-200);}
+.swatch-green .hero-swatch-color{background:var(--green);}
+.swatch-red .hero-swatch-color{background:var(--red);}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════════════════════ */
+.kit-section{padding:72px 0;}
+.kit-section:nth-child(even){background:var(--white);}
+.kit-section-title{
+  font-family:var(--font-head);
+  font-size:1.6rem;font-weight:800;
+  color:var(--slate-800);letter-spacing:-.4px;
+  margin-bottom:6px;
+}
+.kit-section-sub{
+  font-size:.9rem;color:var(--slate-500);margin-bottom:48px;
+  display:flex;align-items:center;gap:10px;
+}
+.kit-section-sub::after{
+  content:'';flex:1;height:1px;background:var(--slate-200);
+}
+.section-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;
+  background:var(--orange);color:#fff;
+  font-size:.72rem;font-weight:800;flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SHOWCASE CARD (wrapper for each demo block)
+══════════════════════════════════════════════════════════════ */
+.showcase{
+  background:var(--white);
+  border:1px solid var(--slate-200);
+  border-radius:var(--r-xl);
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  margin-bottom:28px;
+}
+.showcase-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;
+  background:var(--slate-50);
+  border-bottom:1px solid var(--slate-200);
+}
+.showcase-label{
+  font-size:.75rem;font-weight:800;
+  letter-spacing:.8px;text-transform:uppercase;
+  color:var(--slate-500);display:flex;align-items:center;gap:8px;
+}
+.showcase-label::before{
+  content:'';width:3px;height:16px;
+  background:var(--orange);border-radius:2px;
+}
+.showcase-code-btn{
+  font-size:.72rem;font-weight:700;color:var(--slate-500);
+  padding:4px 12px;border-radius:var(--r-full);
+  border:1px solid var(--slate-200);background:#fff;
+  transition:var(--t);cursor:pointer;
+}
+.showcase-code-btn:hover{border-color:var(--orange);color:var(--orange);}
+.showcase-body{padding:36px 32px;}
+.showcase-body.dark-bg{background:var(--slate-800);}
+.showcase-body.gray-bg{background:var(--slate-100);}
+
+/* Grid helpers */
+.demo-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.demo-col{display:flex;flex-direction:column;gap:16px;}
+.demo-grid{display:grid;gap:16px;}
+.g2{grid-template-columns:1fr 1fr;}
+.g3{grid-template-columns:1fr 1fr 1fr;}
+.g4{grid-template-columns:repeat(4,1fr);}
+
+/* ═══════════════════════════════════════════════════════════
+   PART 1 — BRAND KIT
+══════════════════════════════════════════════════════════════ */
+
+/* --- Logo Concepts --- */
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.logo-card{
+  background:var(--white);
+  border:2px solid var(--slate-200);
+  border-radius:var(--r-xl);
+  padding:36px 28px;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:16px;
+  transition:var(--t);cursor:default;
+  position:relative;overflow:hidden;
+}
+.logo-card::before{
+  content:'';position:absolute;
+  inset:0;background:linear-gradient(135deg,var(--orange-pale),transparent 60%);
+  opacity:0;transition:var(--t);
+}
+.logo-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.logo-card:hover::before{opacity:1;}
+.logo-card-num{
+  position:absolute;top:14px;right:14px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--slate-100);color:var(--slate-500);
+  font-size:.72rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.logo-mark{
+  width:80px;height:80px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:1;
+}
+.logo-name-text{
+  font-family:var(--font-head);font-weight:800;
+  color:var(--slate-800);font-size:.88rem;line-height:1.2;
+  position:relative;z-index:1;
+}
+.logo-name-text span{color:var(--orange);}
+.logo-desc{
+  font-size:.78rem;color:var(--slate-500);line-height:1.6;
+  position:relative;z-index:1;
+}
+.logo-tags{
+  display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+  position:relative;z-index:1;
+}
+.logo-tag{
+  font-size:.62rem;font-weight:700;padding:3px 10px;
+  border-radius:var(--r-full);border:1px solid var(--slate-200);
+  color:var(--slate-500);background:var(--slate-50);
+}
+
+/* --- Color Palette --- */
+.palette-row{display:flex;gap:16px;flex-wrap:wrap;}
+.color-swatch-card{
+  flex:1;min-width:120px;border-radius:var(--r-lg);
+  overflow:hidden;border:1px solid var(--slate-200);
+  box-shadow:var(--shadow-sm);cursor:pointer;
+  transition:var(--t);position:relative;
+}
+.color-swatch-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.csw-color{height:100px;position:relative;}
+.csw-hex{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.3);color:#fff;
+  font-size:.68rem;font-weight:800;padding:3px 10px;
+  border-radius:var(--r-full);letter-spacing:.5px;
+  backdrop-filter:blur(4px);white-space:nowrap;
+}
+.csw-info{background:#fff;padding:14px 16px;}
+.csw-name{font-size:.82rem;font-weight:800;color:var(--slate-800);margin-bottom:3px;}
+.csw-role{font-size:.72rem;color:var(--slate-500);}
+.csw-copy{
+  position:absolute;top:10px;right:10px;
+  background:rgba(255,255,255,.9);border-radius:50%;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;cursor:pointer;border:none;
+  opacity:0;transition:var(--t);backdrop-filter:blur(4px);
+}
+.color-swatch-card:hover .csw-copy{opacity:1;}
+
+/* Usage guidelines */
+.usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.usage-card{
+  background:var(--slate-50);border:1px solid var(--slate-200);
+  border-radius:var(--r-md);padding:20px;
+}
+.usage-card h4{font-size:.82rem;font-weight:800;color:var(--slate-800);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.usage-dot{width:10px;height:10px;border-radius:50%;}
+.usage-list li{font-size:.8rem;color:var(--slate-600);padding:5px 0;border-bottom:1px solid var(--slate-200);display:flex;align-items:center;gap:8px;}
+.usage-list li:last-child{border-bottom:none;}
+.usage-check{font-size:.8rem;}
+
+/* --- Typography --- */
+.type-row{margin-bottom:36px;}
+.type-label{
+  font-size:.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:var(--slate-400);margin-bottom:12px;padding-bottom:8px;
+  border-bottom:1px solid var(--slate-200);display:block;
+}
+.type-specimen{margin-bottom:16px;}
+.type-meta{
+  display:inline-flex;gap:12px;margin-top:6px;
+  font-size:.72rem;color:var(--slate-400);flex-wrap:wrap;
+}
+.type-meta span{
+  background:var(--slate-100);padding:2px 8px;border-radius:var(--r-sm);
+}
+.scale-row{
+  display:grid;grid-template-columns:120px 1fr;gap:16px;
+  align-items:center;padding:14px 0;border-bottom:1px solid var(--slate-100);
+}
+.scale-name{font-size:.72rem;color:var(--slate-500);font-weight:700;}
+
+/* ═══════════════════════════════════════════════════════════
+   PART 2 — UI KIT COMPONENTS
+══════════════════════════════════════════════════════════════ */
+
+/* ---- BUTTONS ---- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;border-radius:var(--r-full);cursor:pointer;
+  transition:var(--t);position:relative;overflow:hidden;
+  font-family:var(--font-body);
+  letter-spacing:.1px;border:2px solid transparent;
+  text-decoration:none;
+  user-select:none;
+}
+.btn::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0);transition:var(--t);border-radius:inherit;
+}
+.btn:hover::after{background:rgba(255,255,255,.12);}
+.btn:active{transform:scale(.97);}
+
+/* Sizes */
+.btn-xs{font-size:.72rem;padding:6px 14px;}
+.btn-sm{font-size:.82rem;padding:9px 20px;}
+.btn-md{font-size:.9rem;padding:12px 26px;}
+.btn-lg{font-size:1rem;padding:15px 34px;}
+.btn-xl{font-size:1.05rem;padding:18px 40px;}
+
+/* Variants */
+.btn-primary{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:var(--shadow-orange);}
+.btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,107,26,.45);}
+
+.btn-secondary{background:#fff;color:var(--orange);border-color:var(--orange);}
+.btn-secondary:hover{background:var(--orange-pale);transform:translateY(-2px);}
+
+.btn-ghost{background:transparent;color:var(--slate-600);border-color:var(--slate-300);}
+.btn-ghost:hover{background:var(--slate-100);border-color:var(--slate-400);color:var(--slate-800);}
+
+.btn-dark{background:var(--slate-800);color:#fff;border-color:var(--slate-800);}
+.btn-dark:hover{background:var(--slate-900);transform:translateY(-2px);}
+
+.btn-danger{background:var(--red);color:#fff;border-color:var(--red);}
+.btn-danger:hover{background:#DC2626;transform:translateY(-2px);}
+
+.btn-success{background:var(--green);color:#fff;border-color:var(--green);}
+.btn-success:hover{background:#16A34A;transform:translateY(-2px);}
+
+.btn-disabled,button:disabled{
+  background:var(--slate-200)!important;
+  color:var(--slate-400)!important;
+  border-color:var(--slate-200)!important;
+  box-shadow:none!important;
+  cursor:not-allowed!important;
+  transform:none!important;
+  pointer-events:none;
+}
+.btn-disabled::after,button:disabled::after{display:none;}
+
+/* Icon Button */
+.btn-icon{
+  width:42px;height:42px;padding:0;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.btn-icon-sm{width:34px;height:34px;}
+
+/* Loading state */
+.btn-loading{position:relative;color:transparent!important;}
+.btn-loading::before{
+  content:'';position:absolute;
+  width:16px;height:16px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.3);
+  border-top-color:#fff;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ---- INPUTS ---- */
+.input-group{display:flex;flex-direction:column;gap:6px;}
+.input-label{font-size:.8rem;font-weight:700;color:var(--slate-700);}
+.input-hint{font-size:.72rem;color:var(--slate-400);}
+.input-error-msg{font-size:.72rem;color:var(--red);display:flex;align-items:center;gap:4px;}
+
+.inp{
+  width:100%;padding:12px 16px;
+  border:2px solid var(--slate-200);
+  border-radius:var(--r-md);
+  background:#fff;
+  font-size:.9rem;color:var(--slate-800);
+  outline:none;transition:var(--t);
+  font-family:var(--font-body);
+}
+.inp::placeholder{color:var(--slate-400);}
+.inp:hover{border-color:var(--slate-300);}
+.inp:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,107,26,.12);}
+.inp.error{border-color:var(--red);box-shadow:0 0 0 4px rgba(239,68,68,.12);}
+.inp.success-state{border-color:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.12);}
+.inp.disabled,input:disabled{background:var(--slate-100);color:var(--slate-400);cursor:not-allowed;}
+
+/* Search bar */
+.search-container{
+  position:relative;
+  max-width:460px;
+}
+.search-wrap{
+  display:flex;align-items:center;gap:0;
+  background:#fff;
+  border:2px solid var(--slate-200);
+  border-radius:var(--r-full);
+  padding:0 8px 0 18px;
+  transition:var(--t);
+}
+.search-wrap:focus-within{
+  border-color:var(--orange);
+  box-shadow:0 0 0 4px rgba(255,107,26,.12);
+}
+.search-wrap input{
+  flex:1;border:none;background:transparent;
+  outline:none;padding:12px 10px 12px 0;
+  font-size:.9rem;color:var(--slate-800);
+  font-family:var(--font-body);
+}
+.search-wrap input::placeholder{color:var(--slate-400);}
+.search-icon-wrap{color:var(--slate-400);flex-shrink:0;display:flex;}
+.search-submit{
+  background:var(--orange);color:#fff;
+  font-weight:700;font-size:.82rem;
+  padding:9px 20px;border-radius:var(--r-full);
+  flex-shrink:0;transition:var(--t);
+}
+.search-submit:hover{background:var(--orange-dark);}
+.search-dropdown{
+  position:absolute;top:calc(100% + 8px);left:0;right:0;
+  background:#fff;border:1px solid var(--slate-200);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-xl);
+  overflow:hidden;z-index:50;
+}
+.search-drop-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;cursor:pointer;transition:var(--t);
+  border-bottom:1px solid var(--slate-50);font-size:.88rem;color:var(--slate-700);
+}
+.search-drop-item:last-child{border-bottom:none;}
+.search-drop-item:hover{background:var(--orange-pale);color:var(--orange);}
+.search-drop-icon{
+  width:34px;height:34px;border-radius:var(--r-sm);
+  background:var(--slate-100);display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.search-drop-item:hover .search-drop-icon{background:var(--orange-pale);}
+.search-drop-meta{font-size:.72rem;color:var(--slate-400);}
+.search-drop-price{margin-left:auto;font-weight:800;color:var(--orange);font-size:.85rem;}
+.search-drop-category{
+  padding:8px 16px;
+  font-size:.7rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--slate-400);background:var(--slate-50);border-bottom:1px solid var(--slate-100);
+}
+
+/* Select */
+.sel{
+  width:100%;padding:12px 40px 12px 16px;
+  border:2px solid var(--slate-200);border-radius:var(--r-md);
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E") no-repeat right 14px center;
+  appearance:none;-webkit-appearance:none;
+  font-size:.9rem;color:var(--slate-800);
+  outline:none;transition:var(--t);cursor:pointer;
+  font-family:var(--font-body);
+}
+.sel:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,107,26,.12);}
+
+/* Checkbox & Radio */
+.check-row,.radio-row{
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;padding:8px 0;
+  font-size:.88rem;color:var(--slate-700);
+  transition:var(--t);
+}
+.check-row:hover,.radio-row:hover{color:var(--slate-900);}
+.custom-check,.custom-radio{
+  width:20px;height:20px;flex-shrink:0;
+  border:2px solid var(--slate-300);
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--t);position:relative;cursor:pointer;
+}
+.custom-check{border-radius:5px;}
+.custom-radio{border-radius:50%;}
+.custom-check.checked,.custom-radio.checked{
+  background:var(--orange);border-color:var(--orange);
+}
+.custom-check.checked::after{
+  content:'';width:5px;height:9px;
+  border:2px solid #fff;border-top:none;border-left:none;
+  transform:rotate(45deg) translateY(-1px);
+}
+.custom-radio.checked::after{
+  content:'';width:8px;height:8px;border-radius:50%;background:#fff;
+}
+.check-label-text{font-weight:500;user-select:none;}
+.check-count{margin-left:auto;font-size:.72rem;color:var(--slate-400);background:var(--slate-100);padding:2px 8px;border-radius:var(--r-full);}
+
+/* Filter group */
+.filter-box{
+  background:var(--slate-50);border:1px solid var(--slate-200);
+  border-radius:var(--r-lg);padding:20px;
+}
+.filter-box-title{
+  font-size:.78rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+  color:var(--slate-500);margin-bottom:14px;padding-bottom:10px;
+  border-bottom:1px solid var(--slate-200);
+}
+
+/* ---- BADGES & TAGS ---- */
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-weight:800;border-radius:var(--r-full);
+  letter-spacing:.2px;white-space:nowrap;
+}
+.badge-xs{font-size:.62rem;padding:3px 9px;}
+.badge-sm{font-size:.7rem;padding:4px 11px;}
+.badge-md{font-size:.78rem;padding:5px 13px;}
+.badge-lg{font-size:.85rem;padding:7px 16px;}
+
+.badge-orange{background:var(--orange);color:#fff;}
+.badge-orange-soft{background:var(--orange-pale);color:var(--orange-dark);}
+.badge-red{background:var(--red);color:#fff;}
+.badge-red-soft{background:var(--red-bg);color:#DC2626;}
+.badge-green{background:var(--green);color:#fff;}
+.badge-green-soft{background:var(--green-bg);color:#15803D;}
+.badge-blue{background:var(--blue);color:#fff;}
+.badge-blue-soft{background:var(--blue-bg);color:#1D4ED8;}
+.badge-gray{background:var(--slate-200);color:var(--slate-600);}
+.badge-dark{background:var(--slate-800);color:#fff;}
+.badge-purple{background:#8B5CF6;color:#fff;}
+.badge-purple-soft{background:#F5F3FF;color:#6D28D9;}
+.badge-amber{background:var(--amber);color:#fff;}
+.badge-amber-soft{background:#FFFBEB;color:#B45309;}
+
+.badge-dot::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:currentColor;
+  display:inline-block;
+}
+
+/* ---- PRODUCT CARD ---- */
+.product-card-demo{
+  background:#fff;border-radius:var(--r-xl);
+  overflow:hidden;box-shadow:var(--shadow-md);
+  transition:var(--t);cursor:default;
+  display:flex;flex-direction:column;
+  border:1px solid var(--slate-100);
+  max-width:280px;
+}
+.product-card-demo:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl);}
+.product-card-demo:hover .pcd-quick{transform:translateY(0);}
+
+.pcd-img{
+  position:relative;
+  background:#FFFFFF;
+  aspect-ratio:1 / 1;
+  object-fit:contain;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.pcd-img img{
+  width:100%;
+  height:100%;
+  aspect-ratio:1 / 1;
+  object-fit:contain;
+  background:#FFFFFF;
+  display:block;
+  transition:var(--t);
+}
+.product-card-demo:hover .pcd-img img{transform:scale(1.05);}
+.pcd-artwork{
+  font-size:5rem;
+  transition:var(--t);
+  filter:drop-shadow(0 8px 16px rgba(0,0,0,.12));
+}
+.product-card-demo:hover .pcd-artwork{transform:scale(1.08) translateY(-4px);}
+.pcd-badges{
+  position:absolute;top:12px;left:12px;z-index:2;
+  display:flex;flex-direction:column;gap:5px;
+}
+.pcd-wish{
+  position:absolute;top:12px;right:12px;z-index:2;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-sm);cursor:pointer;
+  color:var(--slate-400);transition:var(--t);border:none;
+}
+.pcd-wish:hover,.pcd-wish.active{color:#EF4444;}
+.pcd-wish.active svg{fill:#EF4444;stroke:#EF4444;}
+.pcd-quick{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.7));
+  padding:40px 12px 12px;
+  transform:translateY(100%);transition:var(--t);
+}
+.pcd-quick-btn{
+  width:100%;background:var(--orange);color:#fff;
+  font-weight:700;font-size:.8rem;padding:10px;
+  border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:var(--t);border:none;cursor:pointer;font-family:var(--font-body);
+}
+.pcd-quick-btn:hover{background:var(--orange-dark);}
+.pcd-info{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;}
+.pcd-brand{font-size:.68rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--slate-400);margin-bottom:4px;}
+.pcd-name{font-size:.92rem;font-weight:700;color:var(--slate-800);margin-bottom:3px;line-height:1.3;}
+.pcd-mat{font-size:.75rem;color:var(--slate-400);margin-bottom:10px;}
+.pcd-stars{color:#F59E0B;font-size:.82rem;letter-spacing:1px;}
+.pcd-reviews{font-size:.72rem;color:var(--slate-400);}
+.pcd-rating-row{display:flex;align-items:center;gap:6px;margin-bottom:12px;}
+.pcd-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:14px;margin-top:auto;}
+.pcd-price{font-size:1.15rem;font-weight:800;color:var(--orange);}
+.pcd-old{font-size:.85rem;color:var(--slate-400);text-decoration:line-through;}
+.pcd-disc{
+  font-size:.68rem;font-weight:800;
+  background:var(--red-bg);color:var(--red);
+  padding:2px 7px;border-radius:4px;
+}
+.pcd-btn{
+  width:100%;background:var(--orange);color:#fff;
+  font-weight:700;font-size:.85rem;padding:11px 16px;
+  border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;gap:7px;
+  transition:var(--t);border:2px solid var(--orange);cursor:pointer;
+  font-family:var(--font-body);box-shadow:0 4px 12px rgba(255,107,26,.25);
+}
+.pcd-btn:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-1px);box-shadow:0 6px 16px rgba(255,107,26,.35);}
+.pcd-btn:active{transform:scale(.97);}
+
+/* States */
+.pcd-state{
+  background:#fff;border:2px solid var(--slate-200);
+  border-radius:var(--r-xl);padding:20px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:var(--t);cursor:default;text-align:center;align-items:center;
+  font-size:.8rem;font-weight:600;color:var(--slate-500);
+}
+.pcd-state:hover{border-color:var(--orange);}
+.pcd-state-icon{font-size:2.5rem;}
+.state-badge{font-size:.65rem;padding:3px 10px;border-radius:var(--r-full);font-weight:800;letter-spacing:.3px;}
+
+/* ---- NAVIGATION ELEMENTS ---- */
+.nav-demo-bar{
+  background:#fff;border:1px solid var(--slate-200);
+  border-radius:var(--r-xl);padding:14px 20px;
+  display:flex;align-items:center;gap:16px;
+  box-shadow:var(--shadow-sm);flex-wrap:wrap;
+}
+.nav-logo-mini{
+  display:flex;align-items:center;gap:8px;flex-shrink:0;
+  padding-right:16px;border-right:1px solid var(--slate-200);
+}
+.nav-logo-dot{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--orange);display:flex;align-items:center;justify-content:center;
+}
+.nav-logo-name{font-family:var(--font-head);font-size:.8rem;font-weight:800;color:var(--orange);}
+.nav-logo-sub2{font-size:.6rem;color:var(--slate-400);letter-spacing:.5px;}
+
+.nav-tabs{display:flex;gap:4px;align-items:center;flex:1;flex-wrap:wrap;}
+.nav-tab{
+  padding:7px 14px;border-radius:var(--r-full);
+  font-size:.8rem;font-weight:600;color:var(--slate-600);
+  transition:var(--t);cursor:pointer;white-space:nowrap;
+}
+.nav-tab:hover{background:var(--orange-pale);color:var(--orange);}
+.nav-tab.active{background:var(--orange);color:#fff;}
+
+.nav-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.nav-action-icon{
+  position:relative;
+  width:38px;height:38px;border-radius:var(--r-md);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--slate-600);transition:var(--t);cursor:pointer;
+  border:none;background:transparent;
+}
+.nav-action-icon:hover{background:var(--orange-pale);color:var(--orange);}
+.nav-counter{
+  position:absolute;top:3px;right:3px;
+  background:var(--orange);color:#fff;
+  font-size:.6rem;font-weight:800;
+  min-width:17px;height:17px;border-radius:var(--r-full);
+  display:flex;align-items:center;justify-content:center;
+  padding:0 3px;border:2px solid #fff;
+}
+
+/* Category pills */
+.cat-pills{display:flex;gap:8px;flex-wrap:wrap;}
+.cat-pill{
+  display:flex;align-items:center;gap:7px;
+  padding:8px 16px;border-radius:var(--r-full);
+  border:2px solid var(--slate-200);background:#fff;
+  font-size:.82rem;font-weight:600;color:var(--slate-600);
+  transition:var(--t);cursor:pointer;
+}
+.cat-pill:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-pale);}
+.cat-pill.active{background:var(--orange);color:#fff;border-color:var(--orange);}
+.cat-pill-icon{font-size:1rem;}
+
+/* Breadcrumb */
+.breadcrumb{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.breadcrumb-item{font-size:.82rem;color:var(--slate-500);}
+.breadcrumb-item a{color:var(--slate-500);transition:var(--t);}
+.breadcrumb-item a:hover{color:var(--orange);}
+.breadcrumb-item.active{color:var(--slate-800);font-weight:600;}
+.breadcrumb-sep{color:var(--slate-300);font-size:.8rem;}
+
+/* ---- ALERTS & TOASTS ---- */
+.alert{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 18px;border-radius:var(--r-lg);
+  border-left:4px solid;
+  position:relative;
+}
+.alert-icon{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.alert-content{flex:1;}
+.alert-title{font-size:.88rem;font-weight:800;margin-bottom:3px;}
+.alert-desc{font-size:.8rem;line-height:1.5;}
+.alert-close{
+  position:absolute;top:12px;right:12px;
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;cursor:pointer;border:none;
+  opacity:.6;transition:var(--t);background:transparent;
+}
+.alert-close:hover{opacity:1;background:rgba(0,0,0,.08);}
+
+.alert-success{background:var(--green-bg);border-color:var(--green);}
+.alert-success .alert-icon{background:rgba(34,197,94,.15);color:var(--green);}
+.alert-success .alert-title{color:#15803D;}
+.alert-success .alert-desc{color:#166534;}
+
+.alert-error{background:var(--red-bg);border-color:var(--red);}
+.alert-error .alert-icon{background:rgba(239,68,68,.15);color:var(--red);}
+.alert-error .alert-title{color:#DC2626;}
+.alert-error .alert-desc{color:#991B1B;}
+
+.alert-warning{background:#FFFBEB;border-color:var(--amber);}
+.alert-warning .alert-icon{background:rgba(245,158,11,.15);color:var(--amber);}
+.alert-warning .alert-title{color:#B45309;}
+.alert-warning .alert-desc{color:#78350F;}
+
+.alert-info{background:var(--blue-bg);border-color:var(--blue);}
+.alert-info .alert-icon{background:rgba(59,130,246,.15);color:var(--blue);}
+.alert-info .alert-title{color:#1D4ED8;}
+.alert-info .alert-desc{color:#1E40AF;}
+
+.alert-orange{background:var(--orange-pale);border-color:var(--orange);}
+.alert-orange .alert-icon{background:rgba(255,107,26,.15);color:var(--orange);}
+.alert-orange .alert-title{color:var(--orange-dark);}
+.alert-orange .alert-desc{color:#7C2D12;}
+
+/* Toast demos */
+.toast-demo{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;border-radius:var(--r-full);
+  font-size:.85rem;font-weight:600;
+  box-shadow:var(--shadow-xl);min-width:260px;
+  max-width:420px;
+}
+.toast-icon{font-size:1.1rem;}
+.toast-text{flex:1;}
+.toast-dismiss{
+  width:22px;height:22px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;cursor:pointer;border:none;
+  opacity:.6;transition:var(--t);
+}
+.toast-dismiss:hover{opacity:1;background:rgba(0,0,0,.1);}
+
+.toast-success{background:#1E293B;color:#fff;}
+.toast-success .toast-icon-wrap{
+  width:30px;height:30px;border-radius:50%;background:var(--green);
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;
+}
+.toast-cart{background:var(--orange);color:#fff;}
+.toast-cart .toast-icon-wrap{
+  width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;
+}
+.toast-warning{background:#78350F;color:#FEF3C7;}
+.toast-warning .toast-icon-wrap{
+  width:30px;height:30px;border-radius:50%;background:var(--amber);
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SPEC TABLE
+══════════════════════════════════════════════════════════════ */
+.spec-table{
+  width:100%;border-collapse:collapse;
+  font-size:.82rem;
+}
+.spec-table th{
+  text-align:left;padding:10px 14px;
+  background:var(--slate-50);color:var(--slate-500);
+  font-weight:800;font-size:.7rem;letter-spacing:.8px;text-transform:uppercase;
+  border-bottom:2px solid var(--slate-200);
+}
+.spec-table td{
+  padding:12px 14px;border-bottom:1px solid var(--slate-100);
+  color:var(--slate-700);vertical-align:middle;
+}
+.spec-table tr:last-child td{border-bottom:none;}
+.spec-table tr:hover td{background:var(--slate-50);}
+.spec-code{
+  font-family:monospace;font-size:.78rem;
+  background:var(--slate-100);color:var(--orange-dark);
+  padding:2px 8px;border-radius:5px;white-space:nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ICON CHIPS
+══════════════════════════════════════════════════════════════ */
+.icon-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px 6px 8px;
+  background:var(--slate-100);border-radius:var(--r-full);
+  font-size:.78rem;font-weight:600;color:var(--slate-600);
+}
+.icon-chip-icon{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--orange);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROGRESS / RANGE
+══════════════════════════════════════════════════════════════ */
+.progress-bar{
+  width:100%;height:8px;background:var(--slate-200);
+  border-radius:var(--r-full);overflow:hidden;
+}
+.progress-fill{
+  height:100%;border-radius:var(--r-full);
+  background:linear-gradient(90deg,var(--orange-light),var(--orange));
+  transition:width .6s cubic-bezier(.4,0,.2,1);
+}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:.72rem;color:var(--slate-500);margin-bottom:6px;font-weight:600;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER
+══════════════════════════════════════════════════════════════ */
+.divider{
+  height:1px;background:var(--slate-200);
+  margin:24px 0;position:relative;
+}
+.divider-label{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:#fff;padding:0 12px;
+  font-size:.72rem;color:var(--slate-400);font-weight:600;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL TO TOP
+══════════════════════════════════════════════════════════════ */
+.scroll-top{
+  position:fixed;bottom:28px;right:28px;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--orange);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-orange);cursor:pointer;
+  opacity:0;transform:translateY(16px);
+  transition:var(--t);z-index:800;border:none;
+}
+.scroll-top.show{opacity:1;transform:translateY(0);}
+.scroll-top:hover{background:var(--orange-dark);transform:translateY(-3px);}
+
+/* Tooltips */
+[data-tip]{position:relative;}
+[data-tip]::after{
+  content:attr(data-tip);
+  position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  background:var(--slate-800);color:#fff;
+  font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:6px;
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transition:var(--t);z-index:100;
+}
+[data-tip]:hover::after{opacity:1;}
+
+/* Chip group */
+.chip-group{display:flex;gap:8px;flex-wrap:wrap;}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════════ */
+.kit-footer{
+  background:var(--slate-800);
+  padding:40px 0;text-align:center;
+  color:rgba(255,255,255,.5);font-size:.82rem;
+}
+.kit-footer strong{color:var(--orange);}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════════ */
+@media(max-width:900px){
+  .logo-grid{grid-template-columns:1fr;}
+  .g3,.g4{grid-template-columns:1fr 1fr;}
+  .g2{grid-template-columns:1fr;}
+  .usage-grid{grid-template-columns:1fr;}
+  .hero-swatch{display:none;}
+  .showcase-body{padding:24px 20px;}
+}
+@media(max-width:600px){
+  .wrapper{padding:0 16px;}
+  .kit-section{padding:48px 0;}
+  .g3,.g4,.g2{grid-template-columns:1fr;}
+  .nav-demo-bar{flex-direction:column;align-items:flex-start;}
+  .nav-tabs{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ KIT NAV ═══ -->
+<nav class="kit-nav">
+  <div class="wrapper">
+    <div class="kit-nav-inner">
+      <a href="/" class="kit-logo" aria-label="Tencere Tava Dünyası Anasayfa">
+        <img src="logos/logo.jpg" alt="Tencere Tava Dünyası Logo" style="height:44px;width:auto;max-height:48px;object-fit:contain;border-radius:6px;mix-blend-mode:multiply;" />
+      </a>
+      <div class="kit-nav-links">
+        <a href="#logos" class="nav-pill">Logo</a>
+        <a href="#colors" class="nav-pill">Renkler</a>
+        <a href="#typography" class="nav-pill">Tipografi</a>
+        <a href="#buttons" class="nav-pill">Butonlar</a>
+        <a href="#inputs" class="nav-pill">Input'lar</a>
+        <a href="#badges" class="nav-pill">Badges</a>
+        <a href="#cards" class="nav-pill">Kartlar</a>
+        <a href="#navigation" class="nav-pill">Navigasyon</a>
+        <a href="#alerts" class="nav-pill">Bildirimler</a>
+      </div>
+      <span class="kit-badge-label">v1.0.0</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="kit-hero">
+  <div class="wrapper">
+    <div class="kit-hero-inner">
+      <div class="kit-hero-text">
+        <div class="kit-hero-eyebrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          Official Brand & UI Kit
+        </div>
+        <h1 class="kit-hero-title">Tencere Tava<br/><span>Dünyası</span> Design<br/>System</h1>
+        <p class="kit-hero-desc">Markamızın tüm görsel dili, renk paletleri, tipografi kuralları ve UI bileşenleri bu dokümanda tanımlanmıştır.</p>
+        <div class="kit-hero-meta">
+          <div class="kit-meta-item"><div class="kit-meta-dot"></div>Brand Kit</div>
+          <div class="kit-meta-item"><div class="kit-meta-dot"></div>UI Components</div>
+          <div class="kit-meta-item"><div class="kit-meta-dot"></div>Typography</div>
+          <div class="kit-meta-item"><div class="kit-meta-dot"></div>Color System</div>
+        </div>
+      </div>
+      <div class="kit-hero-visual">
+        <div class="hero-swatch swatch-orange">
+          <div class="hero-swatch-color"></div>
+          <div class="hero-swatch-label">Primary<br/>Orange</div>
+        </div>
+        <div class="hero-swatch swatch-dark">
+          <div class="hero-swatch-color"></div>
+          <div class="hero-swatch-label">Dark<br/>Slate</div>
+        </div>
+        <div class="hero-swatch swatch-white">
+          <div class="hero-swatch-color"></div>
+          <div class="hero-swatch-label">Pure<br/>White</div>
+        </div>
+        <div class="hero-swatch swatch-green">
+          <div class="hero-swatch-color"></div>
+          <div class="hero-swatch-label">Success<br/>Green</div>
+        </div>
+        <div class="hero-swatch swatch-red">
+          <div class="hero-swatch-color"></div>
+          <div class="hero-swatch-label">Sale<br/>Red</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     PART 1: BRAND KIT
+═══════════════════════════════════════════════ -->
+
+<!-- ═══ SECTION: LOGOS ═══ -->
+<section class="kit-section" id="logos">
+  <div class="wrapper">
+    <span class="section-num">01</span>
+    <h2 class="kit-section-title">Logo Konseptleri</h2>
+    <p class="kit-section-sub">3 farklı minimal logo yönü — mutfak/pişirme elementleri ile turuncu ve beyaz</p>
+
+    <div class="logo-grid">
+
+      <!-- Logo A: Symbol + Text Stack -->
+      <div class="logo-card">
+        <div class="logo-card-num">A</div>
+        <div class="logo-mark">
+          <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
+            <circle cx="40" cy="40" r="40" fill="#FFF3EC"/>
+            <!-- Pot icon -->
+            <path d="M18 46c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#FF6B1A" stroke-width="3.5" stroke-linecap="round"/>
+            <rect x="14" y="46" width="52" height="6" rx="3" fill="#FF6B1A"/>
+            <rect x="28" y="24" width="24" height="4" rx="2" fill="#FF6B1A" opacity=".6"/>
+            <circle cx="40" cy="22" r="3.5" fill="#FF6B1A"/>
+            <!-- steam lines -->
+            <path d="M32 16 Q30 12 32 8" stroke="#FF6B1A" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+            <path d="M40 14 Q38 10 40 6" stroke="#FF6B1A" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+            <path d="M48 16 Q46 12 48 8" stroke="#FF6B1A" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="logo-name-text">Tencere Tava<br/><span>Dünyası</span></div>
+        <div class="logo-desc">Yuvarlak simge formatı. Dijital avatar, app icon ve küçük boyutlarda ideal. Tencere silüeti merkezi elemandır.</div>
+        <div class="logo-tags">
+          <span class="logo-tag">App Icon</span>
+          <span class="logo-tag">Avatar</span>
+          <span class="logo-tag">Favicon</span>
+        </div>
+      </div>
+
+      <!-- Logo B: Horizontal Wordmark -->
+      <div class="logo-card">
+        <div class="logo-card-num">B</div>
+        <div class="logo-mark">
+          <svg viewBox="0 0 120 60" fill="none" width="120" height="60">
+            <rect width="120" height="60" rx="12" fill="#FFF3EC"/>
+            <!-- Icon -->
+            <circle cx="30" cy="30" r="18" fill="#FF6B1A"/>
+            <path d="M20 32c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="17" y="32" width="26" height="3.5" rx="1.75" fill="white"/>
+            <circle cx="30" cy="22" r="2" fill="white"/>
+            <!-- Text -->
+            <text x="54" y="27" font-family="system-ui" font-weight="800" font-size="10" fill="#1E293B">TENCERE</text>
+            <text x="54" y="40" font-family="system-ui" font-weight="800" font-size="10" fill="#FF6B1A">TAVA DÜNYASI</text>
+          </svg>
+        </div>
+        <div class="logo-name-text"><span>TENCERE TAVA</span> Dünyası</div>
+        <div class="logo-desc">Yatay wordmark formatı. Web sitesi header, kartvizit ve geniş format materyaller için en uygun kullanım.</div>
+        <div class="logo-tags">
+          <span class="logo-tag">Header</span>
+          <span class="logo-tag">Kartvizit</span>
+          <span class="logo-tag">Banner</span>
+        </div>
+      </div>
+
+      <!-- Logo C: Monogram -->
+      <div class="logo-card">
+        <div class="logo-card-num">C</div>
+        <div class="logo-mark">
+          <svg viewBox="0 0 80 80" fill="none" width="80" height="80">
+            <rect width="80" height="80" rx="20" fill="#1E293B"/>
+            <!-- TTD monogram with pan base -->
+            <text x="10" y="52" font-family="system-ui" font-weight="900" font-size="38" fill="#FF6B1A" letter-spacing="-2">TTD</text>
+            <!-- Underline / pan base -->
+            <rect x="8" y="56" width="64" height="4" rx="2" fill="#FF6B1A" opacity=".4"/>
+            <!-- small dot accent -->
+            <circle cx="72" cy="14" r="5" fill="#FF6B1A"/>
+          </svg>
+        </div>
+        <div class="logo-name-text">TTD <span>Monogram</span></div>
+        <div class="logo-desc">Monogram/kısaltma formatı. Karanlık arkaplan, premium paketleme, sosyal medya profil fotoğrafı için ideal.</div>
+        <div class="logo-tags">
+          <span class="logo-tag">Premium</span>
+          <span class="logo-tag">Mühür</span>
+          <span class="logo-tag">Ambalaj</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Logo Usage Rules -->
+    <div class="showcase" style="margin-top:28px;">
+      <div class="showcase-header">
+        <span class="showcase-label">Logo Kullanım Kuralları</span>
+      </div>
+      <div class="showcase-body">
+        <div class="demo-grid g2" style="gap:24px;">
+          <div>
+            <div class="type-label">✅ Doğru Kullanım</div>
+            <ul class="usage-list">
+              <li><span class="usage-check">✅</span>Orijinal turuncu renk (#FF6B1A) üzerinde beyaz arka plan</li>
+              <li><span class="usage-check">✅</span>Koyu arka planlarda beyaz/açık logo versiyonu</li>
+              <li><span class="usage-check">✅</span>Minimum 24px yükseklik (dijital), 10mm (baskı)</li>
+              <li><span class="usage-check">✅</span>Koruma alanı: logo yüksekliğinin en az %50'si</li>
+              <li><span class="usage-check">✅</span>Orijinal oranda ölçekleme</li>
+            </ul>
+          </div>
+          <div>
+            <div class="type-label">❌ Yanlış Kullanım</div>
+            <ul class="usage-list">
+              <li><span style="color:var(--red)">❌</span>Rengi değiştirme veya gradient uygulama</li>
+              <li><span style="color:var(--red)">❌</span>Uzatma veya çarpıtma</li>
+              <li><span style="color:var(--red)">❌</span>Düşük kontrastlı arka planlarda kullanım</li>
+              <li><span style="color:var(--red)">❌</span>Gölge veya efekt ekleme</li>
+              <li><span style="color:var(--red)">❌</span>Minimum boyutun altında kullanım</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION: COLORS ═══ -->
+<section class="kit-section" id="colors" style="background:var(--white);">
+  <div class="wrapper">
+    <span class="section-num">02</span>
+    <h2 class="kit-section-title">Renk Paleti</h2>
+    <p class="kit-section-sub">Tüm renk değerleri, kullanım alanları ve oranları</p>
+
+    <!-- Primary Colors -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Ana Renkler (Primary)</span></div>
+      <div class="showcase-body">
+        <div class="palette-row">
+          <div class="color-swatch-card" data-tip="Kopyalandı!" onclick="copyColor('#FF6B1A',this)">
+            <div class="csw-color" style="background:#FF6B1A;">
+              <div class="csw-hex">#FF6B1A</div>
+            </div>
+            <button class="csw-copy" aria-label="Kopyala">📋</button>
+            <div class="csw-info">
+              <div class="csw-name">Orange 500</div>
+              <div class="csw-role">Primary / CTA</div>
+            </div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#E05510',this)">
+            <div class="csw-color" style="background:#E05510;">
+              <div class="csw-hex">#E05510</div>
+            </div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Orange 600</div><div class="csw-role">Hover / Active</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#FF8C47',this)">
+            <div class="csw-color" style="background:#FF8C47;">
+              <div class="csw-hex">#FF8C47</div>
+            </div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Orange 400</div><div class="csw-role">Light / Border</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#FFDCC8',this)">
+            <div class="csw-color" style="background:#FFDCC8;">
+              <div class="csw-hex">#FFDCC8</div>
+            </div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Orange 200</div><div class="csw-role">Mid Background</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#FFF3EC',this)">
+            <div class="csw-color" style="background:#FFF3EC;border:1px solid #FFDCC8;">
+              <div class="csw-hex" style="background:rgba(0,0,0,.12)">#FFF3EC</div>
+            </div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Orange 50</div><div class="csw-role">Pale Background</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background Colors -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Arka Plan Renkleri</span></div>
+      <div class="showcase-body">
+        <div class="palette-row">
+          <div class="color-swatch-card" onclick="copyColor('#FFFFFF',this)">
+            <div class="csw-color" style="background:#FFFFFF;border:1px solid #E2E8F0;"><div class="csw-hex" style="background:rgba(0,0,0,.12)">#FFFFFF</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Pure White</div><div class="csw-role">Card / Modal BG</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#F8F9FA',this)">
+            <div class="csw-color" style="background:#F8F9FA;border:1px solid #E2E8F0;"><div class="csw-hex" style="background:rgba(0,0,0,.12)">#F8F9FA</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Warm Light</div><div class="csw-role">Page Background</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#F1F5F9',this)">
+            <div class="csw-color" style="background:#F1F5F9;border:1px solid #E2E8F0;"><div class="csw-hex" style="background:rgba(0,0,0,.12)">#F1F5F9</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Slate 100</div><div class="csw-role">Hover / Alt BG</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#E2E8F0',this)">
+            <div class="csw-color" style="background:#E2E8F0;"><div class="csw-hex" style="background:rgba(0,0,0,.12)">#E2E8F0</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Slate 200</div><div class="csw-role">Borders / Dividers</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Colors -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Metin Renkleri</span></div>
+      <div class="showcase-body">
+        <div class="palette-row">
+          <div class="color-swatch-card" onclick="copyColor('#1E293B',this)">
+            <div class="csw-color" style="background:#1E293B;"><div class="csw-hex">#1E293B</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Dark Charcoal</div><div class="csw-role">Heading / Primary Text</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#475569',this)">
+            <div class="csw-color" style="background:#475569;"><div class="csw-hex">#475569</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Slate 600</div><div class="csw-role">Secondary Text</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#64748B',this)">
+            <div class="csw-color" style="background:#64748B;"><div class="csw-hex">#64748B</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Muted Gray</div><div class="csw-role">Helper / Placeholder</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#CBD5E1',this)">
+            <div class="csw-color" style="background:#CBD5E1;"><div class="csw-hex">#CBD5E1</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Slate 300</div><div class="csw-role">Disabled Text</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Colors -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Durum Renkleri (Status)</span></div>
+      <div class="showcase-body">
+        <div class="palette-row">
+          <div class="color-swatch-card" onclick="copyColor('#22C55E',this)">
+            <div class="csw-color" style="background:#22C55E;"><div class="csw-hex">#22C55E</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Success Green</div><div class="csw-role">Stok / Ücretsiz Kargo</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#EF4444',this)">
+            <div class="csw-color" style="background:#EF4444;"><div class="csw-hex">#EF4444</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Sale Red</div><div class="csw-role">İndirim / Satış</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#F59E0B',this)">
+            <div class="csw-color" style="background:#F59E0B;"><div class="csw-hex">#F59E0B</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Amber Warning</div><div class="csw-role">Uyarı / Dikkat</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#3B82F6',this)">
+            <div class="csw-color" style="background:#3B82F6;"><div class="csw-hex">#3B82F6</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Info Blue</div><div class="csw-role">Bilgi / Teslimat</div></div>
+          </div>
+          <div class="color-swatch-card" onclick="copyColor('#8B5CF6',this)">
+            <div class="csw-color" style="background:#8B5CF6;"><div class="csw-hex">#8B5CF6</div></div>
+            <button class="csw-copy">📋</button>
+            <div class="csw-info"><div class="csw-name">Premium Purple</div><div class="csw-role">Yeni / Lüks Ürün</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color Usage Guide -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Renk Kullanım Rehberi</span></div>
+      <div class="showcase-body">
+        <div class="usage-grid">
+          <div class="usage-card">
+            <h4><span class="usage-dot" style="background:var(--orange)"></span>Turuncu (#FF6B1A) — Birincil Renk</h4>
+            <ul class="usage-list">
+              <li>✅ CTA butonlar (Sepete Ekle, Alışveriş Yap)</li>
+              <li>✅ Aktif/odak durum sınırları</li>
+              <li>✅ Fiyat vurguları</li>
+              <li>✅ Logo ve marka elementleri</li>
+              <li>✅ Navigasyon aktif ögeler</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4><span class="usage-dot" style="background:var(--slate-800)"></span>Koyu (#1E293B) — Metin</h4>
+            <ul class="usage-list">
+              <li>✅ Tüm ana başlıklar (H1–H3)</li>
+              <li>✅ Ürün isimleri</li>
+              <li>✅ Önemli form etiketleri</li>
+              <li>✅ Karanlık mod arkaplan</li>
+              <li>✅ Footer alanı</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4><span class="usage-dot" style="background:var(--green)"></span>Yeşil (#22C55E) — Başarı</h4>
+            <ul class="usage-list">
+              <li>✅ "Stokta Var" rozeti</li>
+              <li>✅ "Ücretsiz Kargo" etiketi</li>
+              <li>✅ Başarı bildirim mesajları</li>
+              <li>✅ Onay checkmark'ları</li>
+            </ul>
+          </div>
+          <div class="usage-card">
+            <h4><span class="usage-dot" style="background:var(--red)"></span>Kırmızı (#EF4444) — Dikkat/İndirim</h4>
+            <ul class="usage-list">
+              <li>✅ İndirim/fiyat rozeti</li>
+              <li>✅ "Son Fırsat" etiketi</li>
+              <li>✅ Hata ve uyarı mesajları</li>
+              <li>✅ Strik-through eski fiyat vurgusu</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION: TYPOGRAPHY ═══ -->
+<section class="kit-section" id="typography">
+  <div class="wrapper">
+    <span class="section-num">03</span>
+    <h2 class="kit-section-title">Tipografi Sistemi</h2>
+    <p class="kit-section-sub">Font aileleri, ağırlıklar ve ölçek kılavuzu</p>
+
+    <!-- Font Pairs -->
+    <div class="demo-grid g2" style="gap:20px;margin-bottom:28px;">
+      <div class="showcase" style="margin-bottom:0;">
+        <div class="showcase-header"><span class="showcase-label">Başlık Fontu</span></div>
+        <div class="showcase-body">
+          <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--slate-800);margin-bottom:12px;letter-spacing:-.5px;">Plus Jakarta Sans</div>
+          <div style="font-family:var(--font-head);font-size:1rem;color:var(--slate-500);margin-bottom:16px;">Türkçe karakter desteği: Ğğ Üü Şş İı Çç Öö</div>
+          <div class="chip-group">
+            <span class="badge badge-orange-soft badge-sm">300 Light</span>
+            <span class="badge badge-orange-soft badge-sm">400 Regular</span>
+            <span class="badge badge-orange badge-sm">700 Bold</span>
+            <span class="badge badge-orange badge-sm">800 ExtraBold</span>
+          </div>
+          <div style="margin-top:16px;font-size:.8rem;color:var(--slate-500);">Google Fonts CDN: <code style="background:var(--slate-100);padding:2px 6px;border-radius:4px;font-size:.75rem;">Plus Jakarta Sans</code></div>
+        </div>
+      </div>
+      <div class="showcase" style="margin-bottom:0;">
+        <div class="showcase-header"><span class="showcase-label">Gövde Fontu</span></div>
+        <div class="showcase-body">
+          <div style="font-family:var(--font-body);font-size:2rem;font-weight:600;color:var(--slate-800);margin-bottom:12px;letter-spacing:-.3px;">Inter</div>
+          <div style="font-family:var(--font-body);font-size:1rem;color:var(--slate-500);margin-bottom:16px;">Mükemmel okunabilirlik, ürün açıklamaları, UI metni</div>
+          <div class="chip-group">
+            <span class="badge badge-blue-soft badge-sm">400 Regular</span>
+            <span class="badge badge-blue-soft badge-sm">500 Medium</span>
+            <span class="badge badge-blue badge-sm">600 SemiBold</span>
+            <span class="badge badge-blue badge-sm">700 Bold</span>
+          </div>
+          <div style="margin-top:16px;font-size:.8rem;color:var(--slate-500);">Google Fonts CDN: <code style="background:var(--slate-100);padding:2px 6px;border-radius:4px;font-size:.75rem;">Inter</code></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type Scale -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Tipografi Ölçeği — Desktop</span></div>
+      <div class="showcase-body">
+        <div class="scale-row">
+          <div class="scale-name">Display / H1</div>
+          <div>
+            <div style="font-family:var(--font-head);font-size:3rem;font-weight:800;color:var(--slate-800);line-height:1.1;letter-spacing:-1px;">Mutfak Kalitesi</div>
+            <div class="type-meta"><span>48px / 3rem</span><span>weight: 800</span><span>line-height: 1.1</span><span>letter-spacing: -1px</span><span>Plus Jakarta Sans</span></div>
+          </div>
+        </div>
+        <div class="scale-row">
+          <div class="scale-name">Heading / H2</div>
+          <div>
+            <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--slate-800);line-height:1.2;letter-spacing:-.5px;">Öne Çıkan Ürünler</div>
+            <div class="type-meta"><span>32px / 2rem</span><span>weight: 800</span><span>line-height: 1.2</span><span>Plus Jakarta Sans</span></div>
+          </div>
+        </div>
+        <div class="scale-row">
+          <div class="scale-name">Section / H3</div>
+          <div>
+            <div style="font-family:var(--font-head);font-size:1.5rem;font-weight:700;color:var(--slate-800);line-height:1.3;">Granit Tencere Seti</div>
+            <div class="type-meta"><span>24px / 1.5rem</span><span>weight: 700</span><span>line-height: 1.3</span><span>Plus Jakarta Sans</span></div>
+          </div>
+        </div>
+        <div class="scale-row">
+          <div class="scale-name">Card Title / H4</div>
+          <div>
+            <div style="font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--slate-800);line-height:1.4;">Premium Döküm Tava — 28cm</div>
+            <div class="type-meta"><span>18px / 1.1rem</span><span>weight: 700</span><span>line-height: 1.4</span><span>Plus Jakarta Sans</span></div>
+          </div>
+        </div>
+        <div class="scale-row">
+          <div class="scale-name">Body Large</div>
+          <div>
+            <div style="font-family:var(--font-body);font-size:1rem;font-weight:400;color:var(--slate-600);line-height:1.75;">Premium granit kaplama ile pişirmenin keyfini çıkarın. Yapışmaz yüzey, uzun ömürlü kullanım garantisi.</div>
+            <div class="type-meta"><span>16px / 1rem</span><span>weight: 400</span><span>line-height: 1.75</span><span>Inter</span></div>
+          </div>
+        </div>
+        <div class="scale-row">
+          <div class="scale-name">Body Regular</div>
+          <div>
+            <div style="font-family:var(--font-body);font-size:.9rem;font-weight:400;color:var(--slate-600);line-height:1.6;">Materyal: Granit kaplama · 24cm · 2.4kg · Tüm ocak tipleri uyumlu</div>
+            <div class="type-meta"><span>14px / .9rem</span><span>weight: 400</span><span>line-height: 1.6</span><span>Inter</span></div>
+          </div>
+        </div>
+        <div class="scale-row">
+          <div class="scale-name">Small / Caption</div>
+          <div>
+            <div style="font-family:var(--font-body);font-size:.78rem;font-weight:500;color:var(--slate-500);line-height:1.5;">TAÇ · SKU: TAC-24-BLK · 342 değerlendirme</div>
+            <div class="type-meta"><span>12px / .78rem</span><span>weight: 500</span><span>line-height: 1.5</span><span>Inter</span></div>
+          </div>
+        </div>
+        <div class="scale-row">
+          <div class="scale-name">Label / Badge</div>
+          <div>
+            <div style="font-family:var(--font-body);font-size:.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--orange);line-height:1.4;">ÜCRETSİZ KARGO · %30 İNDİRİM · YENİ ÜRÜN</div>
+            <div class="type-meta"><span>12px / .75rem</span><span>weight: 800</span><span>letter-spacing: 1px</span><span>UPPERCASE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop vs Mobile Type Scale Spec Table -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Desktop & Mobil Tipografi Ölçeği (Boyut & Satır Yüksekliği)</span></div>
+      <div class="showcase-body" style="padding:0;">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Stil / Eleman</th>
+              <th>Font Ailesi</th>
+              <th>Ağırlık</th>
+              <th>Desktop Boyut / Line-Height</th>
+              <th>Mobil Boyut / Line-Height</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Display / Hero (H1)</strong></td>
+              <td>Plus Jakarta Sans</td>
+              <td>800 (ExtraBold)</td>
+              <td><span class="spec-code">48px (3.0rem) / 1.10</span></td>
+              <td><span class="spec-code">32px (2.0rem) / 1.15</span></td>
+            </tr>
+            <tr>
+              <td><strong>Sayfa Başlığı (H2)</strong></td>
+              <td>Plus Jakarta Sans</td>
+              <td>800 (ExtraBold)</td>
+              <td><span class="spec-code">32px (2.0rem) / 1.20</span></td>
+              <td><span class="spec-code">24px (1.5rem) / 1.25</span></td>
+            </tr>
+            <tr>
+              <td><strong>Bölüm Başlığı (H3)</strong></td>
+              <td>Plus Jakarta Sans</td>
+              <td>700 (Bold)</td>
+              <td><span class="spec-code">24px (1.5rem) / 1.30</span></td>
+              <td><span class="spec-code">20px (1.25rem) / 1.35</span></td>
+            </tr>
+            <tr>
+              <td><strong>Ürün Kart Başlığı (H4)</strong></td>
+              <td>Plus Jakarta Sans</td>
+              <td>700 (Bold)</td>
+              <td><span class="spec-code">18px (1.125rem) / 1.40</span></td>
+              <td><span class="spec-code">16px (1.0rem) / 1.40</span></td>
+            </tr>
+            <tr>
+              <td><strong>Body Large (Açıklama)</strong></td>
+              <td>Inter</td>
+              <td>400 (Regular)</td>
+              <td><span class="spec-code">16px (1.0rem) / 1.75</span></td>
+              <td><span class="spec-code">15px (0.9375rem) / 1.65</span></td>
+            </tr>
+            <tr>
+              <td><strong>Body Regular (UI / Filtre)</strong></td>
+              <td>Inter</td>
+              <td>400 / 500</td>
+              <td><span class="spec-code">14px (0.875rem) / 1.60</span></td>
+              <td><span class="spec-code">14px (0.875rem) / 1.55</span></td>
+            </tr>
+            <tr>
+              <td><strong>Caption / Meta / Rozet</strong></td>
+              <td>Inter</td>
+              <td>600 / 800</td>
+              <td><span class="spec-code">12px (0.75rem) / 1.45</span></td>
+              <td><span class="spec-code">12px (0.75rem) / 1.40</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Price Typography -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Fiyat Tipografisi</span></div>
+      <div class="showcase-body">
+        <div class="demo-row" style="gap:40px;align-items:flex-end;">
+          <div>
+            <div class="type-label">Büyük Fiyat</div>
+            <div style="display:flex;align-items:baseline;gap:12px;">
+              <span style="font-family:var(--font-head);font-size:2.5rem;font-weight:800;color:var(--orange);">₺1.249</span>
+              <span style="font-size:1.1rem;color:var(--slate-400);text-decoration:line-through;">₺1.799</span>
+              <span style="background:var(--red-bg);color:var(--red);font-size:.75rem;font-weight:800;padding:3px 8px;border-radius:5px;">-%31</span>
+            </div>
+          </div>
+          <div>
+            <div class="type-label">Orta Fiyat (Kart)</div>
+            <div style="display:flex;align-items:baseline;gap:8px;">
+              <span style="font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--orange);">₺849</span>
+              <span style="font-size:.88rem;color:var(--slate-400);text-decoration:line-through;">₺1.099</span>
+            </div>
+          </div>
+          <div>
+            <div class="type-label">Küçük Fiyat</div>
+            <div style="display:flex;align-items:baseline;gap:6px;">
+              <span style="font-family:var(--font-head);font-size:1rem;font-weight:800;color:var(--orange);">₺329</span>
+              <span style="font-size:.78rem;color:var(--slate-400);text-decoration:line-through;">₺429</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PART 2: UI KIT
+═══════════════════════════════════════════════ -->
+
+<!-- ═══ SECTION: BUTTONS ═══ -->
+<section class="kit-section" id="buttons" style="background:var(--white);">
+  <div class="wrapper">
+    <span class="section-num">04</span>
+    <h2 class="kit-section-title">Buton Sistemi</h2>
+    <p class="kit-section-sub">Varyantlar, boyutlar ve etkileşim durumları</p>
+
+    <!-- Variants -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Buton Varyantları</span></div>
+      <div class="showcase-body">
+        <div class="demo-row" style="margin-bottom:20px;">
+          <button class="btn btn-primary btn-md">Sepete Ekle</button>
+          <button class="btn btn-secondary btn-md">Favorilere Ekle</button>
+          <button class="btn btn-ghost btn-md">İncele</button>
+          <button class="btn btn-dark btn-md">Ödemeye Geç</button>
+          <button class="btn btn-success btn-md">✓ Stokta Var</button>
+          <button class="btn btn-danger btn-md">Sil</button>
+        </div>
+        <div class="demo-row">
+          <button class="btn btn-primary btn-md" disabled>Sepete Ekle</button>
+          <button class="btn btn-secondary btn-md" disabled>Favorilere Ekle</button>
+          <button class="btn btn-ghost btn-md" disabled>İncele</button>
+          <span style="font-size:.78rem;color:var(--slate-400);margin-left:8px;">↑ disabled state</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sizes -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Buton Boyutları</span></div>
+      <div class="showcase-body">
+        <div class="demo-row" style="align-items:center;">
+          <button class="btn btn-primary btn-xs">XS — Sepete Ekle</button>
+          <button class="btn btn-primary btn-sm">SM — Sepete Ekle</button>
+          <button class="btn btn-primary btn-md">MD — Sepete Ekle</button>
+          <button class="btn btn-primary btn-lg">LG — Sepete Ekle</button>
+          <button class="btn btn-primary btn-xl">XL — Alışverişe Başla</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- With Icons -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">İkon'lu Butonlar</span></div>
+      <div class="showcase-body">
+        <div class="demo-row">
+          <button class="btn btn-primary btn-md">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Sepete Ekle
+          </button>
+          <button class="btn btn-secondary btn-md">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Favorilere Ekle
+          </button>
+          <button class="btn btn-ghost btn-md">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Ara
+          </button>
+          <button class="btn btn-dark btn-md">
+            Ödeme Yap
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg>
+          </button>
+        </div>
+        <div class="demo-row" style="margin-top:16px;">
+          <!-- Icon-only buttons -->
+          <button class="btn btn-primary btn-icon" data-tip="Sepete Ekle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </button>
+          <button class="btn btn-secondary btn-icon" data-tip="Favorilere Ekle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <button class="btn btn-ghost btn-icon" data-tip="Paylaş">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+          <button class="btn btn-dark btn-icon btn-icon-sm" data-tip="Sil">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,6 5,6 21,6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+          </button>
+          <span style="font-size:.78rem;color:var(--slate-400);">↑ icon-only (hover for tooltip)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Yükleme / Loading Durumu</span></div>
+      <div class="showcase-body">
+        <div class="demo-row">
+          <button class="btn btn-primary btn-md btn-loading">Sepete Ekleniyor</button>
+          <button class="btn btn-secondary btn-md btn-loading" style="color:transparent;">Yükleniyor</button>
+          <span style="font-size:.78rem;color:var(--slate-400);">← Sepete ekle butonuna tıklayınca gösterilen state</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION: INPUTS ═══ -->
+<section class="kit-section" id="inputs">
+  <div class="wrapper">
+    <span class="section-num">05</span>
+    <h2 class="kit-section-title">Input'lar & Formlar</h2>
+    <p class="kit-section-sub">Arama, seçim kutuları, checkbox ve filtre bileşenleri</p>
+
+    <!-- Search Bar Demo -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Arama Çubuğu + Auto-Suggest</span></div>
+      <div class="showcase-body">
+        <div style="display:flex;justify-content:center;">
+          <div class="search-container" style="width:100%;max-width:520px;">
+            <div class="search-wrap">
+              <div class="search-icon-wrap">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </div>
+              <input type="text" placeholder="Granit tencere, döküm tava, düdüklü..." id="demo-search" oninput="toggleSearchDrop(this.value)" onfocus="if(this.value)toggleSearchDrop(this.value)"/>
+              <button class="search-submit">Ara</button>
+            </div>
+            <div class="search-dropdown" id="search-drop" style="display:none;">
+              <div class="search-drop-category">Önerilen Aramalar</div>
+              <div class="search-drop-item" onclick="setSearch('Granit Tencere Seti')">
+                <div class="search-drop-icon" style="background:#FFFFFF;border:1px solid #E2E8F0;padding:3px;"><img src="images/tacgranittencereseti.jpg" alt="TAÇ Granit Tencere Seti" style="width:100%;height:100%;object-fit:contain;" /></div>
+                <div>
+                  <div>Granit Tencere Seti</div>
+                  <div class="search-drop-meta">124 ürün bulundu</div>
+                </div>
+                <div class="search-drop-price">₺849+</div>
+              </div>
+              <div class="search-drop-item" onclick="setSearch('Döküm Tava')">
+                <div class="search-drop-icon" style="background:#FFFFFF;border:1px solid #E2E8F0;padding:3px;"><img src="images/tacdokumtavatek.jpg" alt="TAÇ Döküm Tava" style="width:100%;height:100%;object-fit:contain;" /></div>
+                <div>
+                  <div>Döküm Tava</div>
+                  <div class="search-drop-meta">87 ürün bulundu</div>
+                </div>
+                <div class="search-drop-price">₺329+</div>
+              </div>
+              <div class="search-drop-item" onclick="setSearch('Düdüklü Tencere')">
+                <div class="search-drop-icon" style="background:#FFFFFF;border:1px solid #E2E8F0;padding:3px;"><img src="images/tacceliktencere.jpg" alt="TAÇ Düdüklü Tencere" style="width:100%;height:100%;object-fit:contain;" /></div>
+                <div>
+                  <div>Düdüklü Tencere</div>
+                  <div class="search-drop-meta">43 ürün bulundu</div>
+                </div>
+                <div class="search-drop-price">₺749+</div>
+              </div>
+              <div class="search-drop-category">Ürünler</div>
+              <div class="search-drop-item" onclick="setSearch('Çelik Çeyiz Seti')">
+                <div class="search-drop-icon" style="background:#FFFFFF;border:1px solid #E2E8F0;padding:3px;"><img src="images/taccelikset.jpg" alt="TAÇ Lüks 12 Parça Çeyiz Seti" style="width:100%;height:100%;object-fit:contain;" /></div>
+                <div>
+                  <div>Lüks 12 Parça Çeyiz Seti</div>
+                  <div class="search-drop-meta">TAÇ · Granit</div>
+                </div>
+                <div class="search-drop-price">₺3.499</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input States -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Input Durumları</span></div>
+      <div class="showcase-body">
+        <div class="demo-grid g3" style="gap:20px;">
+          <div class="input-group">
+            <label class="input-label">Normal</label>
+            <input class="inp" type="text" placeholder="Ad Soyad"/>
+            <span class="input-hint">Fatura adı olarak kullanılacaktır</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Focus (Aktif)</label>
+            <input class="inp" type="text" value="TAÇ" style="border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,107,26,.12);"/>
+            <span class="input-hint">Turuncu border + glow</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Hata (Error)</label>
+            <input class="inp error" type="email" value="gecersiz@email"/>
+            <span class="input-error-msg">⚠ Geçerli bir e-posta adresi girin</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Başarı (Valid)</label>
+            <input class="inp success-state" type="text" value="✓ Stok kodu doğrulandı"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Devre Dışı</label>
+            <input class="inp disabled" type="text" value="Değiştirilemez alan" disabled/>
+            <span class="input-hint">Readonly veya sistem değeri</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Select Menü</label>
+            <select class="sel">
+              <option>Tüm Kategoriler</option>
+              <option>Granit Tencereler</option>
+              <option>Döküm Tavalar</option>
+              <option>Düdüklü Tencereler</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkbox & Radio Filter Group -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Filtre Bileşenleri — Checkbox & Radio</span></div>
+      <div class="showcase-body">
+        <div class="demo-grid g3" style="gap:20px;">
+          <div class="filter-box">
+            <div class="filter-box-title">Materyal</div>
+            <label class="check-row" onclick="toggleCheck(this)">
+              <div class="custom-check checked"></div>
+              <span class="check-label-text">Granit Kaplama</span>
+              <span class="check-count">124</span>
+            </label>
+            <label class="check-row" onclick="toggleCheck(this)">
+              <div class="custom-check"></div>
+              <span class="check-label-text">Paslanmaz Çelik</span>
+              <span class="check-count">87</span>
+            </label>
+            <label class="check-row" onclick="toggleCheck(this)">
+              <div class="custom-check checked"></div>
+              <span class="check-label-text">Döküm Demir</span>
+              <span class="check-count">43</span>
+            </label>
+            <label class="check-row" onclick="toggleCheck(this)">
+              <div class="custom-check"></div>
+              <span class="check-label-text">Emaye Kaplama</span>
+              <span class="check-count">29</span>
+            </label>
+            <label class="check-row" onclick="toggleCheck(this)">
+              <div class="custom-check"></div>
+              <span class="check-label-text">Alüminyum</span>
+              <span class="check-count">56</span>
+            </label>
+          </div>
+          <div class="filter-box">
+            <div class="filter-box-title">Sıralama</div>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio checked"></div>
+              <span class="check-label-text">Önerilen</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">Fiyat: Düşükten Yükseğe</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">Fiyat: Yüksekten Düşüğe</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">En Çok Değerlendirilen</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">En Yüksek Puan</span>
+            </label>
+          </div>
+          <div class="filter-box">
+            <div class="filter-box-title">Fiyat Aralığı</div>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">Tüm Fiyatlar</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio checked"></div>
+              <span class="check-label-text">₺0 – ₺500</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">₺500 – ₺1.000</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">₺1.000 – ₺2.000</span>
+            </label>
+            <label class="radio-row" onclick="toggleRadio(this)">
+              <div class="custom-radio"></div>
+              <span class="check-label-text">₺2.000+</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION: BADGES ═══ -->
+<section class="kit-section" id="badges" style="background:var(--white);">
+  <div class="wrapper">
+    <span class="section-num">06</span>
+    <h2 class="kit-section-title">Rozet & Etiketler</h2>
+    <p class="kit-section-sub">Ürün durum etiketleri, bilgi rozetleri ve kategori etiketleri</p>
+
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Ürün Rozetleri</span></div>
+      <div class="showcase-body">
+        <div class="demo-col">
+          <div>
+            <div class="type-label">Büyük (LG) — İndirim & Durum</div>
+            <div class="chip-group" style="margin-bottom:16px;">
+              <span class="badge badge-red badge-lg">🏷️ İndirim %30</span>
+              <span class="badge badge-orange badge-lg">🔥 Çok Satan</span>
+              <span class="badge badge-green badge-lg">🚚 Ücretsiz Kargo</span>
+              <span class="badge badge-purple badge-lg">✨ Yeni Ürün</span>
+              <span class="badge badge-amber badge-lg">⭐ Öne Çıkan</span>
+              <span class="badge badge-blue badge-lg">💎 Premium</span>
+            </div>
+          </div>
+          <div>
+            <div class="type-label">Orta (MD) — Kart Rozetleri</div>
+            <div class="chip-group" style="margin-bottom:16px;">
+              <span class="badge badge-red badge-md">İndirim %20</span>
+              <span class="badge badge-orange badge-md">Çok Satan</span>
+              <span class="badge badge-green badge-md">Ücretsiz Kargo</span>
+              <span class="badge badge-purple badge-md">Yeni Ürün</span>
+              <span class="badge badge-dark badge-md">Premium Set</span>
+              <span class="badge badge-amber badge-md">Son 5 Adet</span>
+            </div>
+          </div>
+          <div>
+            <div class="type-label">Küçük (SM) — Inline / Yoğun</div>
+            <div class="chip-group" style="margin-bottom:16px;">
+              <span class="badge badge-red-soft badge-sm">-%25</span>
+              <span class="badge badge-orange-soft badge-sm">Çok Satan</span>
+              <span class="badge badge-green-soft badge-sm">Stokta Var</span>
+              <span class="badge badge-purple-soft badge-sm">Yeni</span>
+              <span class="badge badge-blue-soft badge-sm">Hızlı Teslimat</span>
+              <span class="badge badge-amber-soft badge-sm">Son Adet</span>
+              <span class="badge badge-gray badge-sm">Arşiv</span>
+            </div>
+          </div>
+          <div>
+            <div class="type-label">XS — Chip / Tag Stil</div>
+            <div class="chip-group">
+              <span class="badge badge-red badge-xs">İndirim</span>
+              <span class="badge badge-orange badge-xs">Çok Satan</span>
+              <span class="badge badge-green badge-xs">Ücretsiz</span>
+              <span class="badge badge-purple badge-xs">Yeni</span>
+              <span class="badge badge-blue badge-xs">Teslimat 1-2 gün</span>
+              <span class="badge badge-dark badge-xs">Orijinal Ürün</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Durum Dot Rozetleri</span></div>
+      <div class="showcase-body">
+        <div class="chip-group">
+          <span class="badge badge-green badge-md badge-dot"> Stokta Var</span>
+          <span class="badge badge-red badge-md badge-dot"> Tükendi</span>
+          <span class="badge badge-amber badge-md badge-dot"> Son 3 Adet</span>
+          <span class="badge badge-blue badge-md badge-dot"> Yolda</span>
+          <span class="badge badge-purple badge-md badge-dot"> Ön Sipariş</span>
+          <span class="badge badge-gray badge-md badge-dot"> Depo Dışı</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spec table for badges -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Rozet Teknik Özellikleri</span></div>
+      <div class="showcase-body" style="padding:0;">
+        <table class="spec-table">
+          <thead><tr><th>Rozet</th><th>Renk</th><th>Kullanım Alanı</th><th>CSS Sınıfı</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge badge-orange badge-sm">Çok Satan</span></td><td><span class="spec-code">#FF6B1A</span></td><td>Yüksek satışlı ürünler</td><td><span class="spec-code">.badge-orange</span></td></tr>
+            <tr><td><span class="badge badge-red badge-sm">İndirim %30</span></td><td><span class="spec-code">#EF4444</span></td><td>İndirimli / kampanyalı ürünler</td><td><span class="spec-code">.badge-red</span></td></tr>
+            <tr><td><span class="badge badge-green badge-sm">Ücretsiz Kargo</span></td><td><span class="spec-code">#22C55E</span></td><td>Kargo ücretsiz olan ürünler</td><td><span class="spec-code">.badge-green</span></td></tr>
+            <tr><td><span class="badge badge-purple badge-sm">Yeni Ürün</span></td><td><span class="spec-code">#8B5CF6</span></td><td>Son 30 günde eklenen ürünler</td><td><span class="spec-code">.badge-purple</span></td></tr>
+            <tr><td><span class="badge badge-amber badge-sm">Son Adetler</span></td><td><span class="spec-code">#F59E0B</span></td><td>Stok &lt; 5 adet olan ürünler</td><td><span class="spec-code">.badge-amber</span></td></tr>
+            <tr><td><span class="badge badge-dark badge-sm">Premium</span></td><td><span class="spec-code">#1E293B</span></td><td>Lüks / premium segment ürünler</td><td><span class="spec-code">.badge-dark</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION: PRODUCT CARD ═══ -->
+<section class="kit-section" id="cards">
+  <div class="wrapper">
+    <span class="section-num">07</span>
+    <h2 class="kit-section-title">Ürün Kartı</h2>
+    <p class="kit-section-sub">Tam yapı, varyantlar ve durum örnekleri</p>
+
+    <!-- Full product cards -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Ürün Kartı — Tam Yapı (hover için üzerine gel)</span></div>
+      <div class="showcase-body gray-bg">
+        <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+
+          <!-- Card 1 — Discounted -->
+          <div class="product-card-demo">
+            <div class="pcd-img">
+              <div class="pcd-badges">
+                <span class="badge badge-red badge-sm">-%31</span>
+                <span class="badge badge-orange badge-sm">Çok Satan</span>
+              </div>
+              <button class="pcd-wish">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="images/tacgranittencereseti.jpg" alt="TAÇ Premium 5 Parçalı Granit Tencere Seti" loading="lazy" />
+              <div class="pcd-quick">
+                <button class="pcd-quick-btn">🛒 Hızlı Sepete Ekle</button>
+              </div>
+            </div>
+            <div class="pcd-info">
+              <div class="pcd-brand">TAÇ</div>
+              <div class="pcd-name">Premium 5 Parçalı Granit Tencere Seti</div>
+              <div class="pcd-mat">Granit Kaplama · 24cm · Tüm Ocaklar</div>
+              <div class="pcd-rating-row">
+                <span class="pcd-stars">★★★★★</span>
+                <span class="pcd-reviews">(342)</span>
+              </div>
+              <div class="pcd-price-row">
+                <span class="pcd-price">₺1.249</span>
+                <span class="pcd-old">₺1.799</span>
+                <span class="pcd-disc">-%31</span>
+              </div>
+              <button class="pcd-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 — New + Free Ship -->
+          <div class="product-card-demo">
+            <div class="pcd-img">
+              <div class="pcd-badges">
+                <span class="badge badge-purple badge-sm">Yeni Ürün</span>
+                <span class="badge badge-green badge-sm">Ücretsiz Kargo</span>
+              </div>
+              <button class="pcd-wish active">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="#EF4444" stroke="#EF4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="images/tacceliktencere.jpg" alt="TAÇ Pro Serisi Çelik Düdüklü Tencere 6L" loading="lazy" />
+              <div class="pcd-quick">
+                <button class="pcd-quick-btn">🛒 Hızlı Sepete Ekle</button>
+              </div>
+            </div>
+            <div class="pcd-info">
+              <div class="pcd-brand">TAÇ</div>
+              <div class="pcd-name">Pro Serisi Çelik Düdüklü Tencere 6L</div>
+              <div class="pcd-mat">Paslanmaz Çelik · 6 Litre · Emniyet Valfi</div>
+              <div class="pcd-rating-row">
+                <span class="pcd-stars">★★★★½</span>
+                <span class="pcd-reviews">(156)</span>
+              </div>
+              <div class="pcd-price-row">
+                <span class="pcd-price">₺749</span>
+              </div>
+              <button class="pcd-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 — Out of stock (state) -->
+          <div class="product-card-demo" style="opacity:.85;">
+            <div class="pcd-img">
+              <div class="pcd-badges">
+                <span class="badge badge-gray badge-sm">Tükendi</span>
+              </div>
+              <img src="images/tacdökümtavaseti.jpg" alt="TAÇ 3 Parçalı Döküm Tava Seti" style="filter:grayscale(.8);opacity:.6;" loading="lazy" />
+            </div>
+            <div class="pcd-info">
+              <div class="pcd-brand">TAÇ</div>
+              <div class="pcd-name">3 Parçalı Döküm Tava Seti</div>
+              <div class="pcd-mat">Döküm Demir · Matte Siyah</div>
+              <div class="pcd-rating-row">
+                <span class="pcd-stars">★★★★★</span>
+                <span class="pcd-reviews">(487)</span>
+              </div>
+              <div class="pcd-price-row">
+                <span class="pcd-price" style="color:var(--slate-400);">₺1.599</span>
+              </div>
+              <button class="pcd-btn btn-disabled">Stokta Yok — Bildir</button>
+            </div>
+          </div>
+
+          <!-- Card 4 — Premium set -->
+          <div class="product-card-demo">
+            <div class="pcd-img">
+              <div class="pcd-badges">
+                <span class="badge badge-red badge-sm">-%30</span>
+                <span class="badge badge-dark badge-sm">Premium</span>
+                <span class="badge badge-green badge-sm">Ücretsiz Kargo</span>
+              </div>
+              <button class="pcd-wish">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="images/taccelikset.jpg" alt="TAÇ Lüks 12 Parçalı Premium Çeyiz Seti" loading="lazy" />
+              <div class="pcd-quick">
+                <button class="pcd-quick-btn">🛒 Hızlı Sepete Ekle</button>
+              </div>
+            </div>
+            <div class="pcd-info">
+              <div class="pcd-brand">TAÇ</div>
+              <div class="pcd-name">Lüks 12 Parçalı Premium Çeyiz Seti</div>
+              <div class="pcd-mat">Granit Kaplama · Çeyiz Kutusu ile</div>
+              <div class="pcd-rating-row">
+                <span class="pcd-stars">★★★★★</span>
+                <span class="pcd-reviews">(621)</span>
+              </div>
+              <div class="pcd-price-row">
+                <span class="pcd-price">₺3.499</span>
+                <span class="pcd-old">₺4.999</span>
+                <span class="pcd-disc">-%30</span>
+              </div>
+              <button class="pcd-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Card anatomy -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Kart Anatomisi</span></div>
+      <div class="showcase-body">
+        <table class="spec-table">
+          <thead><tr><th>Bileşen</th><th>Özellikler</th><th>Notlar</th></tr></thead>
+          <tbody>
+            <tr><td>Görsel Alan</td><td>Aspect ratio 1:1 · Pastel/gradient bg</td><td>Minimum 200×200px</td></tr>
+            <tr><td>Marka Adı</td><td>0.68rem · 800w · UPPERCASE · Slate-400</td><td>Marka/üretici adı</td></tr>
+            <tr><td>Ürün Adı</td><td>0.92rem · 700w · 2 satır max</td><td>text-overflow: ellipsis</td></tr>
+            <tr><td>Materyal Bilgisi</td><td>0.75rem · 400w · Slate-400</td><td>Materyal + boyut + uyum</td></tr>
+            <tr><td>Yıldız Puanı</td><td>Amber #F59E0B · 0.82rem · Yorum sayısı</td><td>5 üzerinden, yarım yıldız desteği</td></tr>
+            <tr><td>Fiyat Bloğu</td><td>Güncel: Orange 800w · Eski: strikethrough</td><td>İndirim rozetli</td></tr>
+            <tr><td>Sepete Ekle Butonu</td><td>Full width · Primary Orange · Icon sol</td><td>hover: translateY(-1px)</td></tr>
+            <tr><td>Favori Butonu</td><td>Sağ üst · 36px circle · toggle</td><td>Active: kırmızı fill</td></tr>
+            <tr><td>Hızlı Ekle (overlay)</td><td>Alt overlay · hover'da görünür</td><td>Slide up animasyonu</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION: NAVIGATION ═══ -->
+<section class="kit-section" id="navigation" style="background:var(--white);">
+  <div class="wrapper">
+    <span class="section-num">08</span>
+    <h2 class="kit-section-title">Navigasyon Elementleri</h2>
+    <p class="kit-section-sub">Header bar, ikonlar, kategoriler ve breadcrumb</p>
+
+    <!-- Nav Bar Demo -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Header Navigation Bar</span></div>
+      <div class="showcase-body" style="background:var(--slate-50);">
+        <div class="nav-demo-bar">
+          <a href="/" class="nav-logo-mini" aria-label="Tencere Tava Dünyası Anasayfa">
+            <img src="logos/logo.jpg" alt="Tencere Tava Dünyası Logo" style="height:44px;width:auto;max-height:48px;object-fit:contain;border-radius:6px;mix-blend-mode:multiply;" />
+          </a>
+          <div class="nav-tabs">
+            <div class="nav-tab active">Anasayfa</div>
+            <div class="nav-tab">Tencereler</div>
+            <div class="nav-tab">Tavalar</div>
+            <div class="nav-tab">Setler</div>
+            <div class="nav-tab">Kampanyalar</div>
+          </div>
+          <div class="nav-actions">
+            <button class="nav-action-icon" title="Arama">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
+            <button class="nav-action-icon" title="Favoriler" style="position:relative;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="nav-counter">3</span>
+            </button>
+            <button class="nav-action-icon" title="Hesabım">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </button>
+            <button class="nav-action-icon" style="background:var(--orange);border-radius:var(--r-md);color:#fff;position:relative;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span class="nav-counter">7</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Pills -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Kategori Pill'leri / Sekmeler</span></div>
+      <div class="showcase-body">
+        <div class="cat-pills" style="margin-bottom:20px;">
+          <div class="cat-pill active">Tümü</div>
+          <div class="cat-pill">Tencereler</div>
+          <div class="cat-pill">Tavalar</div>
+          <div class="cat-pill">Düdüklüler</div>
+          <div class="cat-pill">Çeyiz Setleri</div>
+          <div class="cat-pill">Güveçler</div>
+        </div>
+        <div class="chip-group">
+          <span class="badge badge-orange badge-md">Granit</span>
+          <span class="badge badge-orange-soft badge-md">Çelik</span>
+          <span class="badge badge-orange-soft badge-md">Döküm</span>
+          <span class="badge badge-orange-soft badge-md">Emaye</span>
+          <span class="badge badge-orange-soft badge-md">Alüminyum</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Breadcrumb Navigasyonu</span></div>
+      <div class="showcase-body">
+        <div class="breadcrumb" style="margin-bottom:16px;">
+          <div class="breadcrumb-item"><a href="#">Anasayfa</a></div>
+          <div class="breadcrumb-sep">›</div>
+          <div class="breadcrumb-item"><a href="#">Tencereler</a></div>
+          <div class="breadcrumb-sep">›</div>
+          <div class="breadcrumb-item"><a href="#">Granit Tencereler</a></div>
+          <div class="breadcrumb-sep">›</div>
+          <div class="breadcrumb-item active">Premium 5 Parçalı Set</div>
+        </div>
+        <div class="breadcrumb">
+          <div class="breadcrumb-item"><a href="#">🏠</a></div>
+          <div class="breadcrumb-sep">/</div>
+          <div class="breadcrumb-item"><a href="#">Çeyiz Setleri</a></div>
+          <div class="breadcrumb-sep">/</div>
+          <div class="breadcrumb-item active">Lüks 12 Parçalı Set</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart counter states -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Sepet İkon Durum Örnekleri</span></div>
+      <div class="showcase-body">
+        <div class="demo-row" style="gap:36px;align-items:center;">
+          <div style="text-align:center;">
+            <button class="nav-action-icon" style="margin-bottom:8px;position:relative;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </button>
+            <div style="font-size:.72rem;color:var(--slate-500);">Boş Sepet</div>
+          </div>
+          <div style="text-align:center;">
+            <button class="nav-action-icon" style="margin-bottom:8px;position:relative;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span class="nav-counter">1</span>
+            </button>
+            <div style="font-size:.72rem;color:var(--slate-500);">1 Ürün</div>
+          </div>
+          <div style="text-align:center;">
+            <button class="nav-action-icon" style="margin-bottom:8px;position:relative;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span class="nav-counter">7</span>
+            </button>
+            <div style="font-size:.72rem;color:var(--slate-500);">7 Ürün</div>
+          </div>
+          <div style="text-align:center;">
+            <button class="nav-action-icon" style="margin-bottom:8px;background:var(--orange);color:#fff;border-radius:var(--r-md);position:relative;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span class="nav-counter" style="background:var(--slate-800);">12</span>
+            </button>
+            <div style="font-size:.72rem;color:var(--slate-500);">Dolu (aktif)</div>
+          </div>
+          <div style="text-align:center;">
+            <button class="nav-action-icon" style="margin-bottom:8px;position:relative;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="nav-counter">5</span>
+            </button>
+            <div style="font-size:.72rem;color:var(--slate-500);">Favoriler (5)</div>
+          </div>
+          <div style="text-align:center;">
+            <button class="nav-action-icon" style="margin-bottom:8px;position:relative;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </button>
+            <div style="font-size:.72rem;color:var(--slate-500);">Hesabım</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION: ALERTS ═══ -->
+<section class="kit-section" id="alerts">
+  <div class="wrapper">
+    <span class="section-num">09</span>
+    <h2 class="kit-section-title">Bildirimler & Alertler</h2>
+    <p class="kit-section-sub">Alert kartları ve toast bildirimleri</p>
+
+    <!-- Alert Cards -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Alert Kartları</span></div>
+      <div class="showcase-body">
+        <div class="demo-col">
+          <div class="alert alert-success">
+            <div class="alert-icon">✓</div>
+            <div class="alert-content">
+              <div class="alert-title">Ürün sepete eklendi!</div>
+              <div class="alert-desc">Premium 5 Parçalı Granit Tencere Seti sepetinize eklendi. Toplam: ₺1.249</div>
+            </div>
+            <button class="alert-close">✕</button>
+          </div>
+          <div class="alert alert-orange">
+            <div class="alert-icon">🛒</div>
+            <div class="alert-content">
+              <div class="alert-title">Sepet güncellendi</div>
+              <div class="alert-desc">Bu ürün sepetinizde zaten var. Adet 1'den 2'ye güncellendi.</div>
+            </div>
+            <button class="alert-close">✕</button>
+          </div>
+          <div class="alert alert-warning">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-content">
+              <div class="alert-title">Son 3 adet kaldı!</div>
+              <div class="alert-desc">Bu ürün çok rağbet görüyor. Hızlı hareket edin, stoklar tükenmek üzere.</div>
+            </div>
+            <button class="alert-close">✕</button>
+          </div>
+          <div class="alert alert-error">
+            <div class="alert-icon">✕</div>
+            <div class="alert-content">
+              <div class="alert-title">Ürün sepete eklenemedi</div>
+              <div class="alert-desc">Bu ürün şu an stokta bulunmamaktadır. Stoka girince bildirim almak için "Bildir" butonuna tıklayın.</div>
+            </div>
+            <button class="alert-close">✕</button>
+          </div>
+          <div class="alert alert-info">
+            <div class="alert-icon">ℹ</div>
+            <div class="alert-content">
+              <div class="alert-title">500 TL ve üzeri siparişlerde ücretsiz kargo!</div>
+              <div class="alert-desc">Sepetinize ₺87 daha ürün ekleyerek ücretsiz kargo fırsatından yararlanın.</div>
+            </div>
+            <button class="alert-close">✕</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Toast Bildirimleri</span></div>
+      <div class="showcase-body dark-bg">
+        <div class="demo-col" style="align-items:flex-start;">
+          <div class="toast-demo toast-success">
+            <div class="toast-icon-wrap">✓</div>
+            <div class="toast-text">
+              <div style="font-weight:800;margin-bottom:2px;">Sepete eklendi!</div>
+              <div style="font-size:.78rem;opacity:.75;">Granit Tencere Seti · ₺1.249</div>
+            </div>
+            <button class="toast-dismiss">✕</button>
+          </div>
+          <div class="toast-demo toast-cart">
+            <div class="toast-icon-wrap">🛒</div>
+            <div class="toast-text">
+              <div style="font-weight:800;margin-bottom:2px;">Favorilere eklendi!</div>
+              <div style="font-size:.78rem;opacity:.85;">Döküm Tava Seti favorilerinizde</div>
+            </div>
+            <button class="toast-dismiss">✕</button>
+          </div>
+          <div class="toast-demo toast-warning">
+            <div class="toast-icon-wrap">⚠️</div>
+            <div class="toast-text">
+              <div style="font-weight:800;margin-bottom:2px;">Stok uyarısı</div>
+              <div style="font-size:.78rem;opacity:.85;">Bu üründen sadece 2 adet kaldı</div>
+            </div>
+            <button class="toast-dismiss">✕</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Toast Demo -->
+    <div class="showcase">
+      <div class="showcase-header">
+        <span class="showcase-label">Canlı Toast Demo</span>
+      </div>
+      <div class="showcase-body">
+        <div class="demo-row" style="margin-bottom:16px;">
+          <button class="btn btn-success btn-md" onclick="showLiveToast('success')">✓ Başarı Toast</button>
+          <button class="btn btn-primary btn-md" onclick="showLiveToast('cart')">🛒 Sepet Toast</button>
+          <button class="btn btn-secondary btn-md" onclick="showLiveToast('wish')">❤️ Favori Toast</button>
+          <button class="btn btn-ghost btn-md" onclick="showLiveToast('warning')">⚠️ Uyarı Toast</button>
+          <button class="btn btn-danger btn-md" onclick="showLiveToast('error')">✕ Hata Toast</button>
+        </div>
+        <div id="live-toast-area" style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;min-height:60px;"></div>
+      </div>
+    </div>
+
+    <!-- Progress / Stock indicator -->
+    <div class="showcase">
+      <div class="showcase-header"><span class="showcase-label">Stok & İlerleme Göstergesi</span></div>
+      <div class="showcase-body">
+        <div class="demo-col">
+          <div>
+            <div class="progress-label"><span>Stok Durumu: <strong>%82 Dolu</strong></span><span style="color:var(--green)">Stokta Var</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:82%;background:linear-gradient(90deg,var(--green),#16A34A);"></div></div>
+          </div>
+          <div>
+            <div class="progress-label"><span>Kampanya Süresi: <strong>%60 Tamamlandı</strong></span><span style="color:var(--orange)">3 gün kaldı</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:60%;"></div></div>
+          </div>
+          <div>
+            <div class="progress-label"><span>Son Stok Uyarısı: <strong>%12 Kaldı</strong></span><span style="color:var(--red)">Az Stok!</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:12%;background:linear-gradient(90deg,#FCA5A5,var(--red));"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="kit-footer">
+  <div class="wrapper" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <a href="/" aria-label="Tencere Tava Dünyası Anasayfa">
+      <img src="logos/logo.jpg" alt="Tencere Tava Dünyası Logo" style="height:40px;width:auto;object-fit:contain;border-radius:8px;background:#fff;padding:3px 8px;" />
+    </a>
+    <p><strong>Tencere Tava Dünyası</strong> — Brand Kit & UI Kit · v1.0.0 · 2026<br/>
+    <span style="font-size:.72rem;margin-top:6px;display:block;">Bu doküman marka tutarlılığı ve geliştirici referansı için hazırlanmıştır.</span></p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+</button>
+
+<div id="copy-toast" style="
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--slate-800);color:#fff;padding:10px 20px;
+  border-radius:var(--r-full);font-size:.82rem;font-weight:600;
+  opacity:0;transition:.3s;z-index:9999;pointer-events:none;white-space:nowrap;
+  border-left:3px solid var(--orange);box-shadow:var(--shadow-xl);
+"></div>
+
+<script>
+// Nav active on scroll
+const sections = document.querySelectorAll('.kit-section,[id]');
+const navPills = document.querySelectorAll('.nav-pill');
+const scrollTopBtn = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 100;
+  scrollTopBtn.classList.toggle('show', y > 400);
+
+  let current = '';
+  document.querySelectorAll('section[id],div[id]').forEach(s => {
+    if (s.offsetTop <= y) current = s.id;
+  });
+  navPills.forEach(p => {
+    p.classList.remove('active');
+    if (p.getAttribute('href') === '#' + current) p.classList.add('active');
+  });
+}, { passive: true });
+
+// Nav smooth scroll
+navPills.forEach(p => {
+  p.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(p.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Copy color
+function copyColor(hex, el) {
+  navigator.clipboard?.writeText(hex).catch(() => {});
+  const t = document.getElementById('copy-toast');
+  t.textContent = `📋 ${hex} kopyalandı!`;
+  t.style.opacity = '1';
+  t.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    t.style.opacity = '0';
+    t.style.transform = 'translateX(-50%) translateY(20px)';
+  }, 2000);
+}
+
+// Search dropdown toggle
+function toggleSearchDrop(val) {
+  const drop = document.getElementById('search-drop');
+  drop.style.display = 'block';
+}
+function setSearch(val) {
+  document.getElementById('demo-search').value = val;
+  document.getElementById('search-drop').style.display = 'none';
+}
+document.getElementById('demo-search')?.addEventListener('focus', () => {
+  const drop = document.getElementById('search-drop');
+  if (drop) drop.style.display = 'block';
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('.search-container')) {
+    const drop = document.getElementById('search-drop');
+    if (drop) drop.style.display = 'none';
+  }
+});
+
+// Interactive Add to Cart on Product Cards
+document.querySelectorAll('.pcd-btn:not(.btn-disabled), .pcd-quick-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.product-card-demo');
+    const name = card?.querySelector('.pcd-name')?.textContent || 'Ürün';
+    const price = card?.querySelector('.pcd-price')?.textContent || '';
+    document.querySelectorAll('.nav-counter').forEach(counter => {
+      const val = parseInt(counter.textContent, 10);
+      if (!isNaN(val)) counter.textContent = val + 1;
+    });
+    const t = document.getElementById('copy-toast');
+    t.textContent = `✓ Ürün sepete eklendi: ${name} (${price})`;
+    t.style.opacity = '1';
+    t.style.transform = 'translateX(-50%) translateY(0)';
+    setTimeout(() => {
+      t.style.opacity = '0';
+      t.style.transform = 'translateX(-50%) translateY(20px)';
+    }, 2400);
+  });
+});
+
+// Checkbox toggle
+function toggleCheck(row) {
+  const box = row.querySelector('.custom-check');
+  box.classList.toggle('checked');
+}
+
+// Radio toggle
+function toggleRadio(row) {
+  const parent = row.parentElement;
+  parent.querySelectorAll('.custom-radio').forEach(r => r.classList.remove('checked'));
+  row.querySelector('.custom-radio').classList.add('checked');
+}
+
+// Cat pills
+document.querySelectorAll('.cat-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+  });
+});
+
+// Nav tabs demo
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+
+// Wishlist demo
+document.querySelectorAll('.pcd-wish').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+    const svg = btn.querySelector('svg');
+    if (btn.classList.contains('active')) {
+      svg.setAttribute('fill', '#EF4444');
+      svg.setAttribute('stroke', '#EF4444');
+    } else {
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+    }
+  });
+});
+
+// Alert close
+document.querySelectorAll('.alert-close').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const alert = btn.closest('.alert');
+    alert.style.transform = 'translateX(20px)';
+    alert.style.opacity = '0';
+    alert.style.transition = '.3s';
+    setTimeout(() => alert.remove(), 300);
+  });
+});
+
+// Live Toast Demo
+const toastConfigs = {
+  success: { style: 'background:#1E293B;border-left:4px solid #22C55E;', icon: '✓', iconBg: '#22C55E', title: 'Ürün sepete eklendi!', msg: 'Granit Tencere Seti · ₺1.249' },
+  cart: { style: 'background:#FF6B1A;border-left:4px solid rgba(255,255,255,.4);', icon: '🛒', iconBg: 'rgba(255,255,255,.25)', title: 'Sepete eklendi!', msg: 'Döküm Tava Seti · ₺1.599' },
+  wish: { style: 'background:#1E293B;border-left:4px solid #EF4444;', icon: '❤️', iconBg: '#EF4444', title: 'Favorilere eklendi!', msg: 'Çeyiz Seti favorilerinizde' },
+  warning: { style: 'background:#78350F;border-left:4px solid #F59E0B;', icon: '⚠️', iconBg: '#F59E0B', title: 'Son 2 adet kaldı!', msg: 'Hızlı hareket edin!' },
+  error: { style: 'background:#7F1D1D;border-left:4px solid #EF4444;', icon: '✕', iconBg: '#EF4444', title: 'Hata oluştu', msg: 'Ürün şu an stokta yok.' },
+};
+
+function showLiveToast(type) {
+  const area = document.getElementById('live-toast-area');
+  const cfg = toastConfigs[type];
+  const div = document.createElement('div');
+  div.style.cssText = `
+    display:flex;align-items:center;gap:12px;
+    padding:12px 16px;border-radius:50px;
+    color:#fff;font-family:inherit;
+    box-shadow:0 8px 32px rgba(0,0,0,.2);
+    animation:toastPop .3s cubic-bezier(.4,0,.2,1);
+    ${cfg.style}
+  `;
+  div.innerHTML = `
+    <div style="width:30px;height:30px;border-radius:50%;background:${cfg.iconBg};display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;">${cfg.icon}</div>
+    <div style="flex:1;"><div style="font-weight:800;font-size:.85rem;">${cfg.title}</div><div style="font-size:.75rem;opacity:.8;">${cfg.msg}</div></div>
+    <button onclick="this.parentElement.remove()" style="color:rgba(255,255,255,.6);font-size:.8rem;background:none;border:none;cursor:pointer;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:50%;">✕</button>
+  `;
+  area.appendChild(div);
+  setTimeout(() => {
+    if (div.parentElement) {
+      div.style.opacity = '0';
+      div.style.transform = 'translateX(20px)';
+      div.style.transition = '.3s';
+      setTimeout(() => div.remove(), 300);
+    }
+  }, 3000);
+}
+
+// Add animation keyframes dynamically
+const style = document.createElement('style');
+style.textContent = `@keyframes toastPop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>

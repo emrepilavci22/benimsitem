@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Tencere Tava Dünyası | Premium Mutfak Ekipmanları</title>
+  <meta name="description" content="Türkiye'nin en geniş granit, çelik ve döküm tencere tava koleksiyonu. %100 orijinal ürün garantisi, hızlı kargo ve güvenli ödeme." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="logos/logo.jpg" />
+  <link rel="apple-touch-icon" href="logos/logo.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="announcement-bar" id="announcement-bar">
+    <div class="announcement-inner">
+      <span class="ann-item">
+        <svg class="inline-svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        3500 TL ve üzeri siparişlerde <strong>ÜCRETSİZ KARGO</strong>
+      </span>
+      <span class="sep">|</span>
+      <span class="ann-item">
+        <svg class="inline-svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        İlk alışverişinize özel <strong>%10 indirim</strong> — Kod: <strong>TTD10</strong>
+      </span>
+      <span class="sep">|</span>
+      <span class="ann-item">
+        <svg class="inline-svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Türkiye geneline sigortalı hızlı teslimat
+      </span>
+    </div>
+    <button class="close-announcement" id="close-announcement" aria-label="Kapat">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- ===== STICKY HEADER ===== -->
+  <header class="header" id="main-header">
+    <div class="container header-inner">
+      <a href="/" class="logo" id="logo-link">
+        <img src="logos/logo.jpg" alt="Tencere Tava Dünyası Logo" class="brand-logo-img" />
+      </a>
+
+      <div class="search-wrapper" id="search-wrapper">
+        <div class="search-bar">
+          <svg class="search-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="text" id="search-input" placeholder="Ürün, marka veya kategori ara..." autocomplete="off" />
+          <button class="search-btn" id="search-btn">Ara</button>
+        </div>
+        <div class="search-suggestions" id="search-suggestions"></div>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" class="action-btn" id="categories-btn" aria-label="Kategoriler">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+          <span class="action-label">Kategoriler</span>
+        </button>
+        <button type="button" class="action-btn" id="wishlist-btn" aria-label="Favorilerim">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="badge" id="wishlist-count">0</span>
+          <span class="action-label">Favorilerim</span>
+        </button>
+        <div class="header-account-wrap" id="header-account-wrap">
+          <button type="button" class="action-btn" id="account-btn" aria-label="Giriş Yap / Hesabım">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="action-label" id="account-btn-label">Giriş Yap</span>
+          </button>
+          <div class="header-account-dropdown" id="header-account-dropdown" style="display:none;">
+            <div class="header-acc-drop-head">
+              <strong id="header-acc-drop-name">Üye</strong>
+              <span id="header-acc-drop-email"></span>
+            </div>
+            <button type="button" class="header-acc-drop-item" onclick="closeHeaderAccountDropdown(); openAccountPage(); switchAccountPanel('orders');">Hesabım</button>
+            <button type="button" class="header-acc-drop-item" onclick="closeHeaderAccountDropdown(); openAccountPage(); switchAccountPanel('orders');">Siparişlerim</button>
+            <button type="button" class="header-acc-drop-item logout" onclick="handleUserLogout()">Çıkış Yap</button>
+          </div>
+        </div>
+        <button type="button" class="action-btn cart-btn" id="cart-btn" aria-label="Sepetim">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="badge cart-badge" id="cart-count">0</span>
+          <span class="action-label">Sepetim</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== MAIN CATEGORY NAV BAR ===== -->
+    <nav class="header-cat-bar" aria-label="Ana Kategoriler ve Alt Kategoriler">
+      <div class="container header-cat-inner">
+        <a href="#" class="cat-nav-home active" data-home-link="true">Anasayfa</a>
+
+        <div class="cat-nav-item" data-cat-item="Tencereler">
+          <a href="#tencereler" class="cat-nav-link" data-main-cat="Tencereler">Tencereler</a>
+          <button type="button" class="cat-pin-btn" data-pin-cat="Tencereler" title="Alt kategorileri sabitle / aç" aria-label="Tencereler alt kategorilerini sabitle">
+            <svg class="cat-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="cat-hover-menu">
+            <li><a href="#granit-tencereler" data-main-cat="Tencereler" data-sub-cat="Granit Tencereler">Granit Tencereler</a></li>
+            <li><a href="#celik-tencereler" data-main-cat="Tencereler" data-sub-cat="Çelik Tencereler">Çelik Tencereler</a></li>
+            <li><a href="#dokum-tencereler" data-main-cat="Tencereler" data-sub-cat="Döküm Tencereler">Döküm Tencereler</a></li>
+            <li><a href="#duduklu-tencereler" data-main-cat="Tencereler" data-sub-cat="Düdüklü Tencereler">Düdüklü Tencereler</a></li>
+          </ul>
+        </div>
+
+        <div class="cat-nav-item" data-cat-item="Tavalar">
+          <a href="#tavalar" class="cat-nav-link" data-main-cat="Tavalar">Tavalar</a>
+          <button type="button" class="cat-pin-btn" data-pin-cat="Tavalar" title="Alt kategorileri sabitle / aç" aria-label="Tavalar alt kategorilerini sabitle">
+            <svg class="cat-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="cat-hover-menu">
+            <li><a href="#granit-tavalar" data-main-cat="Tavalar" data-sub-cat="Granit Tavalar">Granit Tavalar</a></li>
+            <li><a href="#dokum-tavalar" data-main-cat="Tavalar" data-sub-cat="Döküm Tavalar">Döküm Tavalar</a></li>
+            <li><a href="#celik-tavalar" data-main-cat="Tavalar" data-sub-cat="Çelik Tavalar">Çelik Tavalar</a></li>
+            <li><a href="#krep-tavalari" data-main-cat="Tavalar" data-sub-cat="Krep Tavaları">Krep Tavaları</a></li>
+            <li><a href="#wok-tavalar" data-main-cat="Tavalar" data-sub-cat="Wok Tavalar">Wok Tavalar</a></li>
+            <li><a href="#izgarali-tavalar" data-main-cat="Tavalar" data-sub-cat="Izgaralı Tavalar">Izgaralı Tavalar</a></li>
+          </ul>
+        </div>
+
+        <div class="cat-nav-item" data-cat-item="Set Ürünler">
+          <a href="#set-urunler" class="cat-nav-link" data-main-cat="Set Ürünler">Set Ürünler</a>
+          <button type="button" class="cat-pin-btn" data-pin-cat="Set Ürünler" title="Alt kategorileri sabitle / aç" aria-label="Set Ürünler alt kategorilerini sabitle">
+            <svg class="cat-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="cat-hover-menu">
+            <li><a href="#celik-tencere-setleri" data-main-cat="Set Ürünler" data-sub-cat="Çelik Tencere Setleri">Çelik Tencere Setleri</a></li>
+            <li><a href="#granit-tencere-setleri" data-main-cat="Set Ürünler" data-sub-cat="Granit Tencere Setleri">Granit Tencere Setleri</a></li>
+            <li><a href="#mini-tencere-setleri" data-main-cat="Set Ürünler" data-sub-cat="Mini Tencere Setleri">Mini Tencere Setleri</a></li>
+            <li><a href="#dokum-tava-setleri" data-main-cat="Set Ürünler" data-sub-cat="Döküm Tava Setleri">Döküm Tava Setleri</a></li>
+            <li><a href="#dokum-sahan-setleri" data-main-cat="Set Ürünler" data-sub-cat="Döküm Sahan Setleri">Döküm Sahan Setleri</a></li>
+          </ul>
+        </div>
+
+        <div class="cat-nav-item" data-cat-item="Çaydanlık Takımları">
+          <a href="#caydanlik-takimlari" class="cat-nav-link" data-main-cat="Çaydanlık Takımları">Çaydanlık Takımları</a>
+          <button type="button" class="cat-pin-btn" data-pin-cat="Çaydanlık Takımları" title="Alt kategorileri sabitle / aç" aria-label="Çaydanlık Takımları alt kategorilerini sabitle">
+            <svg class="cat-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="cat-hover-menu">
+            <li><a href="#celik-caydanlik-takimlari" data-main-cat="Çaydanlık Takımları" data-sub-cat="Çelik Çaydanlık Takımları">Çelik Çaydanlık Takımları</a></li>
+          </ul>
+        </div>
+
+        <button type="button" class="cat-nav-bundle-cta" id="nav-bundle-builder-btn" onclick="openBundleBuilderPage()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          <span>Kendi Çeyizini Oluştur</span>
+          <span class="cat-nav-bundle-pill">%15 İndirim</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="categories-dropdown" id="categories-dropdown">
+      <div class="container">
+        <div class="categories-dropdown-top">
+          <span class="categories-dropdown-badge">
+            <svg class="inline-svg-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Tüm Kategoriler ve Alt Kategoriler
+          </span>
+          <button type="button" class="categories-dropdown-close" id="close-categories-dropdown" aria-label="Menüyü Kapat">Kapat</button>
+        </div>
+        <div class="categories-grid">
+          <div class="cat-col">
+            <h4><a href="#tencereler" class="cat-col-title-link" data-main-cat="Tencereler">Tencereler <span>→</span></a></h4>
+            <ul>
+              <li><a href="#granit-tencereler" data-main-cat="Tencereler" data-sub-cat="Granit Tencereler">Granit Tencereler</a></li>
+              <li><a href="#celik-tencereler" data-main-cat="Tencereler" data-sub-cat="Çelik Tencereler">Çelik Tencereler</a></li>
+              <li><a href="#dokum-tencereler" data-main-cat="Tencereler" data-sub-cat="Döküm Tencereler">Döküm Tencereler</a></li>
+              <li><a href="#duduklu-tencereler" data-main-cat="Tencereler" data-sub-cat="Düdüklü Tencereler">Düdüklü Tencereler</a></li>
+            </ul>
+          </div>
+          <div class="cat-col">
+            <h4><a href="#tavalar" class="cat-col-title-link" data-main-cat="Tavalar">Tavalar <span>→</span></a></h4>
+            <ul>
+              <li><a href="#granit-tavalar" data-main-cat="Tavalar" data-sub-cat="Granit Tavalar">Granit Tavalar</a></li>
+              <li><a href="#dokum-tavalar" data-main-cat="Tavalar" data-sub-cat="Döküm Tavalar">Döküm Tavalar</a></li>
+              <li><a href="#celik-tavalar" data-main-cat="Tavalar" data-sub-cat="Çelik Tavalar">Çelik Tavalar</a></li>
+              <li><a href="#krep-tavalari" data-main-cat="Tavalar" data-sub-cat="Krep Tavaları">Krep Tavaları</a></li>
+              <li><a href="#wok-tavalar" data-main-cat="Tavalar" data-sub-cat="Wok Tavalar">Wok Tavalar</a></li>
+              <li><a href="#izgarali-tavalar" data-main-cat="Tavalar" data-sub-cat="Izgaralı Tavalar">Izgaralı Tavalar</a></li>
+            </ul>
+          </div>
+          <div class="cat-col">
+            <h4><a href="#set-urunler" class="cat-col-title-link" data-main-cat="Set Ürünler">Set Ürünler <span>→</span></a></h4>
+            <ul>
+              <li><a href="#celik-tencere-setleri" data-main-cat="Set Ürünler" data-sub-cat="Çelik Tencere Setleri">Çelik Tencere Setleri</a></li>
+              <li><a href="#granit-tencere-setleri" data-main-cat="Set Ürünler" data-sub-cat="Granit Tencere Setleri">Granit Tencere Setleri</a></li>
+              <li><a href="#mini-tencere-setleri" data-main-cat="Set Ürünler" data-sub-cat="Mini Tencere Setleri">Mini Tencere Setleri</a></li>
+              <li><a href="#dokum-tava-setleri" data-main-cat="Set Ürünler" data-sub-cat="Döküm Tava Setleri">Döküm Tava Setleri</a></li>
+              <li><a href="#dokum-sahan-setleri" data-main-cat="Set Ürünler" data-sub-cat="Döküm Sahan Setleri">Döküm Sahan Setleri</a></li>
+            </ul>
+          </div>
+          <div class="cat-col">
+            <h4><a href="#caydanlik-takimlari" class="cat-col-title-link" data-main-cat="Çaydanlık Takımları">Çaydanlık Takımları <span>→</span></a></h4>
+            <ul>
+              <li><a href="#celik-caydanlik-takimlari" data-main-cat="Çaydanlık Takımları" data-sub-cat="Çelik Çaydanlık Takımları">Çelik Çaydanlık Takımları</a></li>
+            </ul>
+          </div>
+          <div class="cat-col featured-cat">
+            <h4>Öne Çıkanlar</h4>
+            <div class="featured-cat-cards">
+              <a href="#products" class="feat-cat-card active" data-featured-action="all">
+                <span class="feat-cat-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </span>
+                <span>Tüm Ürünler</span>
+              </a>
+              <a href="#products" class="feat-cat-card" data-featured-action="sets">
+                <span class="feat-cat-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                </span>
+                <span>Set Kampanyaları</span>
+              </a>
+              <a href="#products" class="feat-cat-card" data-featured-action="bestsellers">
+                <span class="feat-cat-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </span>
+                <span>Çok Satanlar</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== MOBILE / TABLET EXPANDED ACCORDION NAVIGATION ===== -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil Kategori Menüsü">
+      <div class="container">
+        <a href="#" class="mobile-home-link" data-home-link="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Anasayfa</span>
+        </a>
+
+        <div class="mobile-accordion-list">
+          <div class="mobile-acc-item expanded">
+            <div class="mobile-acc-header">
+              <a href="#tencereler" class="mobile-acc-main-link" data-main-cat="Tencereler">Tencereler (Tümünü Gör)</a>
+              <button type="button" class="mobile-acc-toggle" aria-expanded="true" aria-label="Tencereler alt kategorilerini aç/kapat">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div class="mobile-acc-body">
+              <a href="#duduklu-tencereler" class="mobile-sub-pill" data-main-cat="Tencereler" data-sub-cat="Düdüklü Tencereler">Düdüklü Tencereler</a>
+              <a href="#granit-tencereler" class="mobile-sub-pill" data-main-cat="Tencereler" data-sub-cat="Granit Tencereler">Granit Tencereler</a>
+              <a href="#celik-tencereler" class="mobile-sub-pill" data-main-cat="Tencereler" data-sub-cat="Çelik Tencereler">Çelik Tencereler</a>
+              <a href="#dokum-tencereler" class="mobile-sub-pill" data-main-cat="Tencereler" data-sub-cat="Döküm Tencereler">Döküm Tencereler</a>
+            </div>
+          </div>
+
+          <div class="mobile-acc-item expanded">
+            <div class="mobile-acc-header">
+              <a href="#tavalar" class="mobile-acc-main-link" data-main-cat="Tavalar">Tavalar (Tümünü Gör)</a>
+              <button type="button" class="mobile-acc-toggle" aria-expanded="true" aria-label="Tavalar alt kategorilerini aç/kapat">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div class="mobile-acc-body">
+              <a href="#wok-tavalar" class="mobile-sub-pill" data-main-cat="Tavalar" data-sub-cat="Wok Tavalar">Wok Tavalar</a>
+              <a href="#krep-tavalari" class="mobile-sub-pill" data-main-cat="Tavalar" data-sub-cat="Krep Tavaları">Krep Tavaları</a>
+              <a href="#granit-tavalar" class="mobile-sub-pill" data-main-cat="Tavalar" data-sub-cat="Granit Tavalar">Granit Tavalar</a>
+              <a href="#izgarali-tavalar" class="mobile-sub-pill" data-main-cat="Tavalar" data-sub-cat="Izgaralı Tavalar">Izgaralı Tavalar</a>
+              <a href="#celik-tavalar" class="mobile-sub-pill" data-main-cat="Tavalar" data-sub-cat="Çelik Tavalar">Çelik Tavalar</a>
+              <a href="#dokum-tavalar" class="mobile-sub-pill" data-main-cat="Tavalar" data-sub-cat="Döküm Tavalar">Döküm Tavalar</a>
+            </div>
+          </div>
+
+          <div class="mobile-acc-item expanded">
+            <div class="mobile-acc-header">
+              <a href="#set-urunler" class="mobile-acc-main-link" data-main-cat="Set Ürünler">Set Ürünler (Tümünü Gör)</a>
+              <button type="button" class="mobile-acc-toggle" aria-expanded="true" aria-label="Set Ürünler alt kategorilerini aç/kapat">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div class="mobile-acc-body">
+              <a href="#celik-tencere-setleri" class="mobile-sub-pill" data-main-cat="Set Ürünler" data-sub-cat="Çelik Tencere Setleri">Çelik Tencere Setleri</a>
+              <a href="#granit-tencere-setleri" class="mobile-sub-pill" data-main-cat="Set Ürünler" data-sub-cat="Granit Tencere Setleri">Granit Tencere Setleri</a>
+              <a href="#mini-tencere-setleri" class="mobile-sub-pill" data-main-cat="Set Ürünler" data-sub-cat="Mini Tencere Setleri">Mini Tencere Setleri</a>
+              <a href="#dokum-tava-setleri" class="mobile-sub-pill" data-main-cat="Set Ürünler" data-sub-cat="Döküm Tava Setleri">Döküm Tava Setleri</a>
+              <a href="#dokum-sahan-setleri" class="mobile-sub-pill" data-main-cat="Set Ürünler" data-sub-cat="Döküm Sahan Setleri">Döküm Sahan Setleri</a>
+            </div>
+          </div>
+
+          <div class="mobile-acc-item expanded">
+            <div class="mobile-acc-header">
+              <a href="#caydanlik-takimlari" class="mobile-acc-main-link" data-main-cat="Çaydanlık Takımları">Çaydanlık Takımları (Tümünü Gör)</a>
+              <button type="button" class="mobile-acc-toggle" aria-expanded="true" aria-label="Çaydanlık Takımları alt kategorilerini aç/kapat">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div class="mobile-acc-body">
+              <a href="#celik-caydanlik-takimlari" class="mobile-sub-pill" data-main-cat="Çaydanlık Takımları" data-sub-cat="Çelik Çaydanlık Takımları">Çelik Çaydanlık Takımları</a>
+            </div>
+          </div>
+
+          <button type="button" class="mobile-bundle-builder-btn" onclick="openBundleBuilderPage()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            <span>Kendi Çeyizini Oluştur (%15 Ekstra İndirim)</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Sepetim</h3>
+      <button class="close-drawer" id="close-cart" aria-label="Sepeti Kapat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty" id="cart-empty">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#D6D3D1" stroke-width="1.5">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <p>Sepetiniz boş</p>
+        <a href="#products" class="btn-primary" onclick="closeCart()">Alışverişe Başla</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="cart-empty-checkout-notice" id="cart-empty-checkout-notice">
+        Sepetiniz boş
+      </div>
+      <div class="cart-shipping-notice" id="cart-shipping-progress-wrap" style="display:none">
+        <div class="cart-shipping-notice-top">
+          <span id="cart-shipping-msg">Standart Kargo Ücreti: <strong>₺200</strong> (3.500 TL üzeri kampanya avantajı!)</span>
+        </div>
+        <div class="cart-shipping-progress-track">
+          <div class="cart-shipping-progress-fill" id="cart-shipping-bar" style="width: 35%;"></div>
+        </div>
+      </div>
+      <div class="promo-code-box" id="cart-promo-box" style="display:none">
+        <div class="promo-code-input-row">
+          <input type="text" id="cart-promo-input" class="promo-code-input" placeholder="İndirim Kodu (Örn: TTD10)" onkeydown="if(event.key==='Enter'){event.preventDefault();applyPromoCode('cart');}" />
+          <button type="button" id="cart-promo-apply-btn" class="promo-code-apply-btn" onclick="applyPromoCode('cart')">Uygula</button>
+          <button type="button" id="cart-promo-remove-btn" class="promo-code-remove-btn" onclick="removePromoCode()" style="display:none;">Kaldır</button>
+        </div>
+        <div class="promo-code-feedback" id="cart-promo-feedback" style="display:none;"></div>
+      </div>
+      <div class="cart-summary" id="cart-summary-box" style="display:none">
+        <div class="cart-row"><span>Ara Toplam:</span><span id="cart-subtotal">₺0</span></div>
+        <div class="cart-row promo-discount-row" id="cart-discount-row" style="display:none;">
+          <span id="cart-discount-label">İndirim Kodu (TTD10 - %10):</span>
+          <span id="cart-discount-amount" class="promo-discount-val">-₺0</span>
+        </div>
+        <div class="cart-row"><span>Kargo Ücreti:</span><span id="cart-shipping" class="text-orange">₺200</span></div>
+        <div class="cart-row total-row"><span>Genel Toplam:</span><span id="cart-total" class="text-orange">₺0</span></div>
+      </div>
+      <button class="btn-primary full-width" id="checkout-btn" disabled>Ödemeye Geç →</button>
+      <button class="btn-secondary full-width" onclick="closeCart()">Alışverişe Devam Et</button>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ===== ENTRY FLASH DEALS (FLAŞ İNDİRİM) ===== -->
+    <section class="flash-entry-section" id="flash-deals-entry">
+      <div class="container">
+        <div class="flash-entry-wrapper">
+          <div class="flash-entry-header">
+            <div class="flash-title-left">
+              <span class="flash-pulse-badge">
+                <svg class="inline-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                FLAŞ İNDİRİM
+              </span>
+              <div>
+                <h2 class="flash-entry-title">Günün Süper Mutfak Fırsatları</h2>
+                <p class="flash-entry-sub">Seçili granit, çelik ve döküm ürünlerde sınırlı süreli ekstra indirimler</p>
+              </div>
+            </div>
+            <div class="flash-timer-pill">
+              <span class="flash-timer-label">
+                <svg class="inline-svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Kalan Süre:
+              </span>
+              <div class="flash-timer-digits">
+                <span id="flash-h">04</span>:<span id="flash-m">22</span>:<span id="flash-s">15</span>
+              </div>
+            </div>
+          </div>
+          <div class="flash-deals-grid" id="flash-deals-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-slider" id="hero-slider">
+        <div class="hero-slide active">
+          <div class="hero-bg slide-1"></div>
+          <div class="container hero-content">
+            <div class="hero-text">
+              <span class="hero-tag">Yeni Sezon 2026</span>
+              <h1>Mutfakta Kalite<br/>ve <span class="text-orange">Şıklık</span></h1>
+              <p>Premium granit ve çelik serisi ile pişirmenin keyfini yeniden keşfedin. Profesyonel kalite, ev kullanımı kolaylığı.</p>
+              <div class="hero-actions">
+                <a href="#products" class="btn-primary hero-btn">Alışverişe Başla</a>
+                <a href="#categories" class="btn-outline hero-btn">Kategorileri Gör</a>
+              </div>
+              <div class="hero-stats">
+                <div class="stat"><strong>10.000+</strong><span>Mutlu Müşteri</span></div>
+                <div class="stat-sep"></div>
+                <div class="stat"><strong>500+</strong><span>Ürün Çeşidi</span></div>
+                <div class="stat-sep"></div>
+                <div class="stat"><strong>%100</strong><span>Orijinal Ürün</span></div>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-pot-container">
+                <div class="hero-glow"></div>
+                <img class="hero-pot hero-photo" src="images/tacgranittencereseti.jpg" alt="TAÇ Premium Granit Tencere Seti" loading="eager" />
+                <div class="floating-badge badge-orange">Yeni Sezon</div>
+                <div class="floating-badge badge-white">%30 İndirim</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-slide">
+          <div class="hero-bg slide-2"></div>
+          <div class="container hero-content">
+            <div class="hero-text">
+              <span class="hero-tag">Fırsatlar</span>
+              <h1>Granit & Çelik<br/><span class="text-orange">Tencere Seti</span></h1>
+              <p>8 parçalı premium granit set ile mutfağınızı dönüştürün. Yapışmaz yüzey, uzun ömür, kolay temizlik.</p>
+              <div class="hero-actions">
+                <a href="#products" class="btn-primary hero-btn">Hemen İncele</a>
+              </div>
+              <div class="promo-box">
+                <span class="promo-label">Özel Fiyat</span>
+                <span class="promo-old" id="hero-steel-set-old-price" style="display:none;"></span>
+                <span class="promo-price" id="hero-steel-set-price">Yükleniyor...</span>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-pot-container">
+                <div class="hero-glow glow-gold"></div>
+                <img class="hero-pot hero-photo" src="images/taccelikset.jpg" alt="TAÇ Granit ve Çelik Tencere Seti" loading="lazy" />
+                <div class="floating-badge badge-orange">Premium Set</div>
+                <div class="floating-badge badge-white">En Çok Satan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn prev-btn" id="prev-slide">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+        <div class="slider-dots" id="slider-dots">
+          <button class="dot active" data-slide="0"></button>
+          <button class="dot" data-slide="1"></button>
+        </div>
+        <button class="slider-btn next-btn" id="next-slide">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip" id="trust">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="trust-info"><strong>Hızlı Kargo</strong><span>3500 TL+ siparişe ücretsiz</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="trust-info"><strong>%100 Orijinal</strong><span>Ürün garantisi</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="trust-info"><strong>Güvenli Ödeme</strong><span>256-bit SSL şifreleme</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="trust-info"><strong>Kırılmaz Kargo</strong><span>24 saatte ücretsiz parça telafisi</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <h2>Kategoriler</h2>
+          <p>İhtiyacınıza göre geniş ürün yelpazemizi keşfedin</p>
+        </div>
+        <div class="categories-showcase">
+          <div class="cat-card" data-category="Döküm">
+            <div class="cat-card-bg cat-bg-1"></div>
+            <div class="cat-card-icon">
+              <img src="images/tacdokumtencere.jpg" alt="TAÇ Döküm ve Çelik Tencereler" loading="lazy" />
+            </div>
+            <div class="cat-card-content">
+              <h3>Döküm & Çelik Tencereler</h3>
+              <p id="cat-count-dokum">—</p>
+              <span class="cat-cta">İncele →</span>
+            </div>
+          </div>
+          <div class="cat-card" data-category="Tava">
+            <div class="cat-card-bg cat-bg-2"></div>
+            <div class="cat-card-icon">
+              <img src="images/tacdokumtavatek.jpg" alt="TAÇ Tava ve Sahan Koleksiyonu" loading="lazy" />
+            </div>
+            <div class="cat-card-content">
+              <h3>Tava & Sahan</h3>
+              <p id="cat-count-tava">—</p>
+              <span class="cat-cta">İncele →</span>
+            </div>
+          </div>
+          <div class="cat-card" data-category="Düdüklü">
+            <div class="cat-card-bg cat-bg-3"></div>
+            <div class="cat-card-icon">
+              <img id="cat-card-duduklu-img" src="images/tacceliktencere.jpg" alt="TAÇ Çelik Düdüklü Tencereler" onerror="handleStoreImgError(this)" loading="lazy" />
+            </div>
+            <div class="cat-card-content">
+              <h3>Düdüklü Tencereler</h3>
+              <p id="cat-count-duduklu">—</p>
+              <span class="cat-cta">İncele →</span>
+            </div>
+          </div>
+          <div class="cat-card" data-category="Çeyiz">
+            <div class="cat-card-bg cat-bg-4"></div>
+            <div class="cat-card-icon">
+              <img src="images/taccelikset.jpg" alt="TAÇ Çeyiz Setleri ve Mutfak Ekipmanları" loading="lazy" />
+            </div>
+            <div class="cat-card-content">
+              <h3>Çeyiz Setleri & Ekipmanlar</h3>
+              <p id="cat-count-ceyiz">—</p>
+              <span class="cat-cta">İncele →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SPOTLIGHT CAMPAIGNS: GRANİT & ÇELİK SETLER ===== -->
+    <section class="spotlight-sets-section" id="granit-celik-spotlight">
+      <div class="container">
+        <div class="spotlight-top-bar">
+          <div>
+            <div class="spotlight-badge-row">
+              <span class="spotlight-pill-badge">Şeflerin Tercihi</span>
+              <span class="spotlight-pill-badge alt">Çok Satan Granit Setler</span>
+              <span class="spotlight-pill-badge alt">Ömür Boyu Paslanmaz Çelik</span>
+            </div>
+            <h2 class="spotlight-main-title">Granit & Çelik Setlerde <span class="text-orange">Özel Paket Fırsatları</span></h2>
+            <p class="spotlight-main-desc">Mutfakların vazgeçilmezi yanmaz-yapışmaz granit ve 18/10 Cr-Ni paslanmaz çelik tencere setlerinde özel set fiyatları.</p>
+          </div>
+          <button class="btn-primary spotlight-cta-all" onclick="openCategoryPage('Set Ürünler', null)">
+            Setleri İncele →
+          </button>
+        </div>
+
+        <div class="spotlight-split-grid">
+          <!-- Granit Setler Spotlight Card -->
+          <div class="spotlight-feature-card granite-theme" onclick="handleProductCardClick(event, 12)" style="cursor:pointer;">
+            <div class="spotlight-card-body">
+              <span class="spotlight-card-tag">Çok Satan Granit Setler</span>
+              <h3>7 & 9 Parça Ultra Granit Tencere Setleri</h3>
+              <p>5 katmanlı çizilmez granit kaplama, ısıyı eşit dağıtan indüksiyon taban ve leke tutmayan dış yüzey.</p>
+              <ul class="spotlight-perks">
+                <li>✓ PFOA & Ağır Metal İçermez</li>
+                <li>✓ Fırın ve Ocak Kullanımına Uygun</li>
+              </ul>
+              <div class="spotlight-bundle-box">
+                <div>
+                  <span class="bundle-label">Set Başlangıç Fiyatı</span>
+                  <div class="bundle-prices">
+                    <span class="bundle-old">₺3.299</span>
+                    <span class="bundle-new">₺2.499</span>
+                  </div>
+                </div>
+                <div class="spotlight-card-actions">
+                  <button class="btn-primary btn-sm-spot" onclick="openCategoryPage('Set Ürünler', 'Granit Tencere Setleri')">Setleri İncele</button>
+                  <button class="btn-outline btn-sm-spot" onclick="addToCart(12)">Sepete Ekle</button>
+                </div>
+              </div>
+            </div>
+            <div class="spotlight-card-art">
+              <div class="spot-art-circle">
+                <img src="images/tacgranittencereseti.jpg" alt="7 & 9 Parça Ultra Granit Tencere Setleri" loading="lazy" />
+              </div>
+              <span class="spot-save-badge">₺800 Kazanç</span>
+            </div>
+          </div>
+
+          <!-- Çelik Setler Spotlight Card -->
+          <div class="spotlight-feature-card steel-theme" onclick="handleProductCardClick(event, 11)" style="cursor:pointer;">
+            <div class="spotlight-card-body">
+              <span class="spotlight-card-tag">Ömür Boyu Paslanmaz Çelik</span>
+              <h3>8 Parça 18/10 Cr-Ni Profesyonel Çelik Setler</h3>
+              <p>Yüksek parlaklıkta polisajlı gövde, kapsül indüksiyon taban ve el yakmayan ergonomik çelik kulplar.</p>
+              <ul class="spotlight-perks">
+                <li>✓ Şeflerin Tercihi 304 Kalite Çelik</li>
+                <li>✓ Bulaşık Makinesinde Yıkanabilir</li>
+              </ul>
+              <div class="spotlight-bundle-box">
+                <div>
+                  <span class="bundle-label">Set Başlangıç Fiyatı</span>
+                  <div class="bundle-prices">
+                    <span class="bundle-old">₺3.699</span>
+                    <span class="bundle-new">₺2.899</span>
+                  </div>
+                </div>
+                <div class="spotlight-card-actions">
+                  <button class="btn-primary btn-sm-spot" onclick="openCategoryPage('Set Ürünler', 'Çelik Tencere Setleri')">Setleri İncele</button>
+                  <button class="btn-outline btn-sm-spot" onclick="addToCart(11)">Sepete Ekle</button>
+                </div>
+              </div>
+            </div>
+            <div class="spotlight-card-art">
+              <div class="spot-art-circle">
+                <img src="images/taccelikset.jpg" alt="8 Parça 18/10 Cr-Ni Profesyonel Çelik Setler" loading="lazy" />
+              </div>
+              <span class="spot-save-badge">₺800 Kazanç</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KENDİ ÇEYİZİNİ OLUŞTUR — PROMO ENTRY BANNER -->
+    <section class="custom-bundle-promo-section" id="custom-bundle-promo">
+      <div class="container">
+        <div class="custom-bundle-promo-card">
+          <div class="custom-bundle-promo-content">
+            <div class="custom-bundle-promo-badges">
+              <span class="bundle-promo-eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" class="inline-svg-icon"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                KENDİ ÇEYİZİNİ OLUŞTUR · ÖZEL PAKET SİHİRBAZI
+              </span>
+              <span class="bundle-promo-discount-pill">%15 Ekstra İndirim</span>
+            </div>
+            <h2>Kendi Çeyiz Setini Kendin Yap — Seçtiğin Ürünlerle <span>%15 Ekstra İndirim</span> Kazan!</h2>
+            <p>Mutfağınızın ihtiyacına göre 4 adımda dilediğiniz TAÇ tencere setini, tavayı, çelik çaydanlığı ve düdüklü tencere modelini bir araya getirin; paketinizde anında <strong>%15 ekstra çeyiz indirimi</strong> kazanın.</p>
+            <div class="custom-bundle-promo-steps">
+              <div class="promo-mini-step" onclick="openBundleBuilderPage(1)">
+                <img id="bundle-promo-step1-thumb" class="promo-mini-step-thumb" src="images/tacgranittencereseti.jpg" alt="Tencere / Tencere Seti" onerror="handleStoreImgError(this)" loading="lazy" />
+                <div>
+                  <strong>Tencere / Tencere Seti</strong>
+                  <span>Granit, Döküm, Çelik Setler</span>
+                </div>
+              </div>
+              <span class="promo-mini-step-arrow">+</span>
+              <div class="promo-mini-step" onclick="openBundleBuilderPage(2)">
+                <img id="bundle-promo-step2-thumb" class="promo-mini-step-thumb" src="images/tacdokumtavatek.jpg" alt="Tava Seçimi" onerror="handleStoreImgError(this)" loading="lazy" />
+                <div>
+                  <strong>Tava Seçimi</strong>
+                  <span>Granit, Wok, Döküm Tavalar</span>
+                </div>
+              </div>
+              <span class="promo-mini-step-arrow">+</span>
+              <div class="promo-mini-step" onclick="openBundleBuilderPage(3)">
+                <img id="bundle-promo-step3-thumb" class="promo-mini-step-thumb" src="images/tacceliktencere.jpg" alt="Çaydanlık Seçimi" onerror="handleStoreImgError(this)" loading="lazy" />
+                <div>
+                  <strong>Çaydanlık Seçimi</strong>
+                  <span>TAÇ Çelik Çaydanlıklar</span>
+                </div>
+              </div>
+              <span class="promo-mini-step-arrow">+</span>
+              <div class="promo-mini-step" onclick="openBundleBuilderPage(4)">
+                <img id="bundle-promo-step4-thumb" class="promo-mini-step-thumb" src="images/taccelikset.jpg" alt="Düdüklü Tencere Seçimi" onerror="handleStoreImgError(this)" loading="lazy" />
+                <div>
+                  <strong>Düdüklü Tencere Seçimi</strong>
+                  <span>TAÇ Düdüklü Tencereler</span>
+                </div>
+              </div>
+            </div>
+            <div class="custom-bundle-promo-actions">
+              <button type="button" class="bundle-promo-cta-btn" onclick="openBundleBuilderPage()">
+                <span>Paketini Oluşturmaya Başla</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+              <span class="bundle-promo-guarantee">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.3" class="inline-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                %100 Orijinal TAÇ Garantisi • 3.500 TL Üzeri Ücretsiz Kargo
+              </span>
+            </div>
+          </div>
+          <div class="custom-bundle-promo-visual" onclick="openBundleBuilderPage()">
+            <div class="bundle-visual-stack">
+              <div class="bundle-visual-card main-card">
+                <img src="images/tacgranittencereseti.jpg" alt="Adım 1: TAÇ Tencere Seti" loading="lazy" />
+                <span class="bundle-visual-tag">1. Adım: Tencere Seti</span>
+              </div>
+              <div class="bundle-visual-row">
+                <div class="bundle-visual-card sub-card">
+                  <img id="bundle-promo-step2-img" src="images/tacdokumtavatek.jpg" alt="Adım 2: TAÇ Tava" onerror="handleStoreImgError(this)" loading="lazy" />
+                  <span class="bundle-visual-tag">2. Adım: Tava</span>
+                </div>
+                <div class="bundle-visual-card sub-card">
+                  <img id="bundle-promo-step3-img" src="images/tacceliktencere.jpg" alt="Adım 3: TAÇ Çaydanlık & Düdüklü" onerror="handleStoreImgError(this)" loading="lazy" />
+                  <span class="bundle-visual-tag">3. Adım: Çaydanlık / Düdüklü</span>
+                </div>
+              </div>
+              <div class="bundle-visual-floating-badge">
+                <strong>%15</strong>
+                <span>Anında Paket İndirimi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <!-- Category Page Header (Shown when a category page is active) -->
+        <div class="category-page-banner" id="category-page-banner" style="display:none;">
+          <div class="category-breadcrumb">
+            <a href="#" data-home-link="true">Anasayfa</a>
+            <span>›</span>
+            <a href="#" id="crumb-main-cat">Tencereler</a>
+            <span id="crumb-sub-sep" style="display:none;">›</span>
+            <span id="crumb-sub-cat" style="display:none;"></span>
+          </div>
+          <div class="category-banner-row">
+            <div>
+              <h1 class="category-page-title" id="category-page-title">Tüm Tencereler</h1>
+              <p class="category-page-desc" id="category-page-desc">Bu kategorideki tüm ürünler listeleniyor</p>
+            </div>
+            <button class="btn-outline btn-sm-back" data-home-link="true">← Anasayfaya Dön</button>
+          </div>
+          <div class="category-sub-pills" id="category-sub-pills"></div>
+        </div>
+
+        <div class="section-header" id="default-products-header">
+          <h2 id="products-title">Öne Çıkan Ürünler</h2>
+          <p id="products-subtitle">En çok tercih edilen premium mutfak ekipmanlarımız</p>
+        </div>
+        <div class="filters-bar">
+          <div class="filter-group" id="dynamic-category-filter-group">
+            <span class="filter-label">Kategori:</span>
+            <div class="filter-chips" id="dynamic-category-filters">
+              <button class="chip cat-chip active" data-cat-filter="all">Tümü</button>
+              <button class="chip cat-chip" data-cat-filter="Tencereler">Tencereler</button>
+              <button class="chip cat-chip" data-cat-filter="Tavalar">Tavalar</button>
+              <button class="chip cat-chip" data-cat-filter="Set Ürünler">Set Ürünler</button>
+              <button class="chip cat-chip" data-cat-filter="Çaydanlık Takımları">Çaydanlık Takımları</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Materyal:</span>
+            <div class="filter-chips" id="material-filters">
+              <button class="chip active" data-filter="all">Tümü</button>
+              <button class="chip" data-filter="Granit">Granit</button>
+              <button class="chip" data-filter="Paslanmaz Çelik">Paslanmaz Çelik</button>
+              <button class="chip" data-filter="Döküm">Döküm</button>
+              <button class="chip" data-filter="Seramik">Seramik</button>
+              <button class="chip" data-filter="Bio Granit">Bio Granit</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Marka:</span>
+            <select class="price-select" id="brand-filter">
+              <option value="all">TAÇ (Tümü)</option>
+              <option value="TAÇ">TAÇ</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Fiyat:</span>
+            <select class="price-select" id="price-filter">
+              <option value="all">Tüm Fiyatlar</option>
+              <option value="0-500">₺0 - ₺500</option>
+              <option value="500-1000">₺500 - ₺1.000</option>
+              <option value="1000-2000">₺1.000 - ₺2.000</option>
+              <option value="2000+">₺2.000+</option>
+            </select>
+          </div>
+          <div class="filter-group sort-group">
+            <span class="filter-label">Sırala:</span>
+            <select class="price-select" id="sort-filter">
+              <option value="default">Önerilen</option>
+              <option value="price-asc">Fiyat (Düşük-Yüksek)</option>
+              <option value="price-desc">Fiyat (Yüksek-Düşük)</option>
+              <option value="rating">En Yüksek Puan</option>
+              <option value="discount">En Yüksek İndirim</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+        <div class="products-empty" id="products-empty" style="display:none">
+          <p>Bu kriterlere uygun ürün bulunamadı.</p>
+          <button class="btn-outline" onclick="resetFilters()">Filtreleri Temizle</button>
+        </div>
+        <div class="load-more-wrap">
+          <button class="btn-outline load-more-btn" id="load-more-btn">Daha Fazla Ürün Gör</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMO BANNERS -->
+    <section class="promo-banner-section">
+      <div class="container promo-banners">
+        <div class="promo-card promo-orange">
+          <div class="promo-card-content">
+            <span class="promo-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Flaş İndirim
+            </span>
+            <h3>Granit Set Kampanyası</h3>
+            <p>8 Parçalı Premium Set — Stoklar sınırlı!</p>
+            <div class="countdown">
+              <div class="count-box"><span id="cnt-h">12</span><small>saat</small></div>
+              <span class="count-sep">:</span>
+              <div class="count-box"><span id="cnt-m">34</span><small>dk</small></div>
+              <span class="count-sep">:</span>
+              <div class="count-box"><span id="cnt-s">58</span><small>sn</small></div>
+            </div>
+            <a href="#products" class="btn-white">Fırsatı Yakala</a>
+          </div>
+          <div class="promo-card-visual">
+            <img src="images/tacgranittencereseti.jpg" alt="TAÇ Granit Tencere Seti Kampanyası" loading="lazy" />
+          </div>
+        </div>
+        <div class="promo-card promo-dark">
+          <div class="promo-card-content">
+            <span class="promo-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              Özel Teklif
+            </span>
+            <h3>Çeyiz Seti Paketi</h3>
+            <p>Kendi Çeyiz Setini Kendin Yap — %15 Ekstra İndirim</p>
+            <div class="promo-price-box">
+              <span class="old-p">₺4.999</span>
+              <span class="new-p">₺3.749</span>
+            </div>
+            <button type="button" class="btn-orange" onclick="openBundleBuilderPage()">Paketini Oluşturmaya Başla</button>
+          </div>
+          <div class="promo-card-visual">
+            <img src="images/taccelikset.jpg" alt="TAÇ Lüks Çeyiz Tencere Seti Paketi" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAVORITES PAGE -->
+    <section class="favorites-page-section" id="favorites-page" style="display:none;">
+      <div class="container">
+        <div class="favorites-hero-banner">
+          <div class="category-breadcrumb">
+            <a href="#" data-home-link="true">Anasayfa</a>
+            <span>›</span>
+            <span class="text-orange">Favorilerim</span>
+          </div>
+          <div class="favorites-banner-row">
+            <div class="favorites-title-group">
+              <div class="favorites-heart-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#F97316" stroke="#F97316" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="favorites-heading-wrap">
+                  <h1 class="favorites-page-title">Favorilerim</h1>
+                  <span class="favorites-count-pill" id="favorites-page-count">0 Ürün</span>
+                </div>
+                <p class="favorites-page-subtitle">Beğendiğiniz ürünleri buradan takip edebilir ve tek tıkla sepetinize ekleyebilirsiniz.</p>
+              </div>
+            </div>
+            <div class="favorites-banner-actions">
+              <button class="btn-primary" id="fav-add-all-btn" style="display:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                Tümünü Sepete Ekle
+              </button>
+              <button class="btn-secondary" id="fav-clear-btn" style="display:none;">
+                Listeyi Temizle
+              </button>
+              <button class="btn-outline btn-sm-back" data-home-link="true">← Alışverişe Dön</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Favorites Products Grid -->
+        <div class="products-grid" id="favorites-grid"></div>
+
+        <!-- Favorites Empty State -->
+        <div class="favorites-empty-card" id="favorites-empty">
+          <div class="favorites-empty-icon">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.8">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Favori Listeniz Henüz Boş</h3>
+          <p>Beğendiğiniz tencere, tava ve çeyiz setlerinin sağ üst köşesindeki kalp ikonuna tıklayarak favori listenizi oluşturabilirsiniz.</p>
+          <div class="favorites-empty-actions">
+            <button class="btn-primary" data-home-link="true">Alışverişe Başla</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== USER ACCOUNT PAGE (HESABIM: GİRİŞ YAP / KAYIT OL / PROFİL) ===== -->
+    <section class="account-page-section" id="account-page" style="display:none;">
+      <div class="container">
+        <div class="favorites-hero-banner">
+          <div class="category-breadcrumb">
+            <a href="#" data-home-link="true">Anasayfa</a>
+            <span>›</span>
+            <span class="text-orange">Hesabım</span>
+          </div>
+          <div class="favorites-banner-row">
+            <div class="favorites-title-group">
+              <div class="favorites-heart-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div>
+                <h1 class="favorites-page-title" id="account-header-title">Üye Girişi & Kayıt</h1>
+                <p class="favorites-page-subtitle" id="account-header-sub">Siparişlerinizi takip etmek ve hızlı alışveriş yapmak için giriş yapın veya üye olun.</p>
+              </div>
+            </div>
+            <button class="btn-outline btn-sm-back" data-home-link="true">← Alışverişe Dön</button>
+          </div>
+        </div>
+
+        <!-- UNAUTHENTICATED VIEW: LOGIN / REGISTER TABS -->
+        <div class="account-auth-card" id="account-auth-view">
+          <div class="auth-tabs">
+            <button type="button" class="auth-tab-btn active" id="tab-login-btn" onclick="switchAuthTab('login')">Giriş Yap</button>
+            <button type="button" class="auth-tab-btn" id="tab-register-btn" onclick="switchAuthTab('register')">Kayıt Ol</button>
+          </div>
+
+          <!-- Login Form -->
+          <form class="auth-form" id="login-form">
+            <div class="auth-field">
+              <label for="login-email">E-posta Adresi</label>
+              <input type="email" id="login-email" placeholder="ornek@eposta.com" autocomplete="email" required />
+            </div>
+            <div class="auth-field">
+              <label for="login-password">Şifre</label>
+              <div class="auth-password-wrap">
+                <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required />
+                <button type="button" class="auth-eye-btn" onclick="toggleAuthPasswordVisibility('login-password', this)" aria-label="Şifreyi Göster/Gizle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="auth-feedback-box" id="login-auth-feedback" style="display:none;"></div>
+            <div class="auth-row-between">
+              <label class="auth-checkbox-label">
+                <input type="checkbox" id="login-remember" checked />
+                <span>Beni Hatırla</span>
+              </label>
+              <a href="#" class="auth-forgot-link" onclick="event.preventDefault(); handleForgotPassword();">Şifremi Unuttum</a>
+            </div>
+            <button type="submit" class="btn-primary full-width auth-submit-btn" id="login-submit-btn">Giriş Yap</button>
+          </form>
+
+          <!-- Register Form -->
+          <form class="auth-form" id="register-form" style="display:none;">
+            <div class="auth-field">
+              <label for="reg-name">Ad Soyad</label>
+              <input type="text" id="reg-name" placeholder="Adınız Soyadınız" autocomplete="name" required />
+            </div>
+            <div class="auth-field">
+              <label for="reg-email">E-posta Adresi</label>
+              <input type="email" id="reg-email" placeholder="ornek@eposta.com" autocomplete="email" required />
+            </div>
+            <div class="auth-field">
+              <label for="reg-phone">Telefon Numarası</label>
+              <input type="tel" id="reg-phone" placeholder="05XX XXX XX XX" autocomplete="tel" />
+            </div>
+            <div class="auth-field">
+              <label for="reg-password">Şifre</label>
+              <div class="auth-password-wrap">
+                <input type="password" id="reg-password" placeholder="En az 6 karakter" autocomplete="new-password" minlength="6" required />
+                <button type="button" class="auth-eye-btn" onclick="toggleAuthPasswordVisibility('reg-password', this)" aria-label="Şifreyi Göster/Gizle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="auth-feedback-box" id="register-auth-feedback" style="display:none;"></div>
+            <div class="auth-row-between">
+              <label class="auth-checkbox-label">
+                <input type="checkbox" id="reg-remember" checked />
+                <span>Beni Hatırla & Kampanya bildirimlerini al</span>
+              </label>
+            </div>
+            <button type="submit" class="btn-primary full-width auth-submit-btn" id="register-submit-btn">Kayıt Ol</button>
+          </form>
+        </div>
+
+        <!-- AUTHENTICATED VIEW MOCKUP: PROFILE, MY ORDERS, SAVED ADDRESSES -->
+        <div class="account-dashboard" id="account-profile-view" style="display:none;">
+          <!-- Profile Summary Sidebar -->
+          <div class="account-profile-sidebar">
+            <div class="profile-user-box">
+              <div class="profile-avatar" id="profile-avatar-initials">AY</div>
+              <div>
+                <div class="profile-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="inline-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  Gold Üye
+                </div>
+                <h3 id="profile-user-name">Üye</h3>
+                <p id="profile-user-email">—</p>
+              </div>
+            </div>
+            <div class="profile-menu-list">
+              <button class="profile-nav-btn active" data-acc-panel="orders" onclick="switchAccountPanel('orders')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-svg-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                Siparişlerim
+              </button>
+              <button class="profile-nav-btn" data-acc-panel="addresses" onclick="switchAccountPanel('addresses')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-svg-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Adreslerim
+              </button>
+            </div>
+            <button class="btn-outline full-width logout-btn" id="logout-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-svg-icon"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              Çıkış Yap
+            </button>
+          </div>
+
+          <!-- Dashboard Content Area -->
+          <div class="account-content-area">
+            <!-- Panel: Siparişlerim -->
+            <div class="acc-panel" id="acc-panel-orders">
+              <div class="acc-panel-header">
+                <h3>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" class="inline-svg-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                  Siparişlerim
+                </h3>
+                <span>Son siparişleriniz ve kargo durumu</span>
+              </div>
+              <div class="order-card">
+                <div class="order-card-top">
+                  <div>
+                    <span class="order-no">Sipariş No: <strong>#TTD-84920</strong></span>
+                    <span class="order-date">04 Kasım 2026</span>
+                  </div>
+                  <span class="order-status delivered">✓ Teslim Edildi</span>
+                </div>
+                <div class="order-card-items">
+                  <div class="order-item-row">
+                    <span class="order-item-emoji">
+                      <img src="images/tacgranittencereseti.jpg" alt="Lüks 7 Parça Granit Tencere Seti" loading="lazy" />
+                    </span>
+                    <div class="order-item-text">
+                      <strong>Lüks 7 Parça Granit Tencere Seti</strong>
+                      <span>1 Adet · Ara Toplam: ₺2.499 + Kargo: ₺200</span>
+                    </div>
+                    <strong class="text-orange">₺2.699</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card">
+                <div class="order-card-top">
+                  <div>
+                    <span class="order-no">Sipariş No: <strong>#TTD-85104</strong></span>
+                    <span class="order-date">06 Kasım 2026</span>
+                  </div>
+                  <span class="order-status shipping">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-svg-icon"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    Kargoda
+                  </span>
+                </div>
+                <div class="order-card-items">
+                  <div class="order-item-row">
+                    <span class="order-item-emoji">
+                      <img src="images/tacceliktencere.jpg" alt="Aile Boyu Paslanmaz Çelik Çaydanlık Takımı" loading="lazy" />
+                    </span>
+                    <div class="order-item-text">
+                      <strong>Aile Boyu Paslanmaz Çelik Çaydanlık Takımı</strong>
+                      <span>1 Adet · Ara Toplam: ₺1.199 + Kargo: ₺200</span>
+                    </div>
+                    <strong class="text-orange">₺1.399</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel: Adreslerim -->
+            <div class="acc-panel" id="acc-panel-addresses" style="display:none;">
+              <div class="acc-panel-header">
+                <h3>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" class="inline-svg-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Kayıtlı Adreslerim
+                </h3>
+                <button class="btn-primary btn-xs-add" onclick="showToast('Yeni adres ekleme formu yakında aktif!', 'success')">+ Yeni Adres Ekle</button>
+              </div>
+              <div class="address-cards-grid">
+                <div class="address-card">
+                  <div class="address-card-top">
+                    <strong>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" class="inline-svg-icon"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                      Ev Adresim (Varsayılan)
+                    </strong>
+                    <span class="address-tag">Teslimat & Fatura</span>
+                  </div>
+                  <p>Atatürk Mah. Cumhuriyet Cad. No: 42 Daire: 8, Ataşehir / İstanbul</p>
+                  <span class="address-phone">0532 123 45 67</span>
+                </div>
+                <div class="address-card">
+                  <div class="address-card-top">
+                    <strong>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" class="inline-svg-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                      İş Yeri Adresim
+                    </strong>
+                    <span class="address-tag">Kurumsal</span>
+                  </div>
+                  <p>Levent Mah. Büyükdere Cad. Plaza No: 118 Kat: 5, Beşiktaş / İstanbul</p>
+                  <span class="address-phone">0532 123 45 67</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CHECKOUT & PAYMENT PAGE (/odeme) ===== -->
+    <section class="checkout-page-section" id="checkout-page" style="display:none;">
+      <div class="container">
+        <!-- Top Banner / Breadcrumb -->
+        <div class="favorites-hero-banner checkout-hero-banner">
+          <div class="category-breadcrumb">
+            <a href="#" data-home-link="true">Anasayfa</a>
+            <span>›</span>
+            <a href="#" onclick="openCart(); return false;">Sepetim</a>
+            <span>›</span>
+            <span class="text-orange">Ödeme & Teslimat (/odeme)</span>
+          </div>
+          <div class="favorites-banner-row">
+            <div class="favorites-title-group">
+              <div class="favorites-heart-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+                </svg>
+              </div>
+              <div>
+                <div class="favorites-heading-wrap">
+                  <h1 class="favorites-page-title">Güvenli Ödeme & Teslimat</h1>
+                  <span class="favorites-count-pill">256-Bit SSL Koruma</span>
+                </div>
+                <p class="favorites-page-subtitle">Teslimat adresinizi girin ve size uygun ödeme yöntemini seçerek siparişinizi güvenle tamamlayın.</p>
+              </div>
+            </div>
+            <button class="btn-outline btn-sm-back" data-home-link="true">← Alışverişe Dön</button>
+          </div>
+        </div>
+
+        <!-- MAIN SPLIT CHECKOUT VIEW -->
+        <div class="checkout-split-layout" id="checkout-main-view">
+          <!-- LEFT COLUMN: Delivery Address Form & Payment Method Selection -->
+          <div class="checkout-left-col">
+            <!-- 1. Delivery Address Card -->
+            <div class="checkout-card">
+              <div class="checkout-card-header">
+                <div class="checkout-step-badge">1</div>
+                <div>
+                  <h2>Teslimat Adresi Bilgileri</h2>
+                  <p>Siparişinizin eksiksiz teslimatı için lütfen adres bilgilerinizi doldurun.</p>
+                </div>
+              </div>
+
+              <div class="checkout-form-grid">
+                <div class="checkout-field">
+                  <label for="co-fullname">Ad Soyad <span class="req-star">*</span></label>
+                  <input type="text" id="co-fullname" placeholder="Örn: Ayşe Yılmaz" autocomplete="name" required />
+                </div>
+                <div class="checkout-field">
+                  <label for="co-phone">Telefon Numarası <span class="req-star">*</span></label>
+                  <input type="tel" id="co-phone" placeholder="05XX XXX XX XX" autocomplete="tel" required />
+                </div>
+                <div class="checkout-field full-span">
+                  <label for="co-email">E-posta Adresi (Fatura & Kargo Takibi) <span class="req-star">*</span></label>
+                  <input type="email" id="co-email" placeholder="ornek@eposta.com" autocomplete="email" required />
+                </div>
+                <div class="checkout-field">
+                  <label for="co-city">İl <span class="req-star">*</span></label>
+                  <select id="co-city" required>
+                    <option value="">İl Seçiniz</option>
+                    <option value="İstanbul" selected>İstanbul</option>
+                    <option value="Ankara">Ankara</option>
+                    <option value="İzmir">İzmir</option>
+                    <option value="Bursa">Bursa</option>
+                    <option value="Antalya">Antalya</option>
+                    <option value="Kocaeli">Kocaeli</option>
+                    <option value="Adana">Adana</option>
+                    <option value="Konya">Konya</option>
+                    <option value="Gaziantep">Gaziantep</option>
+                    <option value="Mersin">Mersin</option>
+                    <option value="Kayseri">Kayseri</option>
+                    <option value="Eskişehir">Eskişehir</option>
+                    <option value="Samsun">Samsun</option>
+                    <option value="Trabzon">Trabzon</option>
+                    <option value="Diğer">Diğer</option>
+                  </select>
+                </div>
+                <div class="checkout-field">
+                  <label for="co-district">İlçe <span class="req-star">*</span></label>
+                  <input type="text" id="co-district" placeholder="Örn: Beykoz, Kadıköy, Ataşehir" required />
+                </div>
+                <div class="checkout-field full-span">
+                  <label for="co-address">Açık Adres (Mahalle, Sokak, Bina ve Daire No) <span class="req-star">*</span></label>
+                  <textarea id="co-address" rows="3" placeholder="Mahalle, cadde/sokak, apartman adı, bina no ve daire numaranızı yazınız..." required></textarea>
+                </div>
+                <div class="checkout-field full-span">
+                  <label for="co-note">Teslimat Notu (İsteğe Bağlı)</label>
+                  <input type="text" id="co-note" placeholder="Kargo görevlisi için ek bilgi (Örn: Güvenliğe bırakabilirsiniz)" />
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Payment Method Card (Havale / EFT Only) -->
+            <div class="checkout-card">
+              <div class="checkout-card-header">
+                <div class="checkout-step-badge">2</div>
+                <div>
+                  <h2>Ödeme Yöntemi: Havale / EFT ile Ödeme</h2>
+                  <p>Sipariş tutarınızı aşağıdaki banka hesabımıza Havale veya EFT/FAST yoluyla güvenle gönderebilirsiniz.</p>
+                </div>
+              </div>
+
+              <!-- Pre-selected Sole Payment Method Banner -->
+              <div class="payment-method-tabs single-method" role="region" aria-label="Ödeme Yöntemi">
+                <label class="payment-method-tab active" id="pay-tab-eft">
+                  <input type="radio" name="checkout-payment-method" value="eft" checked />
+                  <span class="pay-radio-dot"></span>
+                  <div class="pay-tab-content">
+                    <strong>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                      Havale / EFT ile Ödeme
+                    </strong>
+                    <span>7/24 FAST & Banka Hesabına Doğrudan Transfer (Seçili)</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Havale / EFT Details Box -->
+              <div class="payment-method-panel" id="pay-panel-eft" style="display:block;">
+                <div class="eft-bank-info-card">
+                  <div class="eft-info-row">
+                    <span class="eft-info-label">Banka Adı</span>
+                    <strong id="eft-bank-name">AKBANK</strong>
+                  </div>
+                  <div class="eft-info-row">
+                    <span class="eft-info-label">Alıcı Adı / Ünvanı</span>
+                    <strong id="eft-receiver-name">Yunus Emre Pilavcı</strong>
+                  </div>
+                  <div class="eft-info-row iban-row">
+                    <div>
+                      <span class="eft-info-label">IBAN</span>
+                      <code class="eft-iban-code" id="eft-iban-text">TR11 0004 6001 4088 8000 4585 42</code>
+                    </div>
+                    <button type="button" class="btn-copy-iban" id="copy-iban-btn" onclick="copyCheckoutIban()">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                      <span id="copy-iban-label">IBAN Kopyala</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="eft-notice-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  <p>Lütfen havale açıklamasına sipariş numaranızı yazınız. Ödemeniz onaylandıktan sonra siparişiniz aynı gün kargoya verilir.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Order Summary Card -->
+          <div class="checkout-right-col">
+            <div class="checkout-summary-card">
+              <div class="checkout-summary-header">
+                <h3>Sipariş Özeti</h3>
+                <span class="checkout-count-badge" id="checkout-item-count">0 Ürün</span>
+              </div>
+
+              <div class="checkout-items-list" id="checkout-items-list">
+                <!-- Populated dynamically by app.js -->
+              </div>
+
+              <div class="checkout-empty-notice" id="checkout-empty-notice" style="display:none;">
+                Sepetiniz boş
+              </div>
+
+              <div class="promo-code-box checkout-promo-box" id="checkout-promo-box">
+                <div class="promo-code-input-row">
+                  <input type="text" id="checkout-promo-input" class="promo-code-input" placeholder="İndirim Kodu (Örn: TTD10)" onkeydown="if(event.key==='Enter'){event.preventDefault();applyPromoCode('checkout');}" />
+                  <button type="button" id="checkout-promo-apply-btn" class="promo-code-apply-btn" onclick="applyPromoCode('checkout')">Uygula</button>
+                  <button type="button" id="checkout-promo-remove-btn" class="promo-code-remove-btn" onclick="removePromoCode()" style="display:none;">Kaldır</button>
+                </div>
+                <div class="promo-code-feedback" id="checkout-promo-feedback" style="display:none;"></div>
+              </div>
+
+              <div class="checkout-totals-box">
+                <div class="checkout-total-row">
+                  <span>Ara Toplam</span>
+                  <strong id="checkout-subtotal">₺0</strong>
+                </div>
+                <div class="checkout-total-row promo-discount-row" id="checkout-discount-row" style="display:none;">
+                  <span id="checkout-discount-label">İndirim Kodu (TTD10 - %10):</span>
+                  <strong id="checkout-discount-amount" class="promo-discount-val">-₺0</strong>
+                </div>
+                <div class="checkout-total-row">
+                  <span>Kargo Ücreti</span>
+                  <strong id="checkout-shipping" class="text-orange">200 TL</strong>
+                </div>
+                <div class="checkout-total-row grand-total">
+                  <span>Genel Toplam</span>
+                  <strong id="checkout-total" class="text-orange">₺0</strong>
+                </div>
+              </div>
+
+              <!-- Mandatory Legal Checkboxes (Türkiye E-Ticaret Mevzuatı) -->
+              <div class="checkout-legal-consents" id="checkout-legal-consents">
+                <label class="checkout-consent-item" for="co-consent-mesafeli">
+                  <input type="checkbox" id="co-consent-mesafeli" onchange="updateCheckoutLegalConsentState()" required />
+                  <span>
+                    <a href="#on-bilgilendirme" onclick="event.preventDefault(); event.stopPropagation(); openLegalModal('mesafeli');">Ön Bilgilendirme Formu'nu</a> ve
+                    <a href="#mesafeli-satis" onclick="event.preventDefault(); event.stopPropagation(); openLegalModal('mesafeli');">Mesafeli Satış Sözleşmesi'ni</a> okudum, onaylıyorum. <strong class="req-star">*</strong>
+                  </span>
+                </label>
+
+                <label class="checkout-consent-item" for="co-consent-kvkk">
+                  <input type="checkbox" id="co-consent-kvkk" onchange="updateCheckoutLegalConsentState()" required />
+                  <span>
+                    <a href="#kvkk-aydinlatma" onclick="event.preventDefault(); event.stopPropagation(); openLegalModal('kvkk');">KVKK Aydınlatma Metni</a> kapsamında kişisel verilerimin işlenmesini kabul ediyorum. <strong class="req-star">*</strong>
+                  </span>
+                </label>
+              </div>
+
+              <div class="checkout-error-alert" id="checkout-form-error" style="display:none;"></div>
+
+              <button type="button" class="btn-primary full-width complete-order-btn" id="complete-order-btn" onclick="submitCheckoutOrder()" disabled>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="inline-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                Siparişi Tamamla
+              </button>
+
+              <div class="checkout-trust-mini">
+                <span>256-Bit SSL Güvenli Altyapı</span>
+                <span>•</span>
+                <span>3.500 TL Üzeri Ücretsiz Kargo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ORDER CONFIRMATION / SUCCESS VIEW -->
+        <div class="checkout-success-card" id="checkout-success-view" style="display:none;">
+          <div class="success-check-circle">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <span class="success-eyebrow-pill">Sipariş Onayı · Ödeme Bekleniyor</span>
+          <h2 class="success-main-title">Siparişiniz Başarıyla Oluşturuldu!</h2>
+          <p class="success-sub-desc">Teşekkür ederiz! Siparişiniz kayıt altına alındı. Ödemenizi aşağıdaki IBAN hesabımıza gönderip açıklama kısmına sipariş numaranızı yazmanız yeterlidir.</p>
+
+          <div class="success-order-summary-strip">
+            <div class="success-order-id-box">
+              <span>Sipariş Numaranız:</span>
+              <strong id="confirm-order-id">#TTD-1001</strong>
+            </div>
+            <div class="success-order-id-box total-pill">
+              <span>Ödenecek Toplam Tutar:</span>
+              <strong id="confirm-total-amount">₺0</strong>
+            </div>
+          </div>
+
+          <!-- Post-Order IBAN & Bank Transfer Details Card -->
+          <div class="confirm-iban-showcase-card" id="confirm-eft-iban-box">
+            <div class="confirm-iban-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.3"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <h4>Havale / EFT Ödeme Bilgileri</h4>
+            </div>
+            <div class="eft-bank-info-card">
+              <div class="eft-info-row">
+                <span class="eft-info-label">Banka Adı</span>
+                <strong id="confirm-bank-name">AKBANK</strong>
+              </div>
+              <div class="eft-info-row">
+                <span class="eft-info-label">Alıcı Adı / Ünvanı</span>
+                <strong id="confirm-receiver-name">Yunus Emre Pilavcı</strong>
+              </div>
+              <div class="eft-info-row iban-row">
+                <div>
+                  <span class="eft-info-label">IBAN</span>
+                  <code class="eft-iban-code" id="confirm-iban-text">TR11 0004 6001 4088 8000 4585 42</code>
+                </div>
+                <button type="button" class="btn-copy-iban" id="confirm-copy-iban-btn" onclick="copyConfirmationIban()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span id="confirm-copy-iban-label">IBAN Kopyala</span>
+                </button>
+              </div>
+            </div>
+            <p class="confirm-eft-note">
+              Lütfen havale açıklamasına <strong><span id="confirm-note-order-no">#TTD-1001</span></strong> sipariş numaranızı yazınız. Ödemeniz onaylandıktan sonra siparişiniz aynı gün kargoya verilir.
+            </p>
+
+            <a
+              href="https://wa.me/905320000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp-dekont"
+              id="confirm-whatsapp-dekont-btn"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.031 2c-5.516 0-9.999 4.484-9.999 10 0 1.766.461 3.489 1.336 5.008L2 22l5.125-1.344A9.956 9.956 0 0 0 12.031 22c5.515 0 9.999-4.484 9.999-10s-4.484-10-9.999-10zm5.821 14.129c-.244.687-1.412 1.314-1.971 1.398-.517.078-1.171.111-1.894-.118-.44-.14-1.005-.328-1.727-.64-3.04-1.312-5.026-4.374-5.178-4.576-.152-.202-1.237-1.646-1.237-3.14 0-1.494.782-2.229 1.06-2.532.278-.303.606-.379.808-.379.202 0 .404.002.581.011.186.009.436-.071.682.521.252.606.858 2.095.934 2.247.076.151.126.328.025.53-.101.202-.151.328-.303.505-.151.177-.319.395-.454.53-.152.152-.31.316-.133.619.177.303.785 1.295 1.685 2.098 1.158 1.033 2.134 1.353 2.437 1.505.303.151.48.126.657-.076.177-.202.758-.884.96-1.187.202-.303.404-.252.682-.151.278.101 1.768.833 2.071.985.303.151.505.227.581.353.076.126.076.732-.168 1.419z"/>
+              </svg>
+              <span>WhatsApp'tan Dekont Gönder</span>
+            </a>
+          </div>
+
+          <div class="success-details-grid">
+            <div class="success-detail-box">
+              <h4>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.2" class="inline-svg-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Teslimat Adresi Özeti
+              </h4>
+              <div id="confirm-address-summary" class="success-detail-content"></div>
+            </div>
+            <div class="success-detail-box">
+              <h4>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.2" class="inline-svg-icon"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                Ödeme & Tutar Bilgileri
+              </h4>
+              <div id="confirm-payment-summary" class="success-detail-content"></div>
+            </div>
+          </div>
+
+          <div class="success-items-box" id="confirm-items-summary"></div>
+
+          <div class="success-actions-row">
+            <button type="button" class="btn-primary" onclick="openHomePage()">Alışverişe Devam Et →</button>
+            <button type="button" class="btn-outline" onclick="openAccountPage()">Siparişlerimi Görüntüle</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCT DETAIL PAGE (PDP - /urun/:id) ===== -->
+    <section class="pdp-page-section" id="product-detail-page" style="display:none;">
+      <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="pdp-breadcrumb-bar" aria-label="Breadcrumb">
+          <div class="pdp-breadcrumb">
+            <a href="#" data-home-link="true" onclick="openHomePage(); return false;">Ana Sayfa</a>
+            <span class="pdp-crumb-sep">&gt;</span>
+            <a href="#" id="pdp-crumb-category" onclick="return false;">Tencereler</a>
+            <span class="pdp-crumb-sep">&gt;</span>
+            <span class="pdp-crumb-current" id="pdp-crumb-product">TAÇ Premium Granit Derin Tencere 24cm</span>
+          </div>
+          <button type="button" class="btn-outline btn-sm-back" onclick="openHomePage()">← Alışverişe Dön</button>
+        </nav>
+
+        <!-- Product Detail Split View -->
+        <div class="pdp-split-layout">
+          <!-- Left Column: Media Showcase -->
+          <div class="pdp-media-col">
+            <div class="pdp-main-image-box" id="pdp-main-image-box">
+              <!-- Floating Trust Badges Overlay -->
+              <div class="pdp-floating-trust-badges">
+                <span class="prod-badge badge-tukendi pdp-tukendi-badge" id="pdp-out-of-stock-badge" style="display:none;">TÜKENDİ</span>
+                <span class="pdp-trust-pill original">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="inline-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                  100% Orijinal TAÇ Ürünü
+                </span>
+                <span class="pdp-trust-pill cargo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  Kırılmaz Kargo Garantisi
+                </span>
+              </div>
+
+              <!-- Wishlist Toggle on PDP Main Image -->
+              <button type="button" class="pdp-wish-btn" id="pdp-wish-btn" aria-label="Favorilere Ekle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+
+              <img id="pdp-main-image" src="images/tacdokumtencere.jpg" alt="TAÇ Premium Granit Derin Tencere 24cm" class="pdp-main-photo" onerror="handleStoreImgError(this)" />
+              <span class="pdp-view-caption" id="pdp-view-caption" style="display:none;">Kapak Görseli</span>
+            </div>
+
+            <!-- Thumbnails Gallery Beneath Main Image -->
+            <div class="pdp-thumbnails-grid" id="pdp-thumbnails">
+              <!-- Populated dynamically in app.js -->
+            </div>
+
+            <!-- Below-Image Trust Strip -->
+            <div class="pdp-media-trust-strip">
+              <div class="pdp-media-trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <span><strong>100% Orijinal TAÇ Ürünü</strong> · Yetkili Satıcı Güvencesi</span>
+              </div>
+              <div class="pdp-media-trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span><strong>Kırılmaz Kargo Garantisi</strong> · Özel Zırhlı Paketleme</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Purchase & Details Area -->
+          <div class="pdp-info-col">
+            <div class="pdp-brand-row">
+              <span class="pdp-brand" id="pdp-brand">TAÇ</span>
+              <span class="pdp-subcat-tag" id="pdp-subcat-tag">Granit Tencereler</span>
+              <span class="prod-badge badge-tukendi" id="pdp-inline-tukendi-badge" style="display:none;">Tükendi</span>
+            </div>
+
+            <h1 class="pdp-title" id="pdp-title">Premium Granit Derin Tencere 24cm</h1>
+            <p class="pdp-short-desc" id="pdp-short-desc"></p>
+
+            <!-- Price Block -->
+            <div class="pdp-price-block">
+              <div class="pdp-price-main-row">
+                <span class="pdp-current-price" id="pdp-current-price">₺949</span>
+                <span class="pdp-old-price" id="pdp-old-price">₺1.299</span>
+                <span class="pdp-savings-badge" id="pdp-savings-badge">₺350 Kazanç</span>
+              </div>
+            </div>
+
+            <!-- Stock & Delivery Status -->
+            <div class="pdp-status-box">
+              <div class="pdp-status-item in-stock">
+                <span class="status-dot-green"></span>
+                <strong>Stokta Var</strong>
+              </div>
+              <div class="pdp-status-divider"></div>
+              <div class="pdp-status-item fast-ship">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2" class="inline-svg-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span><strong>Bugün Kargoda</strong> (Saat 16:00'a kadar verilen siparişlerde)</span>
+              </div>
+            </div>
+
+            <!-- Quantity Selector & Action Buttons -->
+            <div class="pdp-purchase-controls">
+              <div class="pdp-qty-selector" aria-label="Adet Seçimi">
+                <button type="button" class="pdp-qty-btn" id="pdp-qty-dec" onclick="changePdpQty(-1)" aria-label="Azalt">−</button>
+                <span class="pdp-qty-val" id="pdp-qty-val">1</span>
+                <button type="button" class="pdp-qty-btn" id="pdp-qty-inc" onclick="changePdpQty(1)" aria-label="Artır">+</button>
+              </div>
+
+              <button type="button" class="pdp-add-cart-btn" id="pdp-add-to-cart-btn" onclick="handlePdpAddToCart()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span>Sepete Ekle</span>
+              </button>
+
+              <button type="button" class="pdp-buy-now-btn" id="pdp-buy-now-btn" onclick="handlePdpBuyNow()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+                <span>Hemen Al</span>
+              </button>
+            </div>
+
+            <!-- Quick Key Highlights -->
+            <div class="pdp-quick-highlights">
+              <div class="pdp-highlight-chip">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>PFOA & Ağır Metal İçermez</span>
+              </div>
+              <div class="pdp-highlight-chip">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>İndüksiyon & Tüm Ocaklara Uyumlu</span>
+              </div>
+              <div class="pdp-highlight-chip">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>2 Yıl Resmi TAÇ Garantisi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Structured Product Specifications & Feature Tabs -->
+        <div class="pdp-tabs-wrapper">
+          <div class="pdp-tabs-nav" role="tablist" aria-label="Ürün Detay Sekmeleri">
+            <button type="button" class="pdp-tab-btn active" data-pdp-tab="specs" onclick="switchPdpTab('specs')" role="tab" aria-selected="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              Ürün Özellikleri
+            </button>
+            <button type="button" class="pdp-tab-btn" data-pdp-tab="dimensions" onclick="switchPdpTab('dimensions')" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              Set İçeriği ve Ölçüler
+            </button>
+            <button type="button" class="pdp-tab-btn" data-pdp-tab="shipping" onclick="switchPdpTab('shipping')" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              Kargo ve Garanti
+            </button>
+          </div>
+
+          <div class="pdp-tabs-content">
+            <!-- Tab A: Ürün Özellikleri (Specifications Table) -->
+            <div class="pdp-tab-panel active" id="pdp-tab-specs" role="tabpanel">
+              <table class="pdp-specs-table">
+                <tbody>
+                  <tr>
+                    <th>Malzeme</th>
+                    <td id="pdp-spec-material">1. Sınıf Döküm / Granit Kaplama veya 18/10 Paslanmaz Çelik</td>
+                  </tr>
+                  <tr>
+                    <th>Taban Teknolojisi</th>
+                    <td id="pdp-spec-base">Kapsül İndüksiyon Taban (Eşit Isı Dağılımı)</td>
+                  </tr>
+                  <tr>
+                    <th>Ocak Uyumluluğu</th>
+                    <td id="pdp-spec-stove">İndüksiyon, Gazlı, Elektrikli, Seramik</td>
+                  </tr>
+                  <tr>
+                    <th>Sağlık Standardı</th>
+                    <td id="pdp-spec-health">PFOA ve Ağır Metal İçermez</td>
+                  </tr>
+                  <tr>
+                    <th>Temizlik</th>
+                    <td id="pdp-spec-cleaning">Bulaşık makinesinde yıkanabilir (Elde yıkama önerilir)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tab B: Set İçeriği ve Ölçüler (Dimensions) -->
+            <div class="pdp-tab-panel" id="pdp-tab-dimensions" role="tabpanel" style="display:none;">
+              <div class="pdp-dimensions-header">
+                <h4>Parça Ölçüleri, Çap (cm), Derinlik ve Litre Kapasiteleri</h4>
+                <p>TAÇ standartlarında ergonomik kulplar ve buhar çıkışlı temperli cam/çelik kapak tasarımı ile üretilmiştir.</p>
+              </div>
+              <table class="pdp-specs-table pdp-dimensions-table">
+                <thead>
+                  <tr>
+                    <th>Parça / Ürün Adı</th>
+                    <th>Çap (cm)</th>
+                    <th>Derinlik</th>
+                    <th>Litre Kapasitesi</th>
+                  </tr>
+                </thead>
+                <tbody id="pdp-dimensions-body">
+                  <!-- Populated dynamically in app.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tab C: Kargo ve Garanti -->
+            <div class="pdp-tab-panel" id="pdp-tab-shipping" role="tabpanel" style="display:none;">
+              <div class="pdp-shipping-cards">
+                <div class="pdp-ship-card">
+                  <div class="pdp-ship-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  </div>
+                  <div>
+                    <h4>3.500 TL Üzeri Ücretsiz Kargo (Altı 200 TL)</h4>
+                    <p>3.500 TL ve üzeri siparişlerinizde kargo tamamen ücretsizdir. 3.500 TL altı siparişlerde Türkiye'nin 81 iline özel darbe emici ambalaj ve sigortalı lojistik ile sabit <strong>200 TL</strong> kargo ücreti uygulanır.</p>
+                  </div>
+                </div>
+
+                <div class="pdp-ship-card highlight">
+                  <div class="pdp-ship-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  </div>
+                  <div>
+                    <h4>Kırılmaz Kargo Güvencesi</h4>
+                    <p>Kırılmaz Kargo Güvencesi: Kargo kaynaklı parça hasarlarında sorgusuz sualsiz 24 saat içinde yeni parça gönderimi.</p>
+                  </div>
+                </div>
+
+                <div class="pdp-ship-card">
+                  <div class="pdp-ship-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                  </div>
+                  <div>
+                    <h4>2 Yıl Resmi TAÇ Garantisi</h4>
+                    <p>Satın aldığınız tüm ürünler 100% Orijinal TAÇ üretimi olup, fatura tarihinden itibaren <strong>2 Yıl Resmi TAÇ Garantisi</strong> altındadır.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Products Section ("Benzer Ürünler") -->
+        <div class="pdp-related-section">
+          <div class="pdp-related-header">
+            <div>
+              <span class="pdp-related-eyebrow">TAÇ Koleksiyonu</span>
+              <h2>Benzer Ürünler</h2>
+            </div>
+            <button type="button" class="btn-outline btn-sm-back" id="pdp-related-view-all-btn">Tüm Kategoriyi Gör →</button>
+          </div>
+          <div class="products-grid pdp-related-grid" id="pdp-related-grid">
+            <!-- 4-card grid populated dynamically in app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOM COOKWARE BUNDLE BUILDER PAGE ("KENDİ ÇEYİZİNİ OLUŞTUR") -->
+    <section class="bundle-builder-section" id="bundle-builder-page" style="display:none;">
+      <div class="container">
+        <!-- Top Breadcrumb & Back Navigation -->
+        <div class="pdp-breadcrumb-bar bundle-breadcrumb-bar">
+          <nav class="pdp-breadcrumb" aria-label="Breadcrumb">
+            <a href="#" data-home-link="true">Ana Sayfa</a>
+            <span class="pdp-crumb-sep">›</span>
+            <span class="pdp-crumb-current">Kendi Çeyizini Oluştur (%15 İndirimli Paket Sihirbazı)</span>
+          </nav>
+          <button type="button" class="btn-outline btn-sm-back" data-home-link="true">← Alışverişe Dön</button>
+        </div>
+
+        <!-- Builder Header Banner -->
+        <div class="bundle-builder-hero">
+          <div class="bundle-builder-hero-text">
+            <span class="bundle-hero-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" class="inline-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              TAÇ ÇEYİZ PAKETİ SİHİRBAZI · ÇOKLU SEÇİM ÖZELLİKLİ
+            </span>
+            <h1>Kendi Çeyiz Setini Kendin Oluştur</h1>
+            <p>Aşağıdaki 4 kategoriden (Tencere/Set, Tava, Çaydanlık, Düdüklü Tencere) dilediğiniz sayıda TAÇ ürününü paketinize ekleyin; seçtiğiniz tüm ürünlerde <strong>anında %15 ekstra çeyiz paketi indirimi</strong> kazanın.</p>
+          </div>
+          <div class="bundle-builder-progress-pill" id="bundle-progress-pill">
+            <div class="bundle-progress-ring" id="bundle-progress-count"><strong>0</strong><span>Ürün</span></div>
+            <div>
+              <strong id="bundle-progress-title">Ürün Seçimi Bekleniyor</strong>
+              <span id="bundle-progress-sub">Her adımda birden fazla ürün seçebilirsiniz</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-Step Navigation Tab Bar -->
+        <div class="bundle-steps-nav" role="tablist" aria-label="Çeyiz Paketi Adımları">
+          <button type="button" class="bundle-step-tab active" id="bundle-tab-1" data-step="1" onclick="switchBundleStep(1)" role="tab" aria-selected="true">
+            <div class="bundle-step-tab-num" id="bundle-tab-num-1">1</div>
+            <div class="bundle-step-tab-info">
+              <div class="bundle-step-eyebrow-row">
+                <span class="bundle-step-eyebrow">Adım 1 · Ana Pişirme</span>
+                <span class="bundle-step-counter-badge" id="bundle-tab-count-1" style="display:none;">0 Seçili</span>
+              </div>
+              <strong class="bundle-step-title">Adım 1: Tencere</strong>
+              <span class="bundle-step-sub" id="bundle-tab-status-1">Granit, Döküm, Çelik Setler</span>
+            </div>
+          </button>
+
+          <button type="button" class="bundle-step-tab" id="bundle-tab-2" data-step="2" onclick="switchBundleStep(2)" role="tab" aria-selected="false">
+            <div class="bundle-step-tab-num" id="bundle-tab-num-2">2</div>
+            <div class="bundle-step-tab-info">
+              <div class="bundle-step-eyebrow-row">
+                <span class="bundle-step-eyebrow">Adım 2 · Kızartma & Sote</span>
+                <span class="bundle-step-counter-badge" id="bundle-tab-count-2" style="display:none;">0 Seçili</span>
+              </div>
+              <strong class="bundle-step-title">Adım 2: Tava</strong>
+              <span class="bundle-step-sub" id="bundle-tab-status-2">Granit, Wok, Döküm Tavalar</span>
+            </div>
+          </button>
+
+          <button type="button" class="bundle-step-tab" id="bundle-tab-3" data-step="3" onclick="switchBundleStep(3)" role="tab" aria-selected="false">
+            <div class="bundle-step-tab-num" id="bundle-tab-num-3">3</div>
+            <div class="bundle-step-tab-info">
+              <div class="bundle-step-eyebrow-row">
+                <span class="bundle-step-eyebrow">Adım 3 · Çay Keyfi</span>
+                <span class="bundle-step-counter-badge" id="bundle-tab-count-3" style="display:none;">0 Seçili</span>
+              </div>
+              <strong class="bundle-step-title">Adım 3: Çaydanlık</strong>
+              <span class="bundle-step-sub" id="bundle-tab-status-3">TAÇ Paslanmaz Çelik Çaydanlık Modelleri</span>
+            </div>
+          </button>
+
+          <button type="button" class="bundle-step-tab" id="bundle-tab-4" data-step="4" onclick="switchBundleStep(4)" role="tab" aria-selected="false">
+            <div class="bundle-step-tab-num" id="bundle-tab-num-4">4</div>
+            <div class="bundle-step-tab-info">
+              <div class="bundle-step-eyebrow-row">
+                <span class="bundle-step-eyebrow">Adım 4 · Hızlı Pişirme</span>
+                <span class="bundle-step-counter-badge" id="bundle-tab-count-4" style="display:none;">0 Seçili</span>
+              </div>
+              <strong class="bundle-step-title">Adım 4: Düdüklü</strong>
+              <span class="bundle-step-sub" id="bundle-tab-status-4">TAÇ Hızlı Pişirme Düdüklü Tencereler</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Active Step Selection View (Steps 1 to 4) -->
+        <div id="bundle-step-selection-view">
+          <!-- Active Step Toolbar -->
+          <div class="bundle-step-header-bar">
+            <div>
+              <div class="bundle-active-step-badges">
+                <span class="bundle-active-step-pill" id="bundle-active-step-pill">ADIM 1 / 4</span>
+                <span class="bundle-header-count-pill" id="bundle-header-count-pill">0 Seçili</span>
+              </div>
+              <h2 id="bundle-active-step-heading">Adım 1: Tencere (0 Seçili)</h2>
+              <p id="bundle-active-step-desc">Çeyiz paketinizin temelini oluşturacak Granit, Döküm veya 18/10 Paslanmaz Çelik tencere/set modellerinden dilediğiniz kadarını seçin.</p>
+            </div>
+            <div class="bundle-step-nav-btns">
+              <button type="button" class="btn-outline bundle-prev-step-btn" id="bundle-prev-btn" onclick="prevBundleStep()" style="display:none;">
+                ← Önceki Adım
+              </button>
+              <button type="button" class="btn-primary bundle-next-step-btn" id="bundle-next-btn" onclick="nextBundleStep()">
+                Sonraki Adım →
+              </button>
+            </div>
+          </div>
+
+          <!-- Responsive 3-Column Product Selection Grid -->
+          <div class="bundle-products-grid" id="bundle-products-grid">
+            <!-- Populated dynamically by renderBundleBuilder() in app.js -->
+          </div>
+
+          <!-- Clean Bottom Step Progression Bar (Inside Main Content) -->
+          <div class="bundle-bottom-step-nav">
+            <button type="button" class="btn-outline bundle-prev-step-btn" id="bundle-bottom-prev-btn" onclick="prevBundleStep()" style="display:none;">
+              ← Önceki Adım
+            </button>
+            <div class="bundle-bottom-step-hint" id="bundle-bottom-step-hint">
+              Bu kategoriden dilediğiniz kadar ürün seçebilir veya doğrudan sonraki adıma geçebilirsiniz.
+            </div>
+            <button type="button" class="btn-primary bundle-next-step-btn" id="bundle-bottom-next-btn" onclick="nextBundleStep()">
+              Sonraki Adım →
+            </button>
+          </div>
+        </div>
+
+        <!-- FINAL BUNDLE SUMMARY & PRICE CALCULATION CARD (Shown at the end of Step 4) -->
+        <div class="bundle-final-summary-card" id="bundle-final-summary-view" style="display:none;">
+          <div class="bundle-final-summary-header">
+            <div>
+              <span class="bundle-active-step-pill">PAKET ÖZETİ & FİYAT HESAPLAMA</span>
+              <h2 id="bundle-final-summary-title">Özel TAÇ Çeyiz Paketi Özeti</h2>
+              <p id="bundle-final-summary-desc">Seçtiğiniz tüm ürünler kategorilerine göre gruplanmış ve toplam tutar üzerinden %15 ekstra çeyiz paketi indirimi uygulanmıştır.</p>
+            </div>
+            <button type="button" class="btn-outline bundle-prev-step-btn" onclick="closeBundleFinalSummary()">
+              ← Adımlara Geri Dön
+            </button>
+          </div>
+
+          <!-- Grouped Selected Products List Across All 4 Categories -->
+          <div class="bundle-final-groups-container" id="bundle-final-items-grid">
+            <!-- Populated dynamically in app.js -->
+          </div>
+
+          <!-- Final Price Breakdown & Primary CTA -->
+          <div class="bundle-final-calc-footer">
+            <div class="bundle-final-price-columns">
+              <div class="bundle-final-price-box">
+                <span class="bundle-final-price-label">Toplam Liste Fiyatı</span>
+                <span class="bundle-final-list-price" id="bundle-final-list-total">₺0</span>
+              </div>
+              <div class="bundle-final-price-divider"></div>
+              <div class="bundle-final-price-box">
+                <span class="bundle-final-price-label">Çeyiz Paketi İndirimi</span>
+                <div class="bundle-final-discount-line">
+                  <span class="bundle-saving-badge">%15 Tasarruf</span>
+                  <span class="bundle-final-discount-val" id="bundle-final-discount-amount">-₺0</span>
+                </div>
+              </div>
+              <div class="bundle-final-price-divider"></div>
+              <div class="bundle-final-price-box net-box">
+                <span class="bundle-final-price-label">Net Paket Tutarı</span>
+                <span class="bundle-final-net-price" id="bundle-final-net-total">₺0</span>
+              </div>
+            </div>
+
+            <div class="bundle-final-cta-col">
+              <button type="button" class="bundle-final-submit-btn" id="bundle-final-submit-btn" onclick="addCustomBundleToCart()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span>Çeyiz Paketini Sepete Ekle</span>
+              </button>
+              <span class="bundle-final-helper" id="bundle-final-helper">✓ 4 ürün tamamlandı · %15 çeyiz indirimi sepete uygulanır</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST DETAIL -->
+    <section class="trust-section" id="trust-detailed">
+      <div class="container">
+        <div class="section-header">
+          <h2>Neden Tencere Tava Dünyası?</h2>
+          <p>10 yılı aşkın deneyimimizle müşterilerimize en iyi hizmeti sunuyoruz</p>
+        </div>
+        <div class="trust-cards-grid">
+          <div class="trust-card">
+            <div class="trust-card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h4>Hızlı & Ücretsiz Kargo</h4>
+            <p>3500 TL ve üzeri siparişlerde kapınıza ücretsiz teslimat. 1-3 iş günü içinde elinizde.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h4>%100 Orijinal Ürün Garantisi</h4>
+            <p>Tüm ürünlerimiz orijinal ve garantili. Sahte ürün riski sıfır, güvenle alışveriş yapın.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <h4>Güvenli Ödeme</h4>
+            <p>Havale / EFT ile hızlı ve güvenli ödeme. 256-bit SSL korumalı sipariş altyapısı.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            </div>
+            <h4>Müşteri Hizmetleri</h4>
+            <p>WhatsApp ve telefon desteğimizle sipariş öncesi ve sonrası her zaman yanınızdayız.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h4>Mutlu Müşteri Memnuniyeti</h4>
+            <p>Kaliteli ürün ve güvenilir alışveriş deneyimiyle mutfakların tercih ettiği mağaza.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+      <div class="container newsletter-inner">
+        <div class="newsletter-text">
+          <h2>Kampanyalardan İlk Siz Haberdar Olun!</h2>
+          <p>E-bültenimize üye olun, özel fırsatlar ve yeni ürün haberleri doğrudan gelen kutunuza gelsin.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" placeholder="E-posta adresiniz" required id="newsletter-email" />
+          <button type="submit" class="btn-primary">Abone Ol</button>
+        </form>
+        <div class="newsletter-success" id="newsletter-success" style="display:none">
+          <span>Teşekkürler! Abone oldunuz. İlk siparişinizde %10 indirim için kod: <strong>HOSGELDIN10</strong></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== GÜVENLİ ALIŞVERİŞ STRIP (ABOVE MAIN FOOTER) ===== -->
+  <section class="secure-shopping-strip" id="secure-shopping-strip" aria-label="Güvenli Alışveriş Güvenceleri">
+    <div class="container secure-strip-inner">
+      <!-- 1. 256-Bit SSL Sertifikası -->
+      <div class="secure-badge-item">
+        <div class="secure-badge-icon ssl-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <div class="secure-badge-text">
+          <strong>256-Bit SSL Sertifikası</strong>
+          <span>%100 Şifreli & Güvenli Ödeme Altyapısı</span>
+        </div>
+      </div>
+
+      <!-- 2. Accepted Payment Method -->
+      <div class="secure-payment-methods" aria-label="Ödeme Yöntemi">
+        <span class="secure-pay-label">Ödeme Yöntemi:</span>
+        <div class="secure-pay-badges">
+          <span class="secure-pay-card" title="Havale / EFT">Havale / EFT ile Hızlı &amp; Güvenli Ödeme</span>
+        </div>
+      </div>
+
+      <!-- 3. Kırılmaz Kargo Güvencesi -->
+      <div class="secure-badge-item">
+        <div class="secure-badge-icon return-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <div class="secure-badge-text">
+          <strong>Kırılmaz Kargo Güvencesi</strong>
+          <span>Kırık/Hasarlı Kargo Telafi Garantisi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo footer-logo">
+            <img src="logos/logo.jpg" alt="Tencere Tava Dünyası Logo" class="footer-logo-img" />
+          </a>
+          <p><strong>Resmi TAÇ Yetkili Satıcısı</strong> — Türkiye'nin en geniş granit, çelik ve döküm tencere tava koleksiyonu. %100 orijinal ve 2 yıl resmi garantili ürünleri mutfağınıza taşıyoruz.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/tenceretavadunyasibeykoz?dmpr=MWdqZ2ozYm9wbWMyZA==" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/905320000000?text=Merhaba,%20Tencere%20Tava%20D%C3%BCnyas%C4%B1%20%C3%BCr%C3%BCnleri%20ve%20sipari%C5%9F%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp Destek Hattı">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M9.5 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.5l-.4.5c-.1.1-.2.3-.1.5.4.7 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.5c.2-.1.4-.1.6 0l1.5.7c.2.1.3.3.3.5 0 .6-.4 1.2-1 1.4-.5.2-1.2.2-2.2-.2-1.5-.6-2.9-1.9-3.7-3.3-.5-.9-.7-1.7-.5-2.3.1-.4.3-.7.5-.9z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Kurumsal & Yasal</h5>
+          <ul>
+            <li><a href="#mesafeli-satis" onclick="openLegalModal('mesafeli'); return false;">Mesafeli Satış Sözleşmesi</a></li>
+            <li><a href="#iptal-iade" onclick="openLegalModal('iade'); return false;">İptal, İade ve Değişim Koşulları</a></li>
+            <li><a href="#gizlilik-kvkk" onclick="openLegalModal('kvkk'); return false;">KVKK Aydınlatma Metni & Gizlilik Politikası</a></li>
+            <li><a href="#teslimat-kargo" onclick="openLegalModal('teslimat'); return false;">Teslimat ve Kargo Bilgileri</a></li>
+            <li><a href="#hakkimizda-magaza" onclick="openLegalModal('hakkimizda'); return false;">Hakkımızda & Mağaza Bilgileri</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Müşteri Hizmetleri</h5>
+          <ul>
+            <li><a href="#" onclick="openAccountPage(); return false;">Sipariş Takibi & Hesabım</a></li>
+            <li><a href="#iptal-iade" onclick="openLegalModal('iade'); return false;">Hasarlı Kargo 24 Saatte Parça Değişimi</a></li>
+            <li><a href="#tencereler" data-main-cat="Tencereler">Tencereler Koleksiyonu</a></li>
+            <li><a href="#tavalar" data-main-cat="Tavalar">Tavalar Koleksiyonu</a></li>
+            <li><a href="#set-urunler" data-main-cat="Set Ürünler">Granit & Çelik Setler</a></li>
+            <li><a href="#caydanlik-takimlari" data-main-cat="Çaydanlık Takımları">Çaydanlık Takımları</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Mağaza & İletişim</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Akbaba Mahallesi Çarşamba Sokak No: 1/B Beykoz/İstanbul</span>
+            </div>
+            <div class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.17h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.11 6.11l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Müşteri Destek & WhatsApp: 0850 123 45 67 · +90 (532) 000 00 00</span>
+            </div>
+            <div class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>destek@tenceretavadunyasi.com</span>
+            </div>
+            <div class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              <span>Resmi TAÇ Yetkili Satıcısı · Güneşli V.D. 8370492810</span>
+            </div>
+          </div>
+          <div class="payment-icons">
+            <span class="pay-icon">Havale / EFT</span>
+            <span class="pay-icon">7/24 FAST</span>
+            <span class="pay-icon">256-Bit SSL</span>
+            <span class="pay-icon">%100 Orijinal TAÇ</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Tencere Tava Dünyası — Resmi TAÇ Yetkili Satıcısı (Akbaba Mah. Çarşamba Sok. No: 1/B Beykoz/İstanbul). Tüm hakları saklıdır.</p>
+        <div class="footer-legal">
+          <a href="#mesafeli-satis" onclick="openLegalModal('mesafeli'); return false;">Mesafeli Satış Sözleşmesi</a>
+          <a href="#iptal-iade" onclick="openLegalModal('iade'); return false;">İptal, İade ve Değişim Koşulları</a>
+          <a href="#gizlilik-kvkk" onclick="openLegalModal('kvkk'); return false;">KVKK & Gizlilik Politikası</a>
+          <a href="#teslimat-kargo" onclick="openLegalModal('teslimat'); return false;">Teslimat ve Kargo</a>
+          <a href="#hakkimizda-magaza" onclick="openLegalModal('hakkimizda'); return false;">Hakkımızda & Mağaza</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== LEGAL & CORPORATE INFO MODAL (SÖZLEŞMELER, İADE, KVKK, TESLİMAT, MAĞAZA) ===== -->
+  <div class="ttd-modal-overlay" id="legal-modal-overlay" onclick="closeLegalModal()">
+    <div class="ttd-modal-card legal-modal-card" onclick="event.stopPropagation()">
+      <div class="ttd-modal-header">
+        <div>
+          <span class="ttd-modal-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="inline-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            Kurumsal Güvence & Yasal Bilgilendirme
+          </span>
+          <h3 id="legal-modal-title">Mesafeli Satış Sözleşmesi ve Ön Bilgilendirme Formu</h3>
+        </div>
+        <button type="button" class="ttd-modal-close" onclick="closeLegalModal()" aria-label="Kapat">✕</button>
+      </div>
+      <div class="legal-modal-tabs">
+        <button type="button" class="legal-tab-btn active" data-legal-tab="mesafeli" onclick="switchLegalTab('mesafeli')">Mesafeli Satış Sözleşmesi</button>
+        <button type="button" class="legal-tab-btn" data-legal-tab="iade" onclick="switchLegalTab('iade')">İptal, İade ve Değişim</button>
+        <button type="button" class="legal-tab-btn" data-legal-tab="kvkk" onclick="switchLegalTab('kvkk')">KVKK & Gizlilik Politikası</button>
+        <button type="button" class="legal-tab-btn" data-legal-tab="teslimat" onclick="switchLegalTab('teslimat')">Teslimat ve Kargo Bilgileri</button>
+        <button type="button" class="legal-tab-btn" data-legal-tab="hakkimizda" onclick="switchLegalTab('hakkimizda')">Hakkımızda & Mağaza</button>
+      </div>
+      <div class="ttd-modal-body legal-modal-body" id="legal-modal-body">
+        <!-- Tab 1: Ön Bilgilendirme Formu & Mesafeli Satış Sözleşmesi -->
+        <div class="legal-tab-panel active" id="legal-panel-mesafeli">
+          <div class="legal-highlight-box">
+            <strong>Satıcı (Firma) Bilgileri:</strong>
+            <p>
+              <strong>Ünvan:</strong> Tencere Tava Dünyası (Resmi TAÇ Yetkili Satıcısı)<br />
+              <strong>Adres:</strong> Akbaba Mahallesi Çarşamba Sokak No: 1/B Beykoz/İstanbul<br />
+              <strong>Telefon / WhatsApp:</strong> 0850 123 45 67 · +90 (532) 000 00 00 · <strong>E-posta:</strong> destek@tenceretavadunyasi.com
+            </p>
+          </div>
+          <h4>Madde 1 — Taraflar ve Konu</h4>
+          <p>İşbu Ön Bilgilendirme Formu ve Mesafeli Satış Sözleşmesi, <strong>Akbaba Mahallesi Çarşamba Sokak No: 1/B Beykoz/İstanbul</strong> adresinde faaliyet gösteren <strong>Tencere Tava Dünyası</strong> ("SATICI") ile internet sitesi üzerinden ürün satın alan tüketici ("ALICI") arasında, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri uyarınca elektronik ortamda kurulmuştur.</p>
+          <h4>Madde 2 — Sözleşme Konusu Ürün, Fiyat, Ödeme ve Sabit Kargo Ücreti</h4>
+          <p>Sipariş edilen TAÇ markalı ürünlerin adı, adedi, KDV dahil satış fiyatı ve ödeme şekli (<strong>Havale / EFT ile Ödeme</strong>) sipariş özet ekranında belirtildiği gibidir. Türkiye genelinde tüm siparişlerde <strong>sabit kargo ücreti 200 TL</strong> olup sipariş toplamına eklenerek ALICI tarafından onaylanır.</p>
+          <h4>Madde 3 — Teslimat ve İfa Süresi</h4>
+          <p>Havale / EFT ödemesinin SATICI banka hesabına ulaşmasını ve onaylanmasını takiben sipariş edilen ürünler <strong>aynı iş günü</strong> (en geç 3 iş günü içerisinde) sigortalı ve kırılmaz zırhlı ambalajla kargo firmasına teslim edilir. Yasal azami teslim süresi 30 gündür.</p>
+          <h4>Madde 4 — 14 Günlük Cayma Hakkı</h4>
+          <p>ALICI, ürünü teslim aldığı tarihten itibaren <strong>14 (ondört) gün</strong> içerisinde herhangi bir gerekçe göstermeksizin ve cezai şart ödemeksizin sözleşmeden cayma hakkına sahiptir. Cayma hakkının kullanılması için ürünün kullanılmamış, ocak/ateş teması görmemiş ve orijinal kutusu/ambalajı zarar görmemiş olması gerekmektedir.</p>
+          <h4>Madde 5 — Yetkili Mahkeme</h4>
+          <p>İşbu sözleşmeden doğabilecek uyuşmazlıklarda Ticaret Bakanlığı'nca ilan edilen parasal sınırlar dahilinde ALICI'nın yerleşim yerindeki veya SATICI'nın bulunduğu yerdeki (Beykoz / İstanbul) <strong>Tüketici Hakem Heyetleri</strong> ve <strong>Tüketici Mahkemeleri</strong> yetkilidir.</p>
+        </div>
+
+        <!-- Tab 2: İptal, İade ve Değişim Koşulları -->
+        <div class="legal-tab-panel" id="legal-panel-iade" style="display:none;">
+          <div class="legal-highlight-box">
+            <strong>Kargo Hasarlarında 24 Saat İçinde Ücretsiz Parça Değişimi Garantisi:</strong>
+            <p>Tüm tencere, tava, cam kapak ve çaydanlık siparişleriniz <strong>çift oluklu mukavva koli ve darbe emici hava kanallı koruyucu ambalajlarla</strong> sigortalı gönderilir. Kargo kaynaklı herhangi bir cam kapak kırılması, ezilme veya hasar durumunda <strong>24 saat içinde hiçbir ücret talep edilmeden yeni parça/ürün gönderimi</strong> sağlanır.</p>
+          </div>
+          <h4>1. Yasal İade ve Değişim Hakkı</h4>
+          <p>Teslimat tarihinden itibaren <strong>14 gün</strong> içerisinde kullanılmamış, ocak/fırın teması görmemiş ve orijinal ambalajlı ürünlerde yasal iade ve değişim hakkınız bulunmaktadır. İade talebinizi WhatsApp destek hattımızdan veya <code>destek@tenceretavadunyasi.com</code> üzerinden iletebilirsiniz.</p>
+          <h4>2. Hasarlı Kargo Bildirimi ve 24 Saatte Telafi</h4>
+          <p>Kargo paketini teslim aldığınızda herhangi bir parçada hasar tespit ederseniz, sipariş numaranız ve hasarlı parçanın fotoğrafını <strong>WhatsApp Destek Hattımıza</strong> iletmeniz yeterlidir; 24 saat içerisinde ücretsiz yedek parça veya birebir ürün değişiminiz kargoya verilir.</p>
+          <h4>3. Geri Ödeme Süreci</h4>
+          <p>İade edilen ürün mağaza depomuza (`Akbaba Mahallesi Çarşamba Sokak No: 1/B Beykoz/İstanbul`) ulaştıktan ve kontrolü tamamlandıktan sonra <strong>en geç 3 iş günü</strong> içerisinde sipariş tutarınız ödeme yaptığınız IBAN / banka hesabınıza eksiksiz iade edilir.</p>
+        </div>
+
+        <!-- Tab 3: KVKK Aydınlatma Metni & Gizlilik Politikası -->
+        <div class="legal-tab-panel" id="legal-panel-kvkk" style="display:none;">
+          <h4>1. Veri Sorumlusu ve 6698 Sayılı KVKK Aydınlatma Metni</h4>
+          <p>6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, <strong>Tencere Tava Dünyası</strong> (Adres: <em>Akbaba Mahallesi Çarşamba Sokak No: 1/B Beykoz/İstanbul</em>) veri sorumlusu sıfatıyla; sipariş oluşturma sırasında paylaştığınız ad-soyad, telefon numarası, e-posta adresi, teslimat adresi ve banka transfer/fatura bilgilerinizi yalnızca mesafeli satış sözleşmesinin ifası, sipariş teslimatı, faturalandırma ve müşteri destek süreçlerinin yürütülmesi amacıyla işlemektedir.</p>
+          <h4>2. Kişisel Verilerin Aktarımı ve Güvenliği</h4>
+          <p>Kişisel verileriniz, yalnızca siparişinizin adresinize ulaştırılması amacıyla anlaşmalı kargo firmaları ve yasal yükümlülükler kapsamında resmi vergi/finans mercileri ile paylaşılır; üçüncü kişilere pazarlama amacıyla kesinlikle devredilmez. Sitemiz <strong>256-Bit SSL güvenlik sertifikası</strong> ile korunmaktadır.</p>
+          <h4>3. KVKK Madde 11 Kapsamındaki Haklarınız</h4>
+          <p>KVKK'nın 11. maddesi uyarınca kişisel verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, verilerinizin düzeltilmesini veya silinmesini isteme hakkınızı her zaman <code>destek@tenceretavadunyasi.com</code> adresine yazılı başvuruda bulunarak kullanabilirsiniz.</p>
+        </div>
+
+        <!-- Tab 4: Teslimat ve Kargo Bilgileri -->
+        <div class="legal-tab-panel" id="legal-panel-teslimat" style="display:none;">
+          <div class="legal-highlight-box">
+            <strong>Sabit 200 TL Kargo Ücreti & Sigortalı Zırhlı Gönderim:</strong>
+            <p>Türkiye'nin 81 iline ve tüm ilçelerine sabit <strong>200 TL</strong> kargo ücreti ile sigortalı gönderim yapılmaktadır. Havale / EFT ödemesi onaylanan siparişler <strong>aynı iş günü</strong> kargoya teslim edilir.</p>
+          </div>
+          <h4>1. Aynı Gün Kargo ve Teslimat Süresi</h4>
+          <p>Hafta içi saat 16:00'a kadar Havale / EFT ödemesi onaylanan siparişleriniz aynı gün Beykoz / İstanbul merkez depomuzdan kargoya teslim edilir. Teslimat süresi il ve ilçe mesafesine göre ortalama <strong>1-3 iş günüdür</strong>.</p>
+          <h4>2. Özel Kırılmaz Zırhlı Paketleme Standartları</h4>
+          <p>Ağır döküm tencereler, granit setler ve Pyrex cam kapaklar; darbe emici hava yastıklı ambalajlar, köşe koruyucular ve çift oluklu mukavva kolilerle paketlenir. Tüm gönderilerimiz kargo sigortası kapsamındadır.</p>
+          <h4>3. Kargo Takibi</h4>
+          <p>Siparişiniz kargoya verildiğinde sipariş durumunuz <strong>"Kargoya Verildi"</strong> olarak güncellenir ve takip bilgileriniz telefon/e-posta adresinize iletilir.</p>
+        </div>
+
+        <!-- Tab 5: Hakkımızda & Mağaza Bilgileri -->
+        <div class="legal-tab-panel" id="legal-panel-hakkimizda" style="display:none;">
+          <h4>Tencere Tava Dünyası — Resmi TAÇ Yetkili Satıcısı</h4>
+          <p>10 yılı aşkın mutfak ekipmanları tecrübemizle; %100 orijinal ve 2 yıl resmi garantili <strong>TAÇ yanmaz-yapışmaz granit tencereler, 18/10 Cr-Ni paslanmaz çelik setler, ömürlük döküm demir tavalar, çaydanlık takımları ve güvenli düdüklü tencereleri</strong> Beykoz / İstanbul mağaza güvencemizle Türkiye'nin dört bir yanına ulaştırıyoruz.</p>
+          <div class="store-info-grid">
+            <div class="store-info-item">
+              <span class="store-info-label">Mağaza & Satıcı Ünvanı</span>
+              <strong>Tencere Tava Dünyası (Resmi TAÇ Yetkili Satıcısı)</strong>
+            </div>
+            <div class="store-info-item">
+              <span class="store-info-label">Fiziki Mağaza & Merkez Adresi</span>
+              <strong>Akbaba Mahallesi Çarşamba Sokak No: 1/B Beykoz/İstanbul</strong>
+            </div>
+            <div class="store-info-item">
+              <span class="store-info-label">Müşteri Destek & WhatsApp Hattı</span>
+              <strong>0850 123 45 67 · +90 (532) 000 00 00 (Hafta içi & Cmt 09:00 - 19:00)</strong>
+            </div>
+            <div class="store-info-item">
+              <span class="store-info-label">Kurumsal E-Posta</span>
+              <strong>destek@tenceretavadunyasi.com · kurumsal@tenceretavadunyasi.com</strong>
+            </div>
+            <div class="store-info-item">
+              <span class="store-info-label">Banka Havale / EFT Bilgileri</span>
+              <strong>AKBANK — Alıcı: Yunus Emre Pilavcı — IBAN: TR11 0004 6001 4088 8000 4585 42</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FLOATING WHATSAPP SUPPORT BUTTON ===== -->
+  <a
+    href="https://wa.me/905XXXXXXXXX?text=Merhaba,%20ürünlerinizle%20ilgili%20bilgi%20almak%20istiyorum."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float-btn"
+    id="whatsapp-support-btn"
+    aria-label="Mutfak Uzmanımıza Danışın / WhatsApp Destek"
+  >
+    <span class="whatsapp-pulse-ring"></span>
+    <span class="whatsapp-tooltip">Mutfak Uzmanımıza Danışın / WhatsApp Destek</span>
+    <svg class="whatsapp-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.031 2c-5.516 0-9.999 4.484-9.999 10 0 1.766.461 3.489 1.336 5.008L2 22l5.125-1.344A9.956 9.956 0 0 0 12.031 22c5.515 0 9.999-4.484 9.999-10s-4.484-10-9.999-10zm5.821 14.129c-.244.687-1.412 1.314-1.971 1.398-.517.078-1.171.111-1.894-.118-.44-.14-1.005-.328-1.727-.64-3.04-1.312-5.026-4.374-5.178-4.576-.152-.202-1.237-1.646-1.237-3.14 0-1.494.782-2.229 1.06-2.532.278-.303.606-.379.808-.379.202 0 .404.002.581.011.186.009.436-.071.682.521.252.606.858 2.095.934 2.247.076.151.126.328.025.53-.101.202-.151.328-.303.505-.151.177-.319.395-.454.53-.152.152-.31.316-.133.619.177.303.785 1.295 1.685 2.098 1.158 1.033 2.134 1.353 2.437 1.505.303.151.48.126.657-.076.177-.202.758-.884.96-1.187.202-.303.404-.252.682-.151.278.101 1.768.833 2.071.985.303.151.505.227.581.353.076.126.076.732-.168 1.419z"/>
+    </svg>
+  </a>
+
+  <div class="toast-container" id="toast-container"></div>
+  <button class="back-to-top" id="back-to-top" aria-label="Yukarı çık">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
